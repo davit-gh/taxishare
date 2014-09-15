@@ -28,7 +28,7 @@ from __future__ import absolute_import, unicode_literals
 # Controls the formatting of monetary values accord to the locale
 # module in the python standard library. If an empty string is
 # used, will fall back to the system's locale.
-# SHOP_CURRENCY_LOCALE = ""
+SHOP_CURRENCY_LOCALE = "en_US"
 
 # Dotted package path and class name of the function that
 # is called on submit of the billing/shipping checkout step. This
@@ -162,7 +162,7 @@ MANAGERS = ADMINS
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ["localhost"]
+ALLOWED_HOSTS = []
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -299,7 +299,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 ################
 
 INSTALLED_APPS = (
-    "main",
+    "taxishare.main",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -438,6 +438,26 @@ except ImportError:
 else:
     set_dynamic_settings(globals())
 
-
+SECRET_KEY = 'someRandomString123456'
+NEVERCACHE_KEY = 'anotherRandomString654321'
 LOCALE_PATHS = ('/home/hero/taxishare/locale',)
 ACCOUNTS_VERIFICATION_REQUIRED = True
+
+ALLOWED_HOSTS = ['armeninio.pythonanywhere.com']
+
+DATABASES = {
+    "default": {
+        # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
+        "ENGINE": "django.db.backends.mysql",
+        # DB name or path to database file if using sqlite3.
+        "NAME": "armeninio$default",
+        # Not used with sqlite3.
+        "USER": "armeninio",
+        # Not used with sqlite3.
+        "PASSWORD": "thisisaproductiondatabase",
+        # Set to empty string for localhost. Not used with sqlite3.
+        "HOST": "127.0.0.1",
+        # Set to empty string for default. Not used with sqlite3.
+        "PORT": "",
+    }
+}
