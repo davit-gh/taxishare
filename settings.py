@@ -1,4 +1,6 @@
+
 from __future__ import absolute_import, unicode_literals
+
 
 ######################
 # CARTRIDGE SETTINGS #
@@ -28,7 +30,7 @@ from __future__ import absolute_import, unicode_literals
 # Controls the formatting of monetary values accord to the locale
 # module in the python standard library. If an empty string is
 # used, will fall back to the system's locale.
-SHOP_CURRENCY_LOCALE = "en_US"
+# SHOP_CURRENCY_LOCALE = ""
 
 # Dotted package path and class name of the function that
 # is called on submit of the billing/shipping checkout step. This
@@ -119,7 +121,13 @@ SHOP_CURRENCY_LOCALE = "en_US"
 # field instance. When specifying the field class, the path
 # ``django.models.db.`` can be omitted for regular Django model fields.
 #
-# EXTRA_MODEL_FIELDS = (
+#EXTRA_MODEL_FIELDS = (
+#      (
+#      "django.contrib.auth.models.User.balance",
+#      "django.db.models.FloatField",
+#      ("User Balance",),
+#      {"blank": True, "default": 0.0 },
+#      ),
 #     (
 #         # Dotted path to field.
 #         "mezzanine.blog.models.BlogPost.image",
@@ -137,7 +145,7 @@ SHOP_CURRENCY_LOCALE = "en_US"
 #         ("Another name",),
 #         {"blank": True, "default": 1},
 #     ),
-# )
+#)
 
 # Setting to turn on featured images for blog posts. Defaults to False.
 #
@@ -162,7 +170,7 @@ MANAGERS = ADMINS
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost"]
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -198,7 +206,7 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = True
+USE_I18N = False
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
@@ -281,7 +289,7 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
 MEDIA_URL = STATIC_URL + "media/"
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
+# Example: "/home/mheroedia/media.lawrence.com/media/"
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, *MEDIA_URL.strip("/").split("/"))
 
 # Package/module name to import the root urlpatterns from for the project.
@@ -299,7 +307,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 ################
 
 INSTALLED_APPS = (
-    "taxishare.main",
+    "main",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -438,26 +446,13 @@ except ImportError:
 else:
     set_dynamic_settings(globals())
 
-SECRET_KEY = 'someRandomString123456'
-NEVERCACHE_KEY = 'anotherRandomString654321'
+
 LOCALE_PATHS = ('/home/hero/taxishare/locale',)
 ACCOUNTS_VERIFICATION_REQUIRED = True
+ACCOUNTS_PROFILE_VIEWS_ENABLED = True
+LOGIN_REDIRECT_URL = '/users/'
 
-ALLOWED_HOSTS = ['armeninio.pythonanywhere.com']
-
-DATABASES = {
-    "default": {
-        # Ends with "postgresql_psycopg2", "mysql", "sqlite3" or "oracle".
-        "ENGINE": "django.db.backends.mysql",
-        # DB name or path to database file if using sqlite3.
-        "NAME": "armeninio$default",
-        # Not used with sqlite3.
-        "USER": "armeninio",
-        # Not used with sqlite3.
-        "PASSWORD": "thisisaproductiondatabase",
-        # Set to empty string for localhost. Not used with sqlite3.
-        "HOST": "127.0.0.1",
-        # Set to empty string for default. Not used with sqlite3.
-        "PORT": "",
-    }
-}
+AUTH_PROFILE_MODULE = "main.MyProfile"
+ACCOUNTS_PROFILE_FORM_EXCLUDE_FIELDS = (
+    "balance",
+)

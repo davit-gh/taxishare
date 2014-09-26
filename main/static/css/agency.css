@@ -895,3 +895,16 @@ div.dropdown-menu > span{
     margin-left: 20px;
     margin-right: -10px;
 }
+
+ul.dropdown-menu > li > a.button.bluebut, ul.dropdown-menu > li > a.button.redbutton{
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: rgba(33, 117, 212, 1);
+}
+
+#map { 
+    height: 180px;
+    background-color: silver;
+}

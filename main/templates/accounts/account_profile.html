@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load i18n future mezzanine_tags accounts_tags staticfiles get_balance %}
+
+{% block meta_title %}{{ profile_user|username_or:"get_full_name" }}{% endblock %}
+{% block title %}{{ profile_user|username_or:"get_full_name" }}{% endblock %}
+{% block body_id %}account{% endblock %}
+{% block extra_css %}
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
+    
+{% endblock %}
+{% block extra_js %}
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+{% endblock %}
+{% block breadcrumb_menu %}
+{{ block.super }}
+{% endblock %}
+
+{% block main %}
+
+	
+		<div class="col-md-6">
+		    <img class="img-thumbnail" src="{% gravatar_url profile_user.email 128 %}">
+		    {% if profile_user == request.user %}
+		    <br><a class="btn btn-primary" href="{% url "profile_update" %}">{% trans "Update profile" %}</a>
+		    {% endif %}
+		</div>
+		<div class="col-md-6">
+			<h4>Ձեր հաշվին կա </h4>
+			{% get_user_balance request as balance %}
+			<h4 id="balance">{{ balance }} դրամ
+			</h4>
+		</div>
+		<div id="map-header" class="col-md-12">
+			<h5>Քարտեզի վրա ընտրեք, խնդրեմ, Ձեր ուղևորության սկզբնակետն ու վերջնակետը</h5>
+		</div>
+		<div class="col-md-6">
+			<label for="from">Մուտքագրեք Ձեր ելակետի փողոցը, խնդրեմ</label>
+			<input type="text" name="from" id="from">
+		</div>
+		<div class="col-md-6">
+			<label for="to">Մուտքագրեք Ձեր վերջնակետի փողոցը, խնդրեմ</label>
+			<input type="text" name="to" id="to">
+		</div>
+		<div class="col-md-12">
+
+			<div id="map"></div>
+			
+			<script type="text/javascript">
+				var map = L.map('map').setView([40.18997, 44.51610], 16);
+					L.tileLayer('http://{s}.tiles.mapbox.com/v3/armeninio.jimff4k1/{z}/{x}/{y}.png', {
+		    		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+					    maxZoom: 18
+					}).addTo(map);
+				var marker = L.marker([40.18997, 44.51610]).addTo(map);
+					marker.bindPopup("<b>Բարև Երևան!</b><br>Ես քեզ սիրում եմ!").openPopup();
+				var popup = L.popup();
+				function onMapClick(e) {
+				    $('#from').val(e.latlng.toString());
+				    
+				}
+
+				map.on('click', onMapClick);
+
+			</script>
+		</div>
+		
+	
+	
+		
+			
+		
+
+	
+
+
+{% endblock %}
