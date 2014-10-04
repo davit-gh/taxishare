@@ -7,7 +7,7 @@ from main.forms import StreetsForm
 from django.http import HttpResponseRedirect
 from twilio.rest import TwilioRestClient
 from django.conf import settings
-from django.http import HttpResponse
+
 # Create your views here.
 class SearchForm(forms.Form):
 

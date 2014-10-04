@@ -1,0 +1,15 @@
+from mezzanine.utils.models import get_user_model
+from mezzanine.pages.page_processors import processor_for
+import pdb
+@processor_for('/users/admin')
+def portfolio_processor(request, page):
+	if request.method == 'POST':
+		pdb.set_trace()
+		form = StreetsForm(request.POST)
+		if form.is_valid():
+			form.save()
+		return HttpResponseRedirect(".")
+	else:
+		form = StreetsForm()
+		pdb.set_trace()
+	return {'form': form}

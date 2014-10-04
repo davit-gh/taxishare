@@ -1,0 +1,10 @@
+{% extends autocomplete.html %}
+{% block extra_script %}
+    $('#{{ html_id }}').bind('added',function() {
+            entered = $('#{{ html_id }}').val();
+            alert( entered );
+    });
+{% endblock %}
+
+{% block help %}{% if help_text %}<p class="help">{{ help_text }}</p>{% endif %}{% endblock %}
+

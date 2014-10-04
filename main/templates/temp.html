@@ -1,0 +1,33 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<title>Twilio test</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<script type="text/javascript">
+    	function send_pin() {
+    	$.ajax({
+                url: "{% url 'ajax_send_pin' %}",
+                type: "POST",
+                data: { mobile_number:  $("#mobile_number").val(), csrfmiddlewaretoken: '{{ csrf_token }}'
+ 				},
+            })
+            .done(function(data) {
+                alert("PIN sent via SMS! "+data);
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                alert(errorThrown + ' : ' + jqXHR.responseText);
+            });
+		}
+
+    </script>
+	</head>
+	<body>
+		<form method="POST">
+			{% csrf_token %}
+			<input type="text" id="mobile_number" name="mobile_number" placeholder="111-111-1111" required>
+			<button class="btn" type="button" onClick="send_pin()"><i class="icon-share"></i> Get PIN</button>
+			<input type='submit' name='submit' />
+ 		</form>
+	</body>
+	</html>
+	

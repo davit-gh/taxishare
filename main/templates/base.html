@@ -28,16 +28,16 @@
 <link rel="stylesheet" href="{% static "css/cartridge.rtl.css" %}">
 {% endif %}
 {% endifinstalled %}
-{% block extra_css %}{% endblock %}
 {% endcompress %}
+{% block extra_css %}{% endblock %}
 
 {% compress js %}
 <script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
 <script src="{% static "js/bootstrap-extras.js" %}"></script>
-{% block extra_js %}{% endblock %}
 {% include "includes/footer_scripts.html" %}
 {% endcompress %}
+{% block extra_js %}{% endblock %}
 
 <!--[if lt IE 9]>
 <script src="{% static "js/html5shiv.js" %}"></script>
