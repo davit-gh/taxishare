@@ -1,0 +1,33 @@
+#map{
+	height: 280px;
+}
+
+#balance{
+	padding-left: 1.5em;
+	font-weight: bold;
+}
+#map-header{
+	margin-top: 20px;
+}
+
+input#from:focus, input#to:focus {
+    border-color: #2C92EB;
+    box-shadow: 0px 0px 6px #4A7AED;
+    border: 1px solid #CCC;
+}
+
+input[id='from'], input[id='to'] {
+    margin-bottom: 15px;
+    height: 35px;
+    padding: 4px 30px;
+    color: #555;
+}
+label{
+	font-size: 1em;
+}
+
+#customButton{
+	height: 25px;
+	width: 100px;
+	background-color: orange;
+}

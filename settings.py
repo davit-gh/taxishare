@@ -308,6 +308,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 
 INSTALLED_APPS = (
     "main",
+    "widget_tweaks",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -328,6 +329,8 @@ INSTALLED_APPS = (
     "mezzanine.twitter",
     "mezzanine.accounts",
     "ajax_select",
+    "happenings",
+    "datetimewidget",
     #"mezzanine.mobile",
 )
 
@@ -470,3 +473,7 @@ AJAX_LOOKUP_CHANNELS = {
 TWILIO_FROM_NUMBER = "+16466062534"
 TWILIO_ACCOUNT_SID = "ACf439934e990cf1ee177f7d697ff4d542"
 TWILIO_AUTH_TOKEN  = "7da9c848dbb0bf7b99050f7e46b261dc"
+
+STRIPE_SECRET_KEY = 'sk_test_cpj0RcQPOTrODRmKHZ2wfL1G'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_9mC5ObhmQDE0DVcSxipuCNG5'
+

@@ -29,7 +29,9 @@ urlpatterns += patterns('',
     url("^account/orders/$", "cartridge.shop.views.order_history",
         name="shop_order_history"),
     url(r'^search_form',  view='main.views.search_form', name='search_form'),
-    url(r'^twilio',  view='main.views.ajax_send_pin', name='send_pin'),
+    url(r'^twilio',  view='main.views.ajax_send_pin', name='ajax_send_pin'),
+    url(r'^calendar/', include('happenings.urls', namespace='calendar')),
+
     # We don't want to presume how your homepage works, so here are a
     # few patterns you can use to set it up.
 

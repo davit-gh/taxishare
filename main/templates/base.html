@@ -31,8 +31,9 @@
 {% endcompress %}
 {% block extra_css %}{% endblock %}
 
+<script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+
 {% compress js %}
-<script src="{% static "mezzanine/js/"|add:settings.JQUERY_FILENAME %}"></script>
 <script src="{% static "js/bootstrap.js" %}"></script>
 <script src="{% static "js/bootstrap-extras.js" %}"></script>
 {% include "includes/footer_scripts.html" %}
@@ -71,21 +72,23 @@
 
 <div class="container">
 <div class="row">
-
+<!--
 <div class="col-md-2 left">
     {% block left_panel %}
     
     {% endblock %}
 </div>
-
-<div class="col-md-8 middle">
-    {% block main %}{% endblock %}
+-->
+<div class="col-md-12 middle">
+    {% block main %}
+    	
+    {% endblock %}
 </div>
-
+<!--
 <div class="col-md-2 right">
     
 </div>
-
+-->
 </div>
 </div>
 
