@@ -5,11 +5,10 @@
 {% block title %}{{ profile_user|username_or:"get_full_name" }}{% endblock %}
 {% block body_id %}account{% endblock %}
 {% block extra_css %}
-	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 	<link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
     <link rel="stylesheet" href="{% static "css/ajax_select.css" %}" />
     <link rel="stylesheet" href="{% static "css/jquery-ui.css" %}"> 
-    <link href=" {% static 'happenings/css/calendar.css' %}" rel="stylesheet">
+    <link href=" {% static 'css/calendar.css' %}" rel="stylesheet">
 
 {% endblock %}
 {% block extra_js %}
@@ -27,46 +26,104 @@
 		};
 	</script>
 	<script type="text/javascript">
-	   	  var handler = StripeCheckout.configure({
+	//var chargedAmount = '',
+	var	amountAMD = '';
+	var handler = StripeCheckout.configure({
 		    key: 'pk_test_9mC5ObhmQDE0DVcSxipuCNG5',
 		    image: '/th.png',
-		    token: function(token) {
+		    token: function(token, args) {
 		      // Use the token to create the charge with a server-side script.
 		      // You can access the token ID with `token.id`
-		      $.ajax({
-		      	type: 'POST',
-		      	data: {'token': token, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
-		      	url: '{% url "process_token" %}',
-		      	success: function(data){
-		      		console.log(data);
-		      	},
-		      	error: function(data){
-		      		console.log(data);
-		      	}
-		      });
+		      		//token['amount'] = amount;
+			      console.log(JSON.stringify(args));
+			      
+			      $.ajax({
+			      	type: 'POST',
+			      	data: { token: token.id, email: token.email, amountAMD: amountAMD, csrfmiddlewaretoken: '{{ csrf_token }}'},
+			      	url: '{% url "process_token" %}',
+			      	success: function(data){
+			      		
+			      		$(".col-sm-6 > h4#balance").html(data.new_balance + '&nbsp;դրամ');
+			      	},
+			      	error: function(data){
+			      		console.log(data);
+			      	}
+			      });
 		    }
-		  });
+		 
+	});
+
+	
+	   	  
 	
 	$(function(){
+
+		$('a[id="customButton"]').click(function(e) {
+    // Open Checkout with further options
+	    	//chargedAmount = parseFloat($(this).data('amount')) * 100 / 411.0;
+	    	//chargedAmount = chargedAmount.toFixed(2);
+	    	amountAMD = $(this).data('amount') * 100;
+		    handler.open({
+		      name: 'Տաքսին Միասին',
+		      image: '{% static 'img/th.jpeg' %}',
+		      description: 'Հաշվի լիցքավորում ('+$(this).data('amount')+'դր)',
+		      amount: amountAMD,
+		      currency: "amd"
+		    });
+		    e.preventDefault();
+		});
+
+		$('#dialog-confirm').dialog({
+				width: 450,
+		        height: 260,
+				autoOpen: false,
+				modal: true,
+				resizeable: false,
+				buttons:{
+					"Այո": function() {
+						$.ajax({
+							type: 'POST',
+							url: '{% url "cancel_event" %}',
+							data: {'event_id': $(this).data('event_id'), 'date': $(this).data('date'), 'butt_id': $(this).data('butt_id'), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+							success: function(data){
+								var butto = $('#'+data.butt_id);
+								butto.before("(ՉԵՂԱՐԿՎԱԾ)");
+								$(".col-sm-6 > h4#balance").html(data.new_balance + '.0&nbsp;դրամ');
+								butto.attr('disabled','disabled');
+								//$("#cancelButton").attr('disabled','disabled');
+								
+							},
+							error: function(data){
+								console.log('error: '+JSON.stringify(data));	
+							}
+						});
+						
+						$(this).dialog("close");
+					},
+					"Ոչ":function(){
+						$(this).dialog("close");
+					}
+				}
+		});
+		$("button[id|='cancelButton']").click(function(e){
+			var $event_id = $(this).data('event'),
+				$date = $(this).data('date'),
+				$butt_id = $(this).attr('id');
+			$('#dialog-confirm')
+			.data('event_id', $event_id)
+			.data('date', $date)
+			.data('butt_id', $butt_id)
+			.dialog("open");
+			return false;
+		});
+		
     	if($("#id_repeat :selected").text() != "Never"){
 			$('#end_repeat').show();
 		} else {
 			$('#end_repeat').hide();
 		}
 		$( "#tabs" ).tabs({ heightStyle: "content"});
-	  $('a[id="customButton"]').click(function(e) {
-    // Open Checkout with further options
-    	var amount = parseFloat($(this).data('amount')) * 100.0 / 411.0;
-    		amount = amount.toFixed(2);
-    	console.log(amount);
-	    handler.open({
-	      name: 'Տաքսին Միասին',
-	      image: '{% static 'img/th.jpeg' %}',
-	      description: 'Հաշվի լիցքավորում ('+$(this).data('amount')+'դր)',
-	      amount: amount
-	    });
-	    e.preventDefault();
-	  });
+	  
 	});
 	</script>
 
@@ -80,7 +137,7 @@
 
 	
 		<div class="col-sm-6">
-		    <img class="img-thumbnail" src="{% gravatar_url profile_user.email 128 %}">
+		    <img class="img-thumbnail" src="{% gravatar_url profile_user.email 64 %}">
 		    {% if profile_user == request.user %}
 		    <br><a class="btn btn-primary" href="{% url "profile_update" %}">{% trans "Update profile" %}</a>
 		    {% endif %}
@@ -100,22 +157,22 @@
 				</ul>
 				<div id="tabs-1">
 				  <div class="col-xs-6">
-					<a id="customButton" data-amount="300"><h1><span class="glyphicon glyphicon-plus"></span>300 դրամ</h1></a>
+					<a name="customButton" id="customButton" data-amount="300"><h1><span class="glyphicon glyphicon-plus"></span>300 դրամ</h1></a>
 				  </div>
 				  <div class="col-xs-6">
-					<a id="customButton" data-amount="600"><h1><span class="glyphicon glyphicon-plus"></span>600 դրամ</h1></a>
+					<a name="customButton" id="customButton" data-amount="600"><h1><span class="glyphicon glyphicon-plus"></span>600 դրամ</h1></a>
 				  </div>
 				  <div class="col-xs-6">
-					<a id="customButton" data-amount="1200"><h1><span class="glyphicon glyphicon-plus"></span>1200 դրամ</h1></a>
+					<a name="customButton" id="customButton" data-amount="1200"><h1><span class="glyphicon glyphicon-plus"></span>1200 դրամ</h1></a>
 				  </div>
 				  <div class="col-xs-6">
-					<a id="customButton" data-amount="2400"><h1><span class="glyphicon glyphicon-plus"></span>2400 դրամ</h1></a>
+					<a name="customButton" id="customButton" data-amount="2400"><h1><span class="glyphicon glyphicon-plus"></span>2400 դրամ</h1></a>
 				  </div>
 				  <div class="col-xs-6">
-					<a id="customButton" data-amount="4800"><h1><span class="glyphicon glyphicon-plus"></span>4800 դրամ</h1></a>
+					<a name="customButton" id="customButton" data-amount="4800"><h1><span class="glyphicon glyphicon-plus"></span>4800 դրամ</h1></a>
 				  </div>
 				  <div class="col-xs-6">
-					<a id="customButton" data-amount="6000"><h1><span class="glyphicon glyphicon-plus"></span>6000 դրամ</h1></a>
+					<a name="customButton" id="customButton" data-amount="6000"><h1><span class="glyphicon glyphicon-plus"></span>6000 դրամ</h1></a>
 				  </div>
 				</div>
 				<div id="tabs-2">
@@ -167,7 +224,9 @@
 			</div>
 		
 
-	
+			<div id="dialog-confirm" title="Չեղարկե՞լ">
+				<p><span class="ui-icon ui-icon-alert" style="float:left; margin:0 7px 20px 0;"></span>Համոզվա՞ծ եք, որ ուզում եք չեղյալ անել այս պատվերը</p>
+			</div>	
 
 
 {% endblock %}

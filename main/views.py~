@@ -93,7 +93,6 @@ def process_token(request):
 	      card=token,
 	      description="payinguser@example.com"
 	  )
-	  pdb.set_trace()
 	  amd = float(2000) * 4.11
 	  balance = get_user_balance(u)
 	  new_balance = balance + amd
@@ -103,4 +102,18 @@ def process_token(request):
 	  # The card has been declined
 	  return HttpResponse('not Cool!')
 
+import pdb
+from datetime import datetime
+from happenings.models import (Cancellation, Event)
+def cancelEvent(request):
+	if request.method == 'POST':
+		pdb.set_trace()
+		e_id = request.POST['event_id']
+		d = request.POST['date']
+		#d = datetime(day=d.day, month=d.month, year=d.year)
+
+		e = Event.objects.get(id=e_id)
+		c = Cancellation(event=e, reason='',date=d)
+		c.save()
+		return HttpResponse('event id is: ')
 

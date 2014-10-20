@@ -83,23 +83,48 @@ def process_token(request):
 	u = User.objects.filter(username=request.user)[0]
 	# Get the credit card details submitted by the form
 	#pdb.set_trace()	
-	token = request.POST['token[id]']
-
+	token = request.POST['token']
+	amountAMD = request.POST['amountAMD']
+	#pdb.set_trace()
+	
 	# Create the charge on Stripe's servers - this will charge the user's card
 	try:
 	  charge = stripe.Charge.create(
-	      amount=2000, # amount in cents, again
-	      currency="usd",
+	      amount=amountAMD, # amount in cents, again
+	      currency="amd",
 	      card=token,
 	      description="payinguser@example.com"
 	  )
-	  amd = float(2000) * 4.11
 	  balance = get_user_balance(u)
-	  new_balance = balance + amd
+	  new_balance = balance + int(amountAMD) / 100
 	  set_user_balance(u, new_balance)
 	  return HttpResponse(json.dumps({'new_balance': str(new_balance)}), mimetype = 'application/json')
 	except stripe.CardError, e:
 	  # The card has been declined
 	  return HttpResponse('not Cool!')
 
+import pdb
+from datetime import datetime
+from happenings.models import (Cancellation, Event)
+from django.template.defaultfilters import slugify
+def cancelEvent(request):
+	SINGLE_FARE = 300.0
+	if request.method == 'POST':
+		e_id = request.POST['event_id']
+		dt_tm = request.POST['date']
+		butt_id = request.POST['butt_id']
+		date = dt_tm.rsplit(',',1)[0] #splits into 2 parts and takes the first one
+		#slugified = slugify(date)
+		
+		u = User.objects.filter(username=request.user)[0]
+	  	balance = get_user_balance(u)
+	  	new_balance = balance + SINGLE_FARE
+	  	set_user_balance(u, new_balance)
+
+		
+		d = datetime.strptime(date, '%b. %d, %Y')
+		ev = Event.objects.get(id=e_id)
+		c = Cancellation(event=ev, reason='',date=d)
+		c.save()
+		return HttpResponse(json.dumps({'butt_id':butt_id, 'new_balance': new_balance}), mimetype = 'application/json')
 
