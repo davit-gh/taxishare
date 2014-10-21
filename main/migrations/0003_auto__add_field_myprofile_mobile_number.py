@@ -8,15 +8,15 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Deleting field 'SourceDest.streets'
-        db.delete_column(u'main_sourcedest', 'streets_id')
+        # Adding field 'MyProfile.mobile_number'
+        db.add_column(u'main_myprofile', 'mobile_number',
+                      self.gf('django.db.models.fields.IntegerField')(default=55433423),
+                      keep_default=False)
 
 
     def backwards(self, orm):
-        # Adding field 'SourceDest.streets'
-        db.add_column(u'main_sourcedest', 'streets',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, to=orm['main.Streets'], blank=True),
-                      keep_default=False)
+        # Deleting field 'MyProfile.mobile_number'
+        db.delete_column(u'main_myprofile', 'mobile_number')
 
 
     models = {
@@ -60,11 +60,16 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'MyProfile'},
             'balance': ('django.db.models.fields.FloatField', [], {'default': '0.0', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'mobile_number': ('django.db.models.fields.IntegerField', [], {}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['auth.User']", 'unique': 'True'})
         },
         u'main.sourcedest': {
             'Meta': {'object_name': 'SourceDest'},
-            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'})
+            'book_date': ('django.db.models.fields.DateField', [], {}),
+            'destination': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'destination_set'", 'blank': 'True', 'to': u"orm['main.Streets']"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'source': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'source_set'", 'blank': 'True', 'to': u"orm['main.Streets']"}),
+            'timestamp': ('django.db.models.fields.TimeField', [], {})
         },
         u'main.streets': {
             'Meta': {'object_name': 'Streets'},

@@ -125,6 +125,7 @@ table.month td {
     margin: 5px 15px;
     border: 1px solid black;
     border-radius: 5px;
+    background-color: yellow;
 }
 .popover-title {
     font-weight: bold;

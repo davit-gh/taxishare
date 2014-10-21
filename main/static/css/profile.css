@@ -74,6 +74,7 @@ h1{
 	border: 1px solid #DDD;
 	box-shadow: 0 0 2px #ccc;
 	cursor: pointer;
+	font-size: 32px;
 }
 
 button.cnclButtClass{
@@ -100,6 +101,10 @@ h1:hover, button#cal-today-btn.btn.btn-small:hover{
 	color: #fff;
 }
 
-div.widget-month{
-	
+div#tabs-1{
+	height: 400px;
+}
+
+.toggle{
+	display: none;
 }

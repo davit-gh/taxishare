@@ -8,23 +8,15 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding field 'SourceDest.source'
-        db.add_column(u'main_sourcedest', 'source',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, related_name='source_set', blank=True, to=orm['main.Streets']),
-                      keep_default=False)
-
-        # Adding field 'SourceDest.destination'
-        db.add_column(u'main_sourcedest', 'destination',
-                      self.gf('django.db.models.fields.related.ForeignKey')(default=1, related_name='destination_set', blank=True, to=orm['main.Streets']),
+        # Adding field 'MyProfile.pin'
+        db.add_column(u'main_myprofile', 'pin',
+                      self.gf('django.db.models.fields.IntegerField')(default=1111),
                       keep_default=False)
 
 
     def backwards(self, orm):
-        # Deleting field 'SourceDest.source'
-        db.delete_column(u'main_sourcedest', 'source_id')
-
-        # Deleting field 'SourceDest.destination'
-        db.delete_column(u'main_sourcedest', 'destination_id')
+        # Deleting field 'MyProfile.pin'
+        db.delete_column(u'main_myprofile', 'pin')
 
 
     models = {
@@ -68,6 +60,8 @@ class Migration(SchemaMigration):
             'Meta': {'object_name': 'MyProfile'},
             'balance': ('django.db.models.fields.FloatField', [], {'default': '0.0', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'mobile_number': ('django.db.models.fields.IntegerField', [], {}),
+            'pin': ('django.db.models.fields.IntegerField', [], {}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['auth.User']", 'unique': 'True'})
         },
         u'main.sourcedest': {
@@ -76,7 +70,7 @@ class Migration(SchemaMigration):
             'destination': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'destination_set'", 'blank': 'True', 'to': u"orm['main.Streets']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'source': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'source_set'", 'blank': 'True', 'to': u"orm['main.Streets']"}),
-            'timestamp': ('django.db.models.fields.DateField', [], {})
+            'timestamp': ('django.db.models.fields.TimeField', [], {})
         },
         u'main.streets': {
             'Meta': {'object_name': 'Streets'},

@@ -1,0 +1,9 @@
+{% load i18n accounts_tags %}
+{% block main %}
+<p>{% trans "Hey there, your order has been created. You will get SMS confirmation of your order as soon as 2 other users choose the same time and route as you. In case no other 2 users' order timing and route match with your your order will be refunded. Sorry for inconveniences caused." %}</p>
+<br>
+<p>{{ title }}</p>
+<p>{{ repeats }}</p>
+<p>{{ number_of_orders }}</p>
+<p>{{ description }}</p>
+{% endblock %}

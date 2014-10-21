@@ -20,10 +20,20 @@
     {# Include the visible fields #}
     {% for field in form.visible_fields %}
         <div class="form-group input_id_{{ field.name }}">
-            {{ field.errors }}
-            <label class="control-label" for="id_{{ field.name }}">
-            	{% trans  field.label  %}</label>
-            	{{ field }}	
+                {% if field.name == 'pin' %} 
+                    {{ field.errors }}
+                    <label class="control-label" for="id_pin">
+                    {% trans  field.label  %}</label>
+                    <div class="row">
+                        {{ field }}  
+                        <input id="getpin" type="submit" value="Get Pin">
+                    </div>
+                {% else %}
+                    {{ field.errors }}
+                    <label class="control-label" for="id_{{ field.name }}">
+                    	{% trans  field.label  %}</label>
+                    	{{ field }}	
+                {% endif %}
         </div>
     {% endfor %}
     <div class="form-actions">

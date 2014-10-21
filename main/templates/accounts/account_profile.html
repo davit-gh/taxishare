@@ -57,7 +57,15 @@
 	   	  
 	
 	$(function(){
+		$('button.triggerToggle').click(function(e){
+			$('div.toggle_payment').slideToggle(function(){
+				$(".ppl_div").toggleClass('toggle');
+				$(".triggerToggle").text(function(i, text){
+				          return text === "Pay with Paypal" ? "Pay with Credit Card" : "Pay with Paypal";
+				})
+			});
 
+		});
 		$('a[id="customButton"]').click(function(e) {
     // Open Checkout with further options
 	    	//chargedAmount = parseFloat($(this).data('amount')) * 100 / 411.0;
@@ -156,24 +164,91 @@
 				<li><a href="#tabs-3">Իմ Պատվերները</a></li>
 				</ul>
 				<div id="tabs-1">
-				  <div class="col-xs-6">
-					<a name="customButton" id="customButton" data-amount="300"><h1><span class="glyphicon glyphicon-plus"></span>300 դրամ</h1></a>
-				  </div>
-				  <div class="col-xs-6">
-					<a name="customButton" id="customButton" data-amount="600"><h1><span class="glyphicon glyphicon-plus"></span>600 դրամ</h1></a>
-				  </div>
-				  <div class="col-xs-6">
-					<a name="customButton" id="customButton" data-amount="1200"><h1><span class="glyphicon glyphicon-plus"></span>1200 դրամ</h1></a>
-				  </div>
-				  <div class="col-xs-6">
-					<a name="customButton" id="customButton" data-amount="2400"><h1><span class="glyphicon glyphicon-plus"></span>2400 դրամ</h1></a>
-				  </div>
-				  <div class="col-xs-6">
-					<a name="customButton" id="customButton" data-amount="4800"><h1><span class="glyphicon glyphicon-plus"></span>4800 դրամ</h1></a>
-				  </div>
-				  <div class="col-xs-6">
-					<a name="customButton" id="customButton" data-amount="6000"><h1><span class="glyphicon glyphicon-plus"></span>6000 դրամ</h1></a>
-				  </div>
+					
+						<div class="toggle_payment">
+						  <div class="col-xs-6">
+							<a name="customButton" id="customButton" data-amount="300"><h1><span class="glyphicon glyphicon-plus"></span>300դր</h1></a>
+						  </div>
+						  <div class="col-xs-6">
+							<a name="customButton" id="customButton" data-amount="600"><h1><span class="glyphicon glyphicon-plus"></span>600դր</h1></a>
+						  </div>
+						  <div class="col-xs-6">
+							<a name="customButton" id="customButton" data-amount="1200"><h1><span class="glyphicon glyphicon-plus"></span>1200դր</h1></a>
+						  </div>
+						  <div class="col-xs-6">
+							<a name="customButton" id="customButton" data-amount="2400"><h1><span class="glyphicon glyphicon-plus"></span>2400դր</h1></a>
+						  </div>
+						  <div class="col-xs-6">
+							<a name="customButton" id="customButton" data-amount="4800"><h1><span class="glyphicon glyphicon-plus"></span>4800դր</h1></a>
+						  </div>
+						  <div class="col-xs-6">
+							<a name="customButton" id="customButton" data-amount="6000"><h1><span class="glyphicon glyphicon-plus"></span>6000դր</h1></a>
+						  </div>
+						</div>
+					
+					<div class="ppl_div toggle">
+						<div class="col-xs-6">
+							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+								<input type="hidden" name="cmd" value="_xclick">
+								<input type="hidden" name="business" value="purchase@you-name-it.net">
+								<input type="hidden" name="currency_code" value="USD">
+								<input type="hidden" name="item_name" value="Teddy Bear">
+								<input type="hidden" name="amount" value="0.72">
+								<input type="image" src="{% static 'img/ppl/300.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							</form>
+						</div>
+						<div class="col-xs-6">
+							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+								<input type="hidden" name="cmd" value="_xclick">
+								<input type="hidden" name="business" value="me@mybusiness.com">
+								<input type="hidden" name="currency_code" value="USD">
+								<input type="hidden" name="item_name" value="Teddy Bear">
+								<input type="hidden" name="amount" value="1.44">
+								<input type="image" src="{% static 'img/ppl/600.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							</form>
+						</div>
+						<div class="col-xs-6">
+							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+								<input type="hidden" name="cmd" value="_xclick">
+								<input type="hidden" name="business" value="me@mybusiness.com">
+								<input type="hidden" name="currency_code" value="USD">
+								<input type="hidden" name="item_name" value="Teddy Bear">
+								<input type="hidden" name="amount" value="2.88">
+								<input type="image" src="{% static 'img/ppl/1200_1.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							</form>
+						</div>
+						<div class="col-xs-6">
+							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+								<input type="hidden" name="cmd" value="_xclick">
+								<input type="hidden" name="business" value="me@mybusiness.com">
+								<input type="hidden" name="currency_code" value="USD">
+								<input type="hidden" name="item_name" value="Teddy Bear">
+								<input type="hidden" name="amount" value="5.76">
+								<input type="image" src="{% static 'img/ppl/2400.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							</form>
+						</div>
+						<div class="col-xs-6">
+							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+								<input type="hidden" name="cmd" value="_xclick">
+								<input type="hidden" name="business" value="me@mybusiness.com">
+								<input type="hidden" name="currency_code" value="USD">
+								<input type="hidden" name="item_name" value="Teddy Bear">
+								<input type="hidden" name="amount" value="11.52">
+								<input type="image" src="{% static 'img/ppl/4800.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							</form>
+						</div>
+						<div class="col-xs-6">
+							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+								<input type="hidden" name="cmd" value="_xclick">
+								<input type="hidden" name="business" value="me@mybusiness.com">
+								<input type="hidden" name="currency_code" value="USD">
+								<input type="hidden" name="item_name" value="Teddy Bear">
+								<input type="hidden" name="amount" value="14.6">
+								<input type="image" src="{% static 'img/ppl/6000.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							</form>
+						</div>
+					</div>
+					<button class="triggerToggle">Pay with Paypal</button>
 				</div>
 				<div id="tabs-2">
 					<div class="col-xs-12">
@@ -216,12 +291,13 @@
 						<div id="event-calendar" class="calendar-mini">
 			        		{% show_calendar request mini=True %}
 					    </div>
-					    <div>
+					</div>
+					<div class="col-xs-12">
 					    	{% upcoming_events %}
-					    </div>
 					</div>
 				</div>
 			</div>
+			
 		
 
 			<div id="dialog-confirm" title="Չեղարկե՞լ">

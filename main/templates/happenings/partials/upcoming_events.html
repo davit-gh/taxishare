@@ -1,13 +1,10 @@
 {% load weekday %}
 
 <h1>Ձեր Գալիք Պատվերները</h1>
-<ul class="calendar-list">
     {% for d, event in upcoming_events %}
-        {% with colors=event.get_colors %}
-            <li class="month-event" style="background:{{ colors.0 }}; color:{{ colors.1 }};">
-                
+            <div class="col-xs-4 col-sm-3 col-md-2">
                 <div class="month-event-title">
-                    <a href="{{ event.get_absolute_url }}" style="color:{{ colors.1 }};">
+                    <a href="{{ event.get_absolute_url }}">
                         <div class="date-widget">
                             <div class="widget-month">
                                 {{ d|date:"F" }}
@@ -27,9 +24,8 @@
                     </a>
                     <button name='butto' class="cnclButtClass" id="cancelButton-{{ d|slugify }}" data-date="{{ d }}" data-event="{{ event.id }}">Չեղարկել</button>
                 </div>
-            </li>
-        {% endwith %}
+            </div>
     {% empty %}
     Oops.. No events!
     {% endfor %}
-</ul>
+  

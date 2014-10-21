@@ -75,6 +75,9 @@ def set_user_balance(u, new_balance):
 def get_user_balance(u):
     return MyProfile.objects.filter(user=u)[0].balance
 
+def get_user_mobile(u):
+    return MyProfile.objects.filter(user=u)[0].mobile_number
+
 import stripe
 import pdb
 import json

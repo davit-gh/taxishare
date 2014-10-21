@@ -9,6 +9,7 @@ DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 class MyProfile(models.Model):
     user = models.OneToOneField("auth.User")
     balance = models.FloatField(blank=True, default=0.0)
+    mobile_number = models.IntegerField(blank=False)
     
 
 
@@ -23,6 +24,6 @@ class SourceDest(models.Model):
 	source = models.ForeignKey(Streets, blank=True, related_name='source_set')
 	destination = models.ForeignKey(Streets, blank=True, related_name='destination_set')
 	book_date = models.DateField()
-        timestamp = models.DateTimeField()
+        timestamp = models.TimeField()
 
 
