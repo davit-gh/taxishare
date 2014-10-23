@@ -68,19 +68,18 @@ def ajax_send_pin(request):
    	    return render(request, 'temp.html')
 
 def set_user_balance(u, new_balance):
-    b = MyProfile.objects.filter(user=u)[0]
-    b.balance = new_balance
-    b.save()
-
+	b = MyProfile.objects.filter(user=u)[0]
+	b.balance = new_balance
+	b.save()
 def get_user_balance(u):
-    return MyProfile.objects.filter(user=u)[0].balance
-
+	return MyProfile.objects.filter(user=u)[0].balance
 def get_user_mobile(u):
-    return MyProfile.objects.filter(user=u)[0].mobile_number
+	return MyProfile.objects.filter(user=u)[0].mobile_number
 
 import stripe
 import pdb
 import json
+
 def process_token(request):
 	stripe.api_key = settings.STRIPE_SECRET_KEY
 	u = User.objects.filter(username=request.user)[0]
@@ -98,6 +97,7 @@ def process_token(request):
 	      card=token,
 	      description="payinguser@example.com"
 	  )
+	  
 	  balance = get_user_balance(u)
 	  new_balance = balance + int(amountAMD) / 100
 	  set_user_balance(u, new_balance)
@@ -106,7 +106,7 @@ def process_token(request):
 	  # The card has been declined
 	  return HttpResponse('not Cool!')
 
-import pdb
+
 from datetime import datetime
 from happenings.models import (Cancellation, Event)
 from django.template.defaultfilters import slugify
@@ -123,6 +123,7 @@ def cancelEvent(request):
 		
 		u = User.objects.filter(username=request.user)[0]
 	  	balance = get_user_balance(u)
+	  	
 	  	new_balance = balance + SINGLE_FARE
 	  	set_user_balance(u, new_balance)
 

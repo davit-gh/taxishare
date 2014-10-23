@@ -8,12 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
     <link rel="stylesheet" href="{% static "css/ajax_select.css" %}" />
     <link rel="stylesheet" href="{% static "css/jquery-ui.css" %}"> 
-    <link href=" {% static 'css/calendar.css' %}" rel="stylesheet">
+    <link href="{% static 'css/calendar.css' %}" rel="stylesheet">
 
 {% endblock %}
 {% block extra_js %}
 	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-	<script src="{{STATIC_URL}}ajax_select/js/ajax_select.js"></script>
+	<script src="{% static 'js/ajax_select.js' %}"></script>
 	<script src="{% static 'happenings/js/calendar.js' %}"></script>
 	<script src="https://checkout.stripe.com/checkout.js"></script>
 	<script type="text/javascript">

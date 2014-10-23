@@ -41,8 +41,8 @@ def show_me_the_money(sender, **kwargs):
     if ipn_obj.payment_status == "Completed":
         # Undertake some action depending upon `ipn_obj`.
         if ipn_obj.custom:
-        	amountAMD = ipn_obj.custom
-        	u = User.objects.filter(username=request.user)[0]
+        	amountAMD, user = ipn_obj.custom.split(',')
+        	u = User.objects.get(username=user)
         	balance = get_user_balance(u)
         	new_balance = balance + int(amountAMD)
         	set_user_balance(u, new_balance)
