@@ -110,6 +110,8 @@ import pdb
 from datetime import datetime
 from happenings.models import (Cancellation, Event)
 from django.template.defaultfilters import slugify
+from django.views.decorators.csrf import csrf_exempt
+
 def cancelEvent(request):
 	SINGLE_FARE = 300.0
 	if request.method == 'POST':
@@ -131,3 +133,8 @@ def cancelEvent(request):
 		c.save()
 		return HttpResponse(json.dumps({'butt_id':butt_id, 'new_balance': new_balance}), mimetype = 'application/json')
 
+
+@csrf_exempt
+def ppl_return(request):
+	if request.method == 'POST':
+		return HttpResponse('Your account has been recharged by '+request.POST['custom']+' AMD')

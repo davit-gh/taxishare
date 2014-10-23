@@ -328,6 +328,7 @@ INSTALLED_APPS = (
     "mezzanine.galleries",
     "mezzanine.twitter",
     "mezzanine.accounts",
+    "paypal.standard.ipn",
     "ajax_select",
     "happenings",
     "datetimewidget",
@@ -348,6 +349,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "mezzanine.conf.context_processors.settings",
     "mezzanine.pages.context_processors.page",
+    "main.context_processors.proc_that_asks_for_money",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -483,4 +485,12 @@ POSTMARK_API_USER = "bigelow"
 POSTMARK_API_PASSWORD = "verysecure"
 DEFAULT_FROM_EMAIL = 'admin@you-name-it.net'
 SHOP_ORDER_FROM_EMAIL  = DEFAULT_FROM_EMAIL
+
+
+# For installations on which you want to use the sandbox,
+# set PAYPAL_TEST to True.  Ensure PAYPAL_RECEIVER_EMAIL is set to
+# your sandbox account email too.
+PAYPAL_SUBMIT_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
+PAYPAL_RECEIVER_EMAIL = "asd@dsa.cc"
+PAYPAL_TEST = True
 

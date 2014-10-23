@@ -187,72 +187,50 @@
 						</div>
 					
 					<div class="ppl_div" style="display:none">
+						<h2>Pay with Paypal</h2>
 						<div class="col-xs-6">
-							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-								<input type="hidden" name="cmd" value="_xclick">
-								<input type="hidden" name="business" value="asd@dsa.cc">
-								<input type="hidden" name="currency_code" value="USD">
-								<input type="hidden" name="item_name" value="Teddy Bear">
-								<input type="hidden" name="amount" value="0.72">
-								<input name="notify_url" value="pplcllbck" type="hidden">
-								<input type="image" src="{% static 'img/ppl/300.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							<form method="post" action="{{ action }}">
+								{{ form1.as_p }}
+								<input type="image" src="{% static 'img/ppl/300.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
 							</form>
 						</div>
 						<div class="col-xs-6">
-							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-								<input type="hidden" name="cmd" value="_xclick">
-								<input type="hidden" name="business" value="asd@dsa.cc">
-								<input type="hidden" name="currency_code" value="USD">
-								<input type="hidden" name="item_name" value="Teddy Bear">
-								<input type="hidden" name="amount" value="1.44">
-								<input name="notify_url" value="pplcllbck" type="hidden">
-								<input type="image" src="{% static 'img/ppl/600.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							<form method="post" action="{{ action }}">
+								{{ form2.as_p }}
+								<input type="image" src="{% static 'img/ppl/600.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
+								
 							</form>
 						</div>
 						<div class="col-xs-6">
-							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-								<input type="hidden" name="cmd" value="_xclick">
-								<input type="hidden" name="business" value="asd@dsa.cc">
-								<input type="hidden" name="currency_code" value="USD">
-								<input type="hidden" name="item_name" value="Teddy Bear">
-								<input type="hidden" name="amount" value="2.88">
-								<input name="notify_url" value="pplcllbck" type="hidden">
-								<input type="image" src="{% static 'img/ppl/1200_1.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							<form method="post" action="{{ action }}">
+								{{ form3.as_p }}
+								<input type="image" src="{% static 'img/ppl/1200_1.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
+								
 							</form>
 						</div>
 						<div class="col-xs-6">
-							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-								<input type="hidden" name="cmd" value="_xclick">
-								<input type="hidden" name="business" value="asd@dsa.cc">
-								<input type="hidden" name="currency_code" value="USD">
-								<input type="hidden" name="item_name" value="Teddy Bear">
-								<input type="hidden" name="amount" value="5.76">
-								<input name="notify_url" value="pplcllbck" type="hidden">
-								<input type="image" src="{% static 'img/ppl/2400.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							<form method="post" action="{{ action }}">
+								{{ form4.as_p }}
+								<input type="image" src="{% static 'img/ppl/2400.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
+								
 							</form>
 						</div>
 						<div class="col-xs-6">
-							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-								<input type="hidden" name="cmd" value="_xclick">
-								<input type="hidden" name="business" value="asd@dsa.cc">
-								<input type="hidden" name="currency_code" value="USD">
-								<input type="hidden" name="item_name" value="Teddy Bear">
-								<input type="hidden" name="amount" value="11.52">
-								<input name="notify_url" value="pplcllbck" type="hidden">
-								<input type="image" src="{% static 'img/ppl/4800.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							<form method="post" action="{{ action }}">
+								{{ form5.as_p }}
+								<input type="image" src="{% static 'img/ppl/4800.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
+								
 							</form>
 						</div>
 						<div class="col-xs-6">
-							<form name="_xclick" action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-								<input type="hidden" name="cmd" value="_xclick">
-								<input type="hidden" name="business" value="asd@dsa.cc">
-								<input type="hidden" name="currency_code" value="USD">
-								<input type="hidden" name="item_name" value="Teddy Bear">
-								<input type="hidden" name="amount" value="14.6">
-								<input name="notify_url" value="pplcllbck" type="hidden">
-								<input type="image" src="{% static 'img/ppl/6000.JPG' %}" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!" style="max-width:100%; height:auto;">
+							<form method="post" action="{{ action }}">
+								{{ form6.as_p }}
+								<input type="image" src="{% static 'img/ppl/6000.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
+								
 							</form>
 						</div>
+
+
 					</div>
 					
 					<div id="buttonDiv" class="col-xs-4 col-xs-offset-5">

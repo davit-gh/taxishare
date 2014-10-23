@@ -69,3 +69,11 @@ class StreetsForm(ModelForm):
 	dest = self.cleaned_data['destination']
 	obj = Streets.objects.filter(name_hy=dest)[0]
 	return obj
+
+from paypal.standard.forms import PayPalPaymentsForm
+from paypal.standard.widgets import ValueHiddenInput, ReservedValueHiddenInput
+ 
+class PayPalPaymentsFormCustom(PayPalPaymentsForm):
+	image_url = forms.CharField(widget=ValueHiddenInput)
+	custom = forms.CharField(widget=ValueHiddenInput)
+	hosted_button_id = forms.CharField(widget=ValueHiddenInput)
