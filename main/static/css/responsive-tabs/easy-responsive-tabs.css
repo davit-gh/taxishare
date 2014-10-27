@@ -10,14 +10,27 @@ ul.resp-tabs-list, p {
 }
 
 .resp-tabs-list li {
+    margin:0px 2px !important;
     font-weight: 600;
-    font-size: 13px;
     display: inline-block;
     padding: 13px 15px;
     margin: 0;
     list-style: none;
     cursor: pointer;
     float: left;
+    border-radius:6px 6px 0px 0px;
+    background:#7FB5DA;
+    font-size:16px;
+    color:#4c4c4c;
+    transition:all linear 0.15s;
+}
+
+ul.resp-tabs-list{
+    margin-left: -2px;
+}
+
+.resp-tabs-list li:hover{
+    background:#a7cce5;
 }
 
 .resp-tabs-container {
@@ -38,23 +51,20 @@ h2.resp-accordion {
 }
 
 .resp-tab-active {
-    border: 1px solid #c1c1c1;
     border-bottom: none;
     margin-bottom: -1px !important;
     padding: 12px 14px 14px 14px !important;
+    background: #a7cce5 !important;
+
 }
 
-.resp-tab-active {
-    border-bottom: none;
-    background-color: #fff;
-}
 
 .resp-content-active, .resp-accordion-active {
     display: block;
 }
 
 .resp-tab-content {
-    border: 1px solid #c1c1c1;
+    border: 2px solid #a7cce5;
 }
 
 h2.resp-accordion {
@@ -155,6 +165,7 @@ h2.resp-tab-active {
 
 .resp-tab-content-active {
     display: block;
+    background: #F8F8FF;
 }
 
 h2.resp-accordion:first-child {

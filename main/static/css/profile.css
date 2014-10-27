@@ -80,7 +80,7 @@ button#cal-today-btn.btn.btn-small{
 	box-shadow: 0 0 2px #ccc;
 
 }
-h1, .commentButtClass{
+h1{
 	color: #008080;
 	background-color: rgba(127, 195, 255, 0.27);
 	text-align: center;
@@ -93,22 +93,34 @@ h1, .commentButtClass{
 }
 
 .commentButtClass{
-	margin-left: -1em;
-}
-
-button.cnclButtClass{
-	color: #fff;
-	background-color: #FA8072;
+	color: #008080;
+	background-color: rgba(127, 195, 255, 0.27);
 	text-align: center;
 	line-height: 2em;
 	border-radius: 1em;
 	border: 1px solid #DDD;
 	box-shadow: 0 0 2px #ccc;
+	margin-left: -1em;
+}
+
+
+
+button.cnclButtClass{
+	text-align: center;
+	line-height: 2em;
+	border-radius: 1em;
 	cursor: pointer;
 	margin-left: 0.8em;
 }
 
-button.cnclButtClass:hover{
+.cnclButtClassPlus{
+	border: 1px solid #DDD;
+	color: #fff;
+	background-color: #FA8072;
+	box-shadow: 0 0 2px #ccc;
+}
+
+button.cnclButtClassPlus:hover{
 	background: #990000;
 	box-shadow: inset 2px -7px 11px #E60026;
 	color: #fff;
@@ -140,3 +152,6 @@ div#tabs-1{
 	transition: visibility 0s 2s, opacity 2s linear;
 }
 
+div#tabs{
+	margin-top: 2em;
+}

@@ -18,11 +18,11 @@
                         </div>
                         {% for c in event.cancellations.all %}
                             {% if c.date == d.date %}
-                                (ՉԵՂԱՐԿՎԱԾ)
+                                <p id="cncl">(ՉԵՂԱՐԿՎԱԾ)</p>
                             {% endif %}
                         {% endfor %}
                     </a>
-                    <button name='butto' class="cnclButtClass" id="cancelButton-{{ d|slugify }}" data-date="{{ d }}" data-event="{{ event.id }}">Չեղարկել</button>
+                    <button name='butto' class="cnclButtClass cnclButtClassPlus" id="cancelButton-{{ d|slugify }}" data-date="{{ d }}" data-event="{{ event.id }}">Չեղարկել</button>
                 </div>
             </div>
     {% empty %}
