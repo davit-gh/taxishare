@@ -10,19 +10,34 @@
 	margin-top: 20px;
 }
 
-input#id_source:focus, input#id_destination:focus {
-    border-color: #2C92EB;
-    box-shadow: 0px 0px 6px #4A7AED;
-    border: 1px solid #CCC;
-    width: auto;
+input#id_source:focus, input#id_destination:focus, textarea#id_source_detail:focus, textarea#id_destination_detail:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
 }
 
-input[id='id_source'], input[id='id_destination'] {
+textarea{
+     border: 2px solid #dadada;
+     transition: all 0.3s ease-in-out 0s;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+     box-sizing: border-box; 
+     width: 100%;
+}
+
+input[id='id_source'], input[id='id_destination']{
+    border-radius: 20px;
+    color: #69A3B9;
+    outline: medium none;
+    border: 2px solid #dadada;
+    transition: all 0.3s ease-in-out 0s;
     margin-bottom: 15px;
     height: 35px;
     padding: 4px 30px;
-    color: #555;
-    width: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+     box-sizing: border-box; 
+     width: 100%;
 }
 label{
 	font-size: 1em;
@@ -65,7 +80,7 @@ button#cal-today-btn.btn.btn-small{
 	box-shadow: 0 0 2px #ccc;
 
 }
-h1{
+h1, .commentButtClass{
 	color: #008080;
 	background-color: rgba(127, 195, 255, 0.27);
 	text-align: center;
@@ -74,11 +89,15 @@ h1{
 	border: 1px solid #DDD;
 	box-shadow: 0 0 2px #ccc;
 	cursor: pointer;
-	font-size: 32px;
+	font-size: 5vw;
+}
+
+.commentButtClass{
+	margin-left: -1em;
 }
 
 button.cnclButtClass{
-	color: #008080;
+	color: #fff;
 	background-color: #FA8072;
 	text-align: center;
 	line-height: 2em;
@@ -90,7 +109,7 @@ button.cnclButtClass{
 }
 
 button.cnclButtClass:hover{
-	background: #ED2939;
+	background: #990000;
 	box-shadow: inset 2px -7px 11px #E60026;
 	color: #fff;
 }

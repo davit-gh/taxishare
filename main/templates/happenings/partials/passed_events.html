@@ -1,7 +1,7 @@
 {% load weekday %}
 
-<h2>Ձեր Գալիք Պատվերները</h2>
-    {% for d, event in upcoming_events %}
+<h2>Ձեր Անցած Պատվերները</h2>
+    {% for d, event in passed_events %}
             <div class="col-xs-4 col-sm-3 col-md-2">
                 <div class="month-event-title">
                     <a href="{{ event.get_absolute_url }}">
@@ -22,7 +22,7 @@
                             {% endif %}
                         {% endfor %}
                     </a>
-                    <button name='butto' class="cnclButtClass" id="cancelButton-{{ d|slugify }}" data-date="{{ d }}" data-event="{{ event.id }}">Չեղարկել</button>
+                    <button name='butto' class="commentButtClass" id="cancelButton-{{ d|slugify }}" data-date="{{ d }}" data-event="{{ event.id }}">Գնահատել Ծառայությունը</button>
                 </div>
             </div>
     {% empty %}

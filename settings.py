@@ -281,7 +281,7 @@ STATIC_URL = "/static/"
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.path.join(PROJECT_ROOT, STATIC_URL.strip("/"))
+STATIC_ROOT = '/home/armeninio/taxishare/main/static'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -458,7 +458,7 @@ ACCOUNTS_VERIFICATION_REQUIRED = True
 ACCOUNTS_PROFILE_VIEWS_ENABLED = True
 LOGIN_REDIRECT_URL = '/users/'
 
-AUTH_PROFILE_MODULE = "main.MyProfile"
+#AUTH_PROFILE_MODULE = "main.MyProfile"
 ACCOUNTS_PROFILE_FORM_EXCLUDE_FIELDS = (
     "balance",
 )
@@ -491,6 +491,6 @@ SHOP_ORDER_FROM_EMAIL  = DEFAULT_FROM_EMAIL
 # set PAYPAL_TEST to True.  Ensure PAYPAL_RECEIVER_EMAIL is set to
 # your sandbox account email too.
 PAYPAL_SUBMIT_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
-PAYPAL_RECEIVER_EMAIL = "asd@dsa.cc"
+PAYPAL_RECEIVER_EMAIL = "2244022248-facilitator@qq.com"
 PAYPAL_TEST = True
 

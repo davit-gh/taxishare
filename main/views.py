@@ -137,5 +137,8 @@ def cancelEvent(request):
 
 @csrf_exempt
 def ppl_return(request):
+
 	if request.method == 'POST':
-		return HttpResponse('Your account has been recharged by '+request.POST['custom']+' AMD')
+		return HttpResponse('Your account has been recharged by '+request.POST['custom'].split(',')[0]+' AMD')
+	else:
+		return HttpResponse('request method is: '+request.method+'<br/> request is: ')

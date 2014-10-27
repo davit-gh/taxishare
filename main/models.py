@@ -46,8 +46,7 @@ def show_me_the_money(sender, **kwargs):
         	balance = get_user_balance(u)
         	new_balance = balance + int(amountAMD)
         	set_user_balance(u, new_balance)
-            
- 
+    
         
 
 payment_was_successful.connect(show_me_the_money)
