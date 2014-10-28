@@ -1,13 +1,14 @@
 from ajax_select import make_ajax_field
 from ajax_select import make_ajax_form
 from main.models import SourceDest
-from main.models import Streets
-from django.forms import ModelForm
+from happenings.models import Streets
+from django.forms import ModelForm, Textarea
 from ajax_select.fields import AutoCompleteField
 from ajax_select.fields import AutoCompleteWidget
 from django import forms
 from functools import partial
 from django.utils.translation import ugettext as _
+
 DateInput = partial(forms.DateInput, )
 
 # Form Fields
@@ -17,6 +18,8 @@ from django.utils import timezone
 from happenings.models import Event
 from datetimewidget.widgets import DateTimeWidget
 from datetimewidget.widgets import DateWidget
+from main.models import Feedback
+
 class EventForm(ModelForm):
 
 	REPEAT_CHOICES = (
@@ -42,12 +45,12 @@ class EventForm(ModelForm):
         	}
 	def clean_source(self):
 		source = self.cleaned_data['source']
-		obj = Streets.objects.filter(name_hy=source)[0]
+		obj, created = Streets.objects.get_or_create(name_hy=source, defaults={'name_en': 'not set'})
 		return obj
 
 	def clean_destination(self):
 		dest = self.cleaned_data['destination']
-		obj = Streets.objects.filter(name_hy=dest)[0]
+		obj, created = Streets.objects.get_or_create(name_hy=dest, defaults={'name_en': 'not set'})
 		return obj
 
 class StreetsForm(ModelForm):
@@ -79,3 +82,14 @@ class PayPalPaymentsFormCustom(PayPalPaymentsForm):
 	image_url = forms.CharField(widget=ValueHiddenInput)
 	custom = forms.CharField(widget=ValueHiddenInput)
 	hosted_button_id = forms.CharField(widget=ValueHiddenInput)
+
+
+class FeedbackForm(ModelForm):
+	class Meta:
+		model = Feedback
+		fields = ['title', 'feedback_desc']
+		widgets = {
+			'feedback_text': Textarea(attrs={
+				'placeholder':_('Thank you for your comment!')
+			}),
+		}

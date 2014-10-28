@@ -10,6 +10,8 @@ from django.conf import settings
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from main.models import MyProfile
+from django.contrib import messages
+from django.utils.translation import ugettext as _
 
 # Create your views here.
 class SearchForm(forms.Form):
@@ -134,6 +136,30 @@ def cancelEvent(request):
 		c.save()
 		return HttpResponse(json.dumps({'butt_id':butt_id, 'new_balance': new_balance}), mimetype = 'application/json')
 
+from main.forms import FeedbackForm
+from main.models import Feedback
+from happenings.models import Event
+from django.core.urlresolvers import reverse
+def save_feedback(request, event_id):
+	if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        	#pdb.set_trace()
+		event = Event.objects.get(id=event_id)
+		fb = Feedback(event=event, user=request.user)
+        	form = FeedbackForm(request.POST,instance=fb)
+        # check whether it's valid:
+        	if form.is_valid():
+            	# process the data in form.cleaned_data as required
+            		form.save()
+            	# redirect to a new URL:
+			messages.info(request, _("Your feedback is saved. Thank you!"))
+            		return HttpResponseRedirect('/users/'+request.user.username)
+					
+    	# if a GET (or any other method) we'll create a blank form
+    	else:
+        	form = FeedbackForm()
+	
+	return render(request,'includes/feedback.html',{'form':form, 'event_id':event_id})
 
 @csrf_exempt
 def ppl_return(request):

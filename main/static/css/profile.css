@@ -10,7 +10,7 @@
 	margin-top: 20px;
 }
 
-input#id_source:focus, input#id_destination:focus, textarea#id_source_detail:focus, textarea#id_destination_detail:focus {
+input[type='text']:focus, textarea:focus {
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
@@ -18,14 +18,17 @@ input#id_source:focus, input#id_destination:focus, textarea#id_source_detail:foc
 
 textarea{
      border: 2px solid #dadada;
+     border-radius: 10px;
      transition: all 0.3s ease-in-out 0s;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
      box-sizing: border-box; 
      width: 100%;
+     color: #69A3B9;
+     font-size: 16px;
 }
 
-input[id='id_source'], input[id='id_destination']{
+input[type='text']{
     border-radius: 20px;
     color: #69A3B9;
     outline: medium none;
@@ -44,7 +47,11 @@ label{
 }
 
 
-
+.form-control{
+	color: #69A3B9;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+}
 
 
 a#customButton{
@@ -154,4 +161,9 @@ div#tabs-1{
 
 div#tabs{
 	margin-top: 2em;
+}
+
+#myModal .modal-dialog
+{
+    width: 50%; /* your width */
 }

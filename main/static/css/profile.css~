@@ -10,7 +10,7 @@
 	margin-top: 20px;
 }
 
-input#id_source:focus, input#id_destination:focus, textarea#id_source_detail:focus, textarea#id_destination_detail:focus {
+input[type='text']:focus, textarea:focus {
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
@@ -18,14 +18,17 @@ input#id_source:focus, input#id_destination:focus, textarea#id_source_detail:foc
 
 textarea{
      border: 2px solid #dadada;
+     border-radius: 10px;
      transition: all 0.3s ease-in-out 0s;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
      box-sizing: border-box; 
      width: 100%;
+     color: #69A3B9;
+     font-size: 16px;
 }
 
-input[id='id_source'], input[id='id_destination']{
+input[type='text']{
     border-radius: 20px;
     color: #69A3B9;
     outline: medium none;
@@ -44,7 +47,11 @@ label{
 }
 
 
-
+.form-control{
+	color: #69A3B9;
+	border: 2px solid #dadada;
+	border-radius: 10px;
+}
 
 
 a#customButton{
@@ -80,7 +87,7 @@ button#cal-today-btn.btn.btn-small{
 	box-shadow: 0 0 2px #ccc;
 
 }
-h1, .commentButtClass{
+h1{
 	color: #008080;
 	background-color: rgba(127, 195, 255, 0.27);
 	text-align: center;
@@ -89,22 +96,38 @@ h1, .commentButtClass{
 	border: 1px solid #DDD;
 	box-shadow: 0 0 2px #ccc;
 	cursor: pointer;
-	font-size: 32px;
+	font-size: 5vw;
 }
 
-button.cnclButtClass{
-	color: #fff;
-	background-color: #FA8072;
+.commentButtClass{
+	color: #008080;
+	background-color: rgba(127, 195, 255, 0.27);
 	text-align: center;
 	line-height: 2em;
 	border-radius: 1em;
 	border: 1px solid #DDD;
 	box-shadow: 0 0 2px #ccc;
+	margin-left: -1em;
+}
+
+
+
+button.cnclButtClass{
+	text-align: center;
+	line-height: 2em;
+	border-radius: 1em;
 	cursor: pointer;
 	margin-left: 0.8em;
 }
 
-button.cnclButtClass:hover{
+.cnclButtClassPlus{
+	border: 1px solid #DDD;
+	color: #fff;
+	background-color: #FA8072;
+	box-shadow: 0 0 2px #ccc;
+}
+
+button.cnclButtClassPlus:hover{
 	background: #990000;
 	box-shadow: inset 2px -7px 11px #E60026;
 	color: #fff;
@@ -136,3 +159,11 @@ div#tabs-1{
 	transition: visibility 0s 2s, opacity 2s linear;
 }
 
+div#tabs{
+	margin-top: 2em;
+}
+
+#myModal .modal-dialog
+{
+    width: 60%; /* your width */
+}

@@ -20,3 +20,8 @@ class EventAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 admin.site.register(SourceDest, OrderAdmin)
 
+from main.models import Feedback
+class FeedbackAdmin(admin.ModelAdmin):
+	list_display=('title','feedback_desc','feedback_date','user', 'event')
+
+admin.site.register(Feedback,FeedbackAdmin)

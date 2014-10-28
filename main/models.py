@@ -3,6 +3,9 @@ from django.db import models
 from functools import partial
 from django import forms
 from ajax_select.fields import AutoCompleteField
+from happenings.models import Event
+from happenings.models import Streets
+from django.contrib.auth.models import User
 
 DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 
@@ -14,23 +17,20 @@ class MyProfile(models.Model):
     pin = models.IntegerField(blank=False)
     
 
-
-class Streets(models.Model):
-	name_en = models.CharField(max_length=100)
-	name_hy = models.CharField(max_length=100)
-	
-	def __unicode__(self):
-	        return self.name_en
-
 class SourceDest(models.Model):
 	source = models.ForeignKey(Streets, blank=True, related_name='source_set')
 	destination = models.ForeignKey(Streets, blank=True, related_name='destination_set')
 	book_date = models.DateField()
         timestamp = models.TimeField()
 
+class Feedback(models.Model):
+    event = models.ForeignKey(Event, related_name="event")
+    user = models.ForeignKey(User, related_name="usr")
+    title = models.CharField(max_length=100, blank=False)
+    feedback_desc = models.TextField(blank=False)
+    feedback_date = models.DateTimeField(auto_now_add=True, blank=True)
 
 from paypal.standard.ipn.signals import payment_was_successful
-from django.contrib.auth.models import User
 from main.views import set_user_balance
 from main.views import get_user_balance
 

@@ -33,6 +33,7 @@ urlpatterns += patterns('',
     url(r'^stripe',  view='main.views.process_token', name='process_token'),
     url(r'^calendar/', include('happenings.urls', namespace='calendar')),
     url(r'^ppl_return/', view='main.views.ppl_return', name='pplret'),
+    url(r"^feedback/(?P<event_id>\d+)$", "main.views.save_feedback", name="feedback"),
     (r'^paypal-ipn-8c5erc9ye49ia51rn65/', include('paypal.standard.ipn.urls')),
     url(r'^cancelthisevent',  view='main.views.cancelEvent', name='cancel_event'),
     # We don't want to presume how your homepage works, so here are a

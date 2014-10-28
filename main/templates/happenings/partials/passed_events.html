@@ -1,4 +1,4 @@
-{% load weekday %}
+{% load weekday i18n %}
 
 <h2>Ձեր Անցած Պատվերները</h2>
     {% for d, event in passed_events %}
@@ -22,7 +22,11 @@
                             {% endif %}
                         {% endfor %}
                     </a>
-                    <button name='butto' class="commentButtClass" id="cancelButton-{{ d|slugify }}" data-date="{{ d }}" data-event="{{ event.id }}">Գնահատել Ծառայությունը</button>
+                                        <!-- Button trigger modal -->
+
+<button class="fback btn btn-custom" data-form="{% url "feedback" event.id %}" data-desc="{{ event.title }}">Small modal</button>
+<div class="modal fade" id="myModal"></div>
+
                 </div>
             </div>
     {% empty %}

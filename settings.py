@@ -307,6 +307,7 @@ TEMPLATE_DIRS = (os.path.join(PROJECT_ROOT, "templates"),)
 ################
 
 INSTALLED_APPS = (
+    "happenings",
     "main",
     "widget_tweaks",
     "django.contrib.admin",
@@ -330,7 +331,7 @@ INSTALLED_APPS = (
     "mezzanine.accounts",
     "paypal.standard.ipn",
     "ajax_select",
-    "happenings",
+    
     "datetimewidget",
     #"mezzanine.mobile",
 )
