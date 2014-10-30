@@ -51,7 +51,7 @@ def ajax_send_pin(request):
     if request.POST:
 	    mobile_number = request.POST.get('mobile_number', "")
 	    if not mobile_number:
-		return HttpResponse("No mobile number", mimetype='text/plain', status=403)
+		return HttpResponse("No mobile number", content_type='text/plain', status=403)
 
 	    pin = _get_pin()
 
@@ -64,7 +64,7 @@ def ajax_send_pin(request):
 		                to=mobile_number,
 		                from_=settings.TWILIO_FROM_NUMBER,
 		            )
-	    return HttpResponse("Message %s sent, stored pin %s" % (message.sid, pin), mimetype='text/plain', status=200)
+	    return HttpResponse("Message %s sent, stored pin %s" % (message.sid, pin), content_type='text/plain', status=200)
 
     else:
    	    return render(request, 'temp.html')
@@ -103,7 +103,7 @@ def process_token(request):
 	  balance = get_user_balance(u)
 	  new_balance = balance + int(amountAMD) / 100
 	  set_user_balance(u, new_balance)
-	  return HttpResponse(json.dumps({'new_balance': str(new_balance)}), mimetype = 'application/json')
+	  return HttpResponse(json.dumps({'new_balance': str(new_balance)}), content_type = 'application/json')
 	except stripe.CardError, e:
 	  # The card has been declined
 	  return HttpResponse('not Cool!')
@@ -134,12 +134,19 @@ def cancelEvent(request):
 		ev = Event.objects.get(id=e_id)
 		c = Cancellation(event=ev, reason='',date=d)
 		c.save()
-		return HttpResponse(json.dumps({'butt_id':butt_id, 'new_balance': new_balance}), mimetype = 'application/json')
+		return HttpResponse(json.dumps({'butt_id':butt_id, 'new_balance': new_balance}), content_type = 'application/json')
 
 from main.forms import FeedbackForm
 from main.models import Feedback
 from happenings.models import Event
 from django.core.urlresolvers import reverse
+from django.template.loader import render_to_string
+from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
+from mezzanine.utils.models import get_user_model
+
+User = get_user_model()
+
 def save_feedback(request, event_id):
 	if request.method == 'POST':
         # create a form instance and populate it with data from the request:
@@ -154,12 +161,19 @@ def save_feedback(request, event_id):
             	# redirect to a new URL:
 			messages.info(request, _("Your feedback is saved. Thank you!"))
             		return HttpResponseRedirect('/users/'+request.user.username)
-					
+		else:
+			#rendered = render_to_string('includes/feedback.html', {'form': form, 'event_id': event_id})
+			
+			#return HttpResponse(json.dumps({'rendered':rendered}), content_type = 'application/json')
+			lookup = {"username__iexact": request.user.username, "is_active": True}
+			context = {"profile_user": get_object_or_404(User, **lookup)}
+			messages.info(request, _("Your feedback has not been saved. Please fill in both fields."))
+			return render(request,'accounts/account_profile.html', context)
     	# if a GET (or any other method) we'll create a blank form
     	else:
         	form = FeedbackForm()
-	
-	return render(request,'includes/feedback.html',{'form':form, 'event_id':event_id})
+
+	return render(request,'includes/feedback.html',{'form':form, 'event_id': event_id})
 
 @csrf_exempt
 def ppl_return(request):

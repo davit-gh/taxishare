@@ -1,4 +1,3 @@
-
   <form class="feedback-form" method="post" action="{% url "feedback" event_id %}">
       <div class="modal-dialog">
       <div class="modal-content">
@@ -9,11 +8,21 @@
         <div class="modal-body">
           {% csrf_token %}
 
-          {{form.as_p}} 
+          {# Include the hidden fields #}
+          {% for hidden in form.hidden_fields %}
+          {{ hidden }}
+          {% endfor %}
+          {# Include the visible fields #}
+          {% for field in form.visible_fields %}
+              <div class="fieldWrapper">
+                  {{ field.errors }}
+                  {{ field.label_tag }} {{ field }}
+              </div>
+          {% endfor %}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <input type="submit" value="Save" class="btn btn-primary" />
+          <button type="submit" id="id_save" class="btn btn-primary">Save</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

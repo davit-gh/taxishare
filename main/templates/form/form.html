@@ -1,0 +1,37 @@
+
+<form method="POST">
+                {% csrf_token %}
+                {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+                {% endfor %}
+                {% if form.non_field_errors %}
+                    {{ form.non_field_errors }}
+                {% endif %}
+                {# Include the visible fields #}
+                {% for field in form.visible_fields %}
+                  {% if forloop.last %}
+                        <div class="col-xs-6 lastdiv">
+                          <div id="end_repeat">
+                            
+                            {{ field.label_tag }}
+                            {% for err in field.errors %}
+                              <span class="error_message">{{ err }}</span>
+                            {% endfor %}
+                          {{ field }}
+                        </div>
+                        </div>
+                    {% else %}
+                      <div class="col-xs-6">
+                        
+                        {{ field.label_tag }}{{ field.errors }}<br/>
+                        {{ field }}
+                      </div>
+                    {% endif %}
+                {% endfor %}
+                <div class="col-xs-6">
+                  
+                </div>
+                <div class="col-xs-6" id="submitDiv">
+                  <input id="submit" class="btn btn-custom" type="submit" value="submit" />
+                </div>
+</form>

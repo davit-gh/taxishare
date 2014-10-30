@@ -123,9 +123,9 @@ table.month td {
     text-align: center;
     padding-left: 15px;
     padding-right: 15px;
-    margin: 5px 15px;
+    margin: 5px 15%;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #a7cce5;
 }
 .popover-title {

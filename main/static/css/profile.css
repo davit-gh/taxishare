@@ -24,13 +24,11 @@ textarea{
     -moz-box-sizing: border-box;
      box-sizing: border-box; 
      width: 100%;
-     color: #69A3B9;
      font-size: 16px;
 }
 
 input[type='text']{
     border-radius: 20px;
-    color: #69A3B9;
     outline: medium none;
     border: 2px solid #dadada;
     transition: all 0.3s ease-in-out 0s;
@@ -65,7 +63,19 @@ a#customButton{
 #submitDiv{
 	position: relative;
 	left: -40px;
-	margin-top: 25px; 
+	margin-top: 3em; 
+}
+
+@media only screen and (max-width: 541px) {
+    #submitDiv{
+    	margin-top: 5em; 
+    }
+}
+
+@media only screen and (max-width: 422px) {
+    #submitDiv{
+    	margin-top: 7em; 
+    }
 }
 
 #end_repeat{
@@ -167,3 +177,12 @@ div#tabs{
 {
     width: 50%; /* your width */
 }
+#button_text{
+		white-space: normal;
+}
+@media only screen and (min-width: 991px) {
+    #button_text{
+		margin-left: -12px;
+	}	
+}
+

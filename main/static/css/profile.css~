@@ -65,7 +65,19 @@ a#customButton{
 #submitDiv{
 	position: relative;
 	left: -40px;
-	margin-top: 25px; 
+	margin-top: 3em; 
+}
+
+@media only screen and (max-width: 541px) {
+    #submitDiv{
+    	margin-top: 5em; 
+    }
+}
+
+@media only screen and (max-width: 422px) {
+    #submitDiv{
+    	margin-top: 7em; 
+    }
 }
 
 #end_repeat{
@@ -165,5 +177,11 @@ div#tabs{
 
 #myModal .modal-dialog
 {
-    width: 60%; /* your width */
+    width: 50%; /* your width */
+}
+
+#month-event-title-parent{
+	margin-left: auto;
+    margin-right: auto;
+    width: 70%;
 }

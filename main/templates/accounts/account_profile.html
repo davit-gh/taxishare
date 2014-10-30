@@ -54,36 +54,24 @@
 		    }
 		 
 	});
-
-	
 	   	  
 	
 	$(function(){
+
+		
+
 		$('.fback').click(function(e){
 	        var url = $(this).data('form');
 	        var title_text = $(this).data('desc');
-	        console.log(title_text);
 	        $('#myModal').load(url, function(){
 	            $(this).modal('show');
 	            
 	        });
 	        
 	    });
-	    $('.feedback-form').on('submit',function(){
-	        $.ajax({
-	            type: $(this).attr('method'),
-	            url: this.action,
-	            data: $(this).serialize(),
-	            context: this,
-	            success: function(data,status){
-	                $('#feedbackModal').html(data);
-	            },
-	            error: function(data){
-	                console.log('error'+JSON.stringify(data));
-	            }
-	        });
-	        return false;
-	    });
+	    
+	    
+
 		$("div.month-event-title > a:has(p)").parent().children('button').attr('disabled', 'disabled').removeClass('cnclButtClassPlus');
 		
 		$('button.triggerToggle').click(function(e){
@@ -294,34 +282,7 @@
 								<h5>Քարտեզի վրա ընտրեք, խնդրեմ, Ձեր ուղևորության սկզբնակետն ու վերջնակետը</h5>
 							</div>
 							<div class="col-md-12">
-								<form method="POST">
-								{% for hidden in form.hidden_fields %}
-								{{ hidden }}
-								{% endfor %}
-								{% fields_for form.errors %}
-								{# Include the visible fields #}
-								{% for field in form.visible_fields %}
-									{% if forloop.last %}
-								        <div class="col-xs-6 lastdiv">
-								        	<div id="end_repeat">
-								        		{{ field.label_tag }}
-								    			{{ field }}
-								    		</div>
-								        </div>
-								    {% else %}
-								    	<div class="col-xs-6">
-								    		{{ field.label_tag }}<br/>
-								    		{{ field }}
-								    	</div>
-								    {% endif %}
-								{% endfor %}
-								<div class="col-xs-6">
-									
-								</div>
-								<div class="col-xs-6" id="submitDiv">
-									<input id="submit" type="submit" value="submit" />
-								</div>
-								</form>
+								{% include "form/form.html" %}
 							</div>
 						</div>
 					</div>
