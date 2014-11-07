@@ -46,7 +46,6 @@ label{
 
 
 .form-control{
-	color: #69A3B9;
 	border: 2px solid #dadada;
 	border-radius: 10px;
 }
@@ -57,8 +56,14 @@ a#customButton{
 	
 }
 
-.btn-custom { background-color: hsl(208, 100%, 75%) !important; background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d1e9ff", endColorstr="#7fc3ff"); background-image: -khtml-gradient(linear, left top, left bottom, from(#d1e9ff), to(#7fc3ff)); background-image: -moz-linear-gradient(top, #d1e9ff, #7fc3ff); background-image: -ms-linear-gradient(top, #d1e9ff, #7fc3ff); background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #d1e9ff), color-stop(100%, #7fc3ff)); background-image: -webkit-linear-gradient(top, #d1e9ff, #7fc3ff); background-image: -o-linear-gradient(top, #d1e9ff, #7fc3ff); background-image: linear-gradient(#d1e9ff, #7fc3ff); border-color: #7fc3ff #7fc3ff hsl(208, 100%, 71%); color: #333 !important; text-shadow: 0 1px 1px rgba(255, 255, 255, 0.26); -webkit-font-smoothing: antialiased; -moz-border-radius:15px;-webkit-border-radius:15px;border-radius:15px;}
+.btn-custom { 
+	background-color: hsl(208, 100%, 75%) !important; 
+	background-repeat: repeat-x; font-weight: bold;
+}
 
+.btn-custom:hover { 
+	color: #fff;
+}
 
 #submitDiv{
 	position: relative;
@@ -83,11 +88,7 @@ a#customButton{
 
 }
 
-.ui-widget-content {
-    border: 1px solid #A6C9E2;
-    background: url('/img/ui-bg_inset-hard_100_fcfdfd_1x100.png') repeat-x scroll 50% bottom #FCFDFD;
-    color: #222;
-}
+
 
 button#cal-today-btn.btn.btn-small{
 	color: blue;
@@ -109,6 +110,17 @@ h1{
 	font-size: 5vw;
 }
 
+h2{
+	color: #008080;
+	background-color: rgba(127, 195, 255, 0.27);
+	text-align: center;
+	line-height: 2em;
+	border-radius: 1em;
+	border: 1px solid #DDD;
+	box-shadow: 0 0 2px #ccc;
+	font-size: 5vw;
+}
+
 .commentButtClass{
 	color: #008080;
 	background-color: rgba(127, 195, 255, 0.27);
@@ -127,7 +139,7 @@ button.cnclButtClass{
 	line-height: 2em;
 	border-radius: 1em;
 	cursor: pointer;
-	margin-left: 0.8em;
+	margin-left: 1.3em;
 }
 
 .cnclButtClassPlus{
@@ -186,3 +198,152 @@ div#tabs{
 	}	
 }
 
+h3{
+	font: 400 3.5em/125% 'Courgette', Helvetica, Sans-serif;
+	color: #333;
+}
+
+h5{
+	text-align: center;
+	font-size: 2vw;
+	font-weight: bold;
+	color: #008080;
+	line-height: 2em;
+}
+
+div#tab2{
+	height: 40em;
+}
+
+footer {
+    padding: 25px 0;
+    text-align: center;
+    background-color: #B2BEB5;
+}
+
+footer span.copyright {
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 40px;
+}
+
+footer ul.quicklinks {
+    margin-bottom: 0;
+    text-transform: uppercase;
+    text-transform: none;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 40px;
+}
+
+ul.social-buttons {
+    margin-bottom: 0;
+}
+
+ul.social-buttons li a {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    font-size: 20px;
+    line-height: 40px;
+    outline: 0;
+    color: #fff;
+    background-color: #222;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+}
+
+ul.social-buttons li a:hover,
+ul.social-buttons li a:focus,
+ul.social-buttons li a:active {
+    background-color: #fed136;
+}
+
+p{
+	text-align: center;
+}
+
+div#dialog-confirm > p{
+	margin-top: 2em;
+}
+
+.ui-widget.success-dialog {
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 1.2em;
+}
+
+.ui-widget-content.success-dialog {
+    background: #E6E6E6;
+    border: 1px solid  #448dae;
+    color: #222222;
+}
+
+.ui-dialog.success-dialog {
+    left: 0;
+    outline: 0 none;
+    padding: 0 !important;
+    position: absolute;
+    top: 0;
+}
+
+.ui-dialog.success-dialog .ui-dialog-content {
+    background: none repeat scroll 0 0 transparent;
+    border: 0 none;
+    overflow: auto;
+    position: relative;
+    padding: 0 !important;
+    margin: 0;
+}
+
+.ui-dialog.success-dialog .ui-widget-header {
+    background: #448dae;
+    border: 0;
+    color: #fff;
+    font-weight: normal;
+}
+
+.ui-dialog.success-dialog .ui-dialog-titlebar {
+    padding: 0.1em .5em;
+    position: relative;
+    font-size: 1em;
+}
+
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+
+.ui-widget-content{
+	background: #E6E6E6 !important;
+	border-color: #E6E6E6;
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only{
+	color: #008080;
+	background-color: rgba(127, 195, 255, 0.27);
+	text-align: center;
+	line-height: 2em;
+	border: 1px solid #DDD;
+	box-shadow: 0 0 2px #ccc;
+	padding: 0.2em 1em;
+	margin: 0.5em 0.2em;
+	float: right;
+
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only:first-child:hover{
+	background: #990000;
+	box-shadow: inset 2px -7px 11px #E60026;
+	color: #fff;
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only:hover{
+	background: #99CD30;
+	box-shadow: inset 2px -7px 11px green;
+	color: #fff;
+}
+
+div.header{
+	margin-bottom: 4em;
+}

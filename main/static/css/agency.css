@@ -901,10 +901,62 @@ ul.dropdown-menu > li > a.button.bluebut, ul.dropdown-menu > li > a.button.redbu
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-weight: 400;
     letter-spacing: 1px;
-    color: rgba(33, 117, 212, 1);
+    color: rgba(33, 117, 212, 1) !important;
 }
 
 #map { 
     height: 180px;
     background-color: silver;
+}
+
+
+input{
+    border-radius: 20px;
+    outline: medium none;
+    border: 2px solid #dadada;
+    transition: all 0.3s ease-in-out 0s;
+    margin-bottom: 15px;
+    height: 35px;
+    padding: 4px 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+     box-sizing: border-box; 
+}
+
+input:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+#login_button{
+    border-radius: 20px;
+    width: 100%;
+}
+
+#login_form_div{
+    margin: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    
+    #login_form_div{
+        background-color: #fff;
+        margin: 10px;
+    }
+    ul.dropdown-menu a{
+        background-color: #fff;
+    }
+}
+
+label{
+    display: block;
+}
+
+.nav>li>a{
+    padding: 10px !important;
+}
+
+ul.dropdown-menu a:hover{
+    background-color: #fed136;
 }

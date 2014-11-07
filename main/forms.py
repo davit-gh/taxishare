@@ -19,6 +19,8 @@ from happenings.models import Event
 from datetimewidget.widgets import DateTimeWidget
 from datetimewidget.widgets import DateWidget
 from main.models import Feedback
+import datetime
+import pdb
 
 class EventForm(ModelForm):
 
@@ -52,6 +54,14 @@ class EventForm(ModelForm):
 		dest = self.cleaned_data['destination']
 		obj, created = Streets.objects.get_or_create(name_hy=dest, defaults={'name_en': 'not set'})
 		return obj
+
+	def clean_start_date(self):
+		start_datetime = self.cleaned_data["start_date"]
+		start_date = start_datetime.date()
+		curr_date = datetime.datetime.now().date()
+		if start_date < curr_date + datetime.timedelta(days=1):
+		    raise forms.ValidationError(_("Please enter future date."), code='invalid')
+		return start_datetime
 
 class StreetsForm(ModelForm):
     #form = make_ajax_form(SourceDest, {'streets': 'street'})

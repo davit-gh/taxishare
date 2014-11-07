@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="{{ LANGUAGE_CODE }}"{% if LANGUAGE_BIDI %} dir="rtl"{% endif %}>
-{% load pages_tags mezzanine_tags i18n future staticfiles %}
+{% load pages_tags mezzanine_tags i18n future staticfiles get_balance accounts_tags %}
 
 <head>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8">
@@ -19,6 +19,10 @@
 <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
 <link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
 <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+<link rel="stylesheet" href="{% static "font-awesome-4.1.0/css/font-awesome.min.css" %}" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Courgette" />
+
 {% if LANGUAGE_BIDI %}
 <link rel="stylesheet" href="{% static "css/rtl.css" %}">
 {% endif %}
@@ -49,7 +53,28 @@
 </head>
 
 <body id="{% block body_id %}body{% endblock %}">
-
+<!--header-->
+    <div class="header">
+        <div class="wrap">
+            <div class="navbar navbar_ clearfix">
+                <div class="container">
+                    <div class="row" id="header-row">
+                        
+                        <div class="col-sm-12">
+                            <div class="col-sm-6">
+                                <a class="navbar-brand page-scroll" href="#page-top"><img src="{% static "img/index_photos/taxi2.png" %}" width="120" alt="Taxin Miasin"></a>    
+                            </div>
+                            <div  class="col-sm-6">
+                                {% block title %}{% endblock %}
+                            </div>
+                        </div>
+                        
+                    </div>                
+                </div>
+             </div>
+        </div>    
+    </div>
+    <!--//header-->    
 <div class="container">
 
 {% nevercache %}
@@ -65,7 +90,6 @@
 {% endif %}
 {% endnevercache %}
 
-<h1>{% block title %}{% endblock %}</h1>
 
 
 </div>
@@ -100,8 +124,32 @@
     </div>
 </div>
 
-<footer>
-</footer>
-
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Taxin Miasin 2014</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>

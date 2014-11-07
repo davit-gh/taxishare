@@ -1,13 +1,14 @@
 from ajax_select import make_ajax_field
 from ajax_select import make_ajax_form
 from main.models import SourceDest
-from main.models import Streets
-from django.forms import ModelForm
+from happenings.models import Streets
+from django.forms import ModelForm, Textarea
 from ajax_select.fields import AutoCompleteField
 from ajax_select.fields import AutoCompleteWidget
 from django import forms
 from functools import partial
 from django.utils.translation import ugettext as _
+
 DateInput = partial(forms.DateInput, )
 
 # Form Fields
@@ -17,6 +18,8 @@ from django.utils import timezone
 from happenings.models import Event
 from datetimewidget.widgets import DateTimeWidget
 from datetimewidget.widgets import DateWidget
+from main.models import Feedback
+
 class EventForm(ModelForm):
 
 	REPEAT_CHOICES = (
@@ -33,20 +36,31 @@ class EventForm(ModelForm):
 	repeat 	    = forms.ChoiceField(widget=forms.Select(attrs={'id': "id_repeat", 'class': 'repeatClass', 'onchange':'getRepeat(this);'}), choices=REPEAT_CHOICES, initial='NEVER')
 	class Meta:
  		model = Event
-		fields = ['source','destination','start_date','repeat','end_repeat']
+		fields = ['source', 'destination', 'source_detail', 'destination_detail', 'start_date','repeat','end_repeat']
 		widgets = {
             		'start_date': DateTimeWidget(attrs={'id':"id_source"}, options={'startDate':'+1d'}, bootstrap_version=3),
-	    		'end_repeat': DateWidget(attrs={'id':"id_end_repeat"}, options={'startDate':'+2d'}, bootstrap_version=3)
+	    		'end_repeat': DateWidget(attrs={'id':"id_end_repeat"}, options={'startDate':'+2d'}, bootstrap_version=3),
+	    		'source_detail':forms.widgets.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;'}),
+	    		'destination_detail':forms.widgets.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;'})
         	}
 	def clean_source(self):
 		source = self.cleaned_data['source']
-		obj = Streets.objects.filter(name_hy=source)[0]
+		obj, created = Streets.objects.get_or_create(name_hy=source, defaults={'name_en': 'not set'})
 		return obj
 
 	def clean_destination(self):
 		dest = self.cleaned_data['destination']
-		obj = Streets.objects.filter(name_hy=dest)[0]
+		obj, created = Streets.objects.get_or_create(name_hy=dest, defaults={'name_en': 'not set'})
 		return obj
+
+	def clean_start_date(self):
+        start_datetime = self.cleaned_data["start_date"]
+        start_date = start_datetime.date()
+        curr_date = datetime.datetime.strptime(str,'%d/%m/%Y %H:%M').date()
+        pdb.set_trace()
+        if start_date < curr_date + datetime.timedelta(days=1):
+            raise forms.ValidationError("Date must be at least a day ahead of current date.")
+        return start_datetime
 
 class StreetsForm(ModelForm):
     #form = make_ajax_form(SourceDest, {'streets': 'street'})
@@ -74,6 +88,17 @@ from paypal.standard.forms import PayPalPaymentsForm
 from paypal.standard.widgets import ValueHiddenInput, ReservedValueHiddenInput
  
 class PayPalPaymentsFormCustom(PayPalPaymentsForm):
-    image_url = forms.CharField(widget=ValueHiddenInput)
+	image_url = forms.CharField(widget=ValueHiddenInput)
 	custom = forms.CharField(widget=ValueHiddenInput)
 	hosted_button_id = forms.CharField(widget=ValueHiddenInput)
+
+
+class FeedbackForm(ModelForm):
+	class Meta:
+		model = Feedback
+		fields = ['title', 'feedback_desc']
+		widgets = {
+			'feedback_text': Textarea(attrs={
+				'placeholder':_('Thank you for your comment!')
+			}),
+		}
