@@ -13,14 +13,13 @@ class Migration(SchemaMigration):
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
             ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['auth.User'], unique=True)),
             ('balance', self.gf('django.db.models.fields.FloatField')(default=0.0, blank=True)),
+            ('mobile_number', self.gf('django.db.models.fields.IntegerField')()),
+            ('pin', self.gf('django.db.models.fields.IntegerField')()),
         ))
         db.send_create_signal(u'main', ['MyProfile'])
 
-
-    def backwards(self, orm):
-        # Deleting model 'MyProfile'
-        db.delete_table(u'main_myprofile')
-
+        
+    
 
     models = {
         u'auth.group': {
@@ -59,11 +58,79 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
+        u'happenings.category': {
+            'Meta': {'object_name': 'Category'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'happenings.event': {
+            'Meta': {'object_name': 'Event'},
+            'background_color': ('django.db.models.fields.CharField', [], {'default': "u'eeeeee'", 'max_length': '10'}),
+            'background_color_custom': ('django.db.models.fields.CharField', [], {'max_length': '6', 'blank': 'True'}),
+            'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['happenings.Category']", 'symmetrical': 'False', 'blank': 'True'}),
+            'description': ('django.db.models.fields.TextField', [], {}),
+            'destination': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'event_destination_set'", 'blank': 'True', 'to': u"orm['happenings.Streets']"}),
+            'destination_detail': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'end_date': ('django.db.models.fields.DateTimeField', [], {}),
+            'end_repeat': ('django.db.models.fields.DateField', [], {'null': 'True', 'blank': 'True'}),
+            'font_color': ('django.db.models.fields.CharField', [], {'default': "u'000000'", 'max_length': '10'}),
+            'font_color_custom': ('django.db.models.fields.CharField', [], {'max_length': '6', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'location': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['happenings.Location']", 'symmetrical': 'False', 'blank': 'True'}),
+            'repeat': ('django.db.models.fields.CharField', [], {'default': "u'NEVER'", 'max_length': '15'}),
+            'source': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'event_source_set'", 'blank': 'True', 'to': u"orm['happenings.Streets']"}),
+            'source_detail': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
+            'start_date': ('django.db.models.fields.DateTimeField', [], {}),
+            'tags': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['happenings.Tag']", 'symmetrical': 'False', 'blank': 'True'}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'happenings.location': {
+            'Meta': {'object_name': 'Location'},
+            'address_line_1': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
+            'address_line_2': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
+            'address_line_3': ('django.db.models.fields.CharField', [], {'max_length': '255', 'blank': 'True'}),
+            'city': ('django.db.models.fields.CharField', [], {'max_length': '63', 'blank': 'True'}),
+            'country': ('django.db.models.fields.CharField', [], {'max_length': '127', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'state': ('django.db.models.fields.CharField', [], {'max_length': '63', 'blank': 'True'}),
+            'zipcode': ('django.db.models.fields.CharField', [], {'max_length': '31', 'blank': 'True'})
+        },
+        u'happenings.streets': {
+            'Meta': {'object_name': 'Streets'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name_en': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'name_hy': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
+        u'happenings.tag': {
+            'Meta': {'object_name': 'Tag'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'main.feedback': {
+            'Meta': {'object_name': 'Feedback'},
+            'event': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'event'", 'to': u"orm['happenings.Event']"}),
+            'feedback_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'feedback_desc': ('django.db.models.fields.TextField', [], {}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'usr'", 'to': u"orm['auth.User']"})
+        },
         u'main.myprofile': {
             'Meta': {'object_name': 'MyProfile'},
             'balance': ('django.db.models.fields.FloatField', [], {'default': '0.0', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'mobile_number': ('django.db.models.fields.IntegerField', [], {}),
+            'pin': ('django.db.models.fields.IntegerField', [], {}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['auth.User']", 'unique': 'True'})
+        },
+        u'main.sourcedest': {
+            'Meta': {'object_name': 'SourceDest'},
+            'book_date': ('django.db.models.fields.DateField', [], {}),
+            'destination': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'destination_set'", 'blank': 'True', 'to': u"orm['happenings.Streets']"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'source': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'source_set'", 'blank': 'True', 'to': u"orm['happenings.Streets']"}),
+            'timestamp': ('django.db.models.fields.TimeField', [], {})
         }
     }
 

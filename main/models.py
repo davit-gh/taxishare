@@ -6,13 +6,14 @@ from ajax_select.fields import AutoCompleteField
 from happenings.models import Event
 from happenings.models import Streets
 from django.contrib.auth.models import User
+from django.db.models.signals import post_save
 
 DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 
 
 class MyProfile(models.Model):
-    user = models.OneToOneField("auth.User")
-    balance = models.FloatField(blank=True, default=0.0)
+    user = models.OneToOneField(User, related_name="profile")
+    balance = models.FloatField(blank=True, default=0)
     mobile_number = models.IntegerField(blank=False)
     pin = models.IntegerField(blank=False)
     
@@ -31,8 +32,6 @@ class Feedback(models.Model):
     feedback_date = models.DateTimeField(auto_now_add=True, blank=True)
 
 from paypal.standard.ipn.signals import payment_was_successful
-from main.views import set_user_balance
-from main.views import get_user_balance
 
 def show_me_the_money(sender, **kwargs):
     ipn_obj = sender
@@ -43,10 +42,10 @@ def show_me_the_money(sender, **kwargs):
         if ipn_obj.custom:
         	amountAMD, user = ipn_obj.custom.split(',')
         	u = User.objects.get(username=user)
-        	balance = get_user_balance(u)
-        	new_balance = balance + int(amountAMD)
-        	set_user_balance(u, new_balance)
-    
+           	balance = u.profile.balance
+           	new_balance = balance + int(amountAMD)
+           	u.profile.balance = new_balance
+           	u.profile.save()
         
 
 payment_was_successful.connect(show_me_the_money)

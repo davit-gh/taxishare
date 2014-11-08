@@ -11,36 +11,37 @@
 {% endblock %}
 
 {% block main %}
-
-<form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %}>
-	{% csrf_token %}
-    <fieldset>
-    
-	{% errors_for form %}
-    {# Include the visible fields #}
-    {% for field in form.visible_fields %}
-        <div class="form-group input_id_{{ field.name }}">
-                {% if field.name == 'pin' %} 
-                    {{ field.errors }}
-                    <label class="control-label" for="id_pin">
-                    {% trans  field.label  %}</label>
-                    <div class="row">
-                        {{ field }}  
-                        <input id="getpin" type="submit" value="Get Pin">
-                    </div>
-                {% else %}
-                    {{ field.errors }}
-                    <label class="control-label" for="id_{{ field.name }}">
-                    	{% trans  field.label  %}</label>
-                    	{{ field }}	
-                {% endif %}
+<div id="form_div">
+    <form method="post"{% if form.is_multipart %} enctype="multipart/form-data"{% endif %} >
+    	{% csrf_token %}
+        <fieldset>
+        
+    	{% errors_for form %}
+        {# Include the visible fields #}
+        {% for field in form.visible_fields %}
+            <div class="form-group input_id_{{ field.name }}">
+                    {% if field.name == 'pin' %} 
+                        {{ field.errors }}
+                        <label class="control-label" for="id_pin">
+                        {% trans  field.label  %}</label>
+                        <div class="row">
+                            {{ field }}  
+                            <input id="getpin" type="submit" value="Get Pin">
+                        </div>
+                    {% else %}
+                        
+                        <label class="control-label" for="id_{{ field.name }}">
+                        	{% trans  field.label  %}</label>{{ field.errors }}
+                        	{{ field }}	
+                    {% endif %}
+            </div>
+        {% endfor %}
+        <div class="form-actions">
+            {% block account_form_actions %}
+            <input class="btn btn-primary btn-lg pull-right" type="submit" value="{{ title }}">
+            {% endblock %}
         </div>
-    {% endfor %}
-    <div class="form-actions">
-        {% block account_form_actions %}
-        <input class="btn btn-primary btn-lg pull-right" type="submit" value="{{ title }}">
-        {% endblock %}
-    </div>
-    </fieldset>
-</form>
+        </fieldset>
+    </form>
+</div>
 {% endblock %}

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n future mezzanine_tags accounts_tags staticfiles get_balance happenings_tags get_passed_events %}
+{% load i18n future mezzanine_tags accounts_tags staticfiles happenings_tags get_passed_events %}
 
 {% block meta_title %}{{ profile_user|username_or:"get_full_name" }}{% endblock %}
 {% block title %}<h3>Welcome, {{ profile_user|username_or:"get_full_name" }}!</h3>{% endblock %}
@@ -176,8 +176,7 @@
         </div>
         <div class="col-xs-6">
             <h4>Ձեր հաշվին կա </h4>
-            {% get_user_balance request as balance %}
-            <h4 id="balance">{{ balance }} դրամ
+            <h4 id="balance">{{ request.user.profile.balance }} դրամ
             </h4>
         </div>
 		
