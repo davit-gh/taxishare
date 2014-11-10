@@ -10,7 +10,9 @@
 	margin-top: 20px;
 }
 
-input[type='text']:focus, textarea:focus {
+input[type='text']:focus, textarea:focus, 
+input[type='password']:focus, input[type='email']:focus, 
+input[type='number']:focus {
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
@@ -27,7 +29,7 @@ textarea{
      font-size: 16px;
 }
 
-input[type='text']{
+input[type='text'], input[type='password'], input[type='email'], input[type='number']{
     border-radius: 20px;
     outline: medium none;
     border: 2px solid #dadada;
@@ -132,7 +134,11 @@ h2{
 	margin-left: -1em;
 }
 
-
+.commentButtClass:hover{
+	background: #99CD30;
+	box-shadow: inset 2px -7px 11px green;
+	color: #fff;
+}
 
 button.cnclButtClass{
 	text-align: center;
@@ -182,7 +188,7 @@ div#tabs-1{
 }
 
 div#tabs{
-	margin-top: 2em;
+	margin: 2em 0em;
 }
 
 #myModal .modal-dialog
@@ -216,7 +222,7 @@ div#tab2{
 }
 
 footer {
-    padding: 25px 0;
+    padding: 0px;
     text-align: center;
     background-color: #B2BEB5;
 }
@@ -350,9 +356,33 @@ div.header{
 
 body{
 	padding-top: 0px;
+	height: 100%;
 }
 
 div#form_div{
 	margin: 2em auto;
 	width: 50%;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 85px;
+  background-color: #ccc;
+}
+
+div#title_div{
+	margin-top: 2em;
+}
+
+label[for='id_pin']{
+	margin-left: 1.2em;
 }

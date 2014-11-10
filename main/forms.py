@@ -19,6 +19,7 @@ from happenings.models import Event
 from datetimewidget.widgets import DateTimeWidget
 from datetimewidget.widgets import DateWidget
 from main.models import Feedback
+from main.models import MyProfile
 import datetime
 import pdb
 

@@ -24,7 +24,7 @@ class SearchForm(forms.Form):
             attrs={'size': 100}
             )
 
-
+import pdb
 def search_form(request):
 
     dd = {}
@@ -49,14 +49,15 @@ def _verify_pin(request, mobile_number, pin):
 def ajax_send_pin(request):
     """ Sends SMS PIN to the specified number """
     if request.POST:
-	    mobile_number = request.POST.get('mobile_number', "")
+	    mobile_number = request.POST.get('mobile_number', "").split()
+	    mobile_number = '+374' + ''.join([mobile_number[0]]+mobile_number[1].split('-'))[1:]
 	    if not mobile_number:
 		return HttpResponse("No mobile number", content_type='text/plain', status=403)
 
 	    pin = _get_pin()
 
 	    # store the PIN in the cache for later verification.
-	    request.session['pin'] = (mobile_number, pin) # valid for 24 hrs
+	    request.session['pin'] = pin # valid for 24 hrs
 
 	    client = TwilioRestClient(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
 	    message = client.messages.create(
@@ -64,7 +65,7 @@ def ajax_send_pin(request):
 		                to=mobile_number,
 		                from_=settings.TWILIO_FROM_NUMBER,
 		            )
-	    return HttpResponse("Message %s sent, stored pin %s" % (message.sid, pin), content_type='text/plain', status=200)
+	    return HttpResponse(json.dumps({'pin': pin}), content_type='application/json')
 
     else:
    	    return render(request, 'temp.html')

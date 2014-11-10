@@ -1,13 +1,57 @@
 {% extends "base.html" %}
-{% load i18n mezzanine_tags %}
+{% load i18n mezzanine_tags widget_tweaks staticfiles %}
 
 {% block meta_title %}{{ title }}{% endblock %}
-{% block title %}{{ title }}{% endblock %}
+{% block title %}<h3>{{ title }}</h3>{% endblock %}
 {% block body_id %}account{% endblock %}
 
 {% block breadcrumb_menu %}
 {{ block.super }}
 <li>{{ title }}</li>
+{% endblock %}
+
+{% block extra_js %}
+    <script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
+    <script type="text/javascript">
+        var pin = "";
+        function send_pin() {
+        $.ajax({
+                url: "{% url 'ajax_send_pin' %}",
+                type: "POST",
+                data: { mobile_number: $("#id_mobile_number").val(), csrfmiddlewaretoken: '{{ csrf_token }}'
+                },
+            })
+            .done(function(data) {
+                pin = data.pin;
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                //alert(errorThrown + ' : ' + jqXHR.responseText);
+                alert("Please check your mobile number and try again.")
+            });
+        }
+        
+
+    $(function(){
+      $("input[value='Sign up']").click(function(){
+        var pin_val = $("#id_pin").val();
+        if (pin_val.length == 0) {return true;} //return true to enable django's standart validation
+        if (pin){
+            if (pin_val == pin){
+                $("span#error").html("");
+                return true;
+            } else {
+                $("span#error").html("Your entered pin is not correct.");
+                return false
+            }
+        } else {
+            return false;
+        }
+      });
+      $("#id_mobile_number").mask("999 99-99-99");  
+    });
+
+    </script>
+    
 {% endblock %}
 
 {% block main %}
@@ -19,29 +63,37 @@
     	{% errors_for form %}
         {# Include the visible fields #}
         {% for field in form.visible_fields %}
-            <div class="form-group input_id_{{ field.name }}">
+
                     {% if field.name == 'pin' %} 
-                        {{ field.errors }}
-                        <label class="control-label" for="id_pin">
-                        {% trans  field.label  %}</label>
-                        <div class="row">
-                            {{ field }}  
-                            <input id="getpin" type="submit" value="Get Pin">
+                        <div class="col-xs-12">
+                            <div class="col-xs-12">
+                                
+                                <label class="control-label" for="id_pin">
+                                {% trans  field.label  %}</label>{{ field.errors }}
+                                <span id="error"></span>
+                            </div>
+                            
+                            <div class="col-xs-6">
+                                    {% render_field field style="width: 80%" placeholder="xxxxx"%}
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="submit" onClick="send_pin(); return false" value="Get Pin" class="commentButtClass">
+                            </div>
                         </div>
                     {% else %}
-                        
                         <label class="control-label" for="id_{{ field.name }}">
                         	{% trans  field.label  %}</label>{{ field.errors }}
                         	{{ field }}	
                     {% endif %}
-            </div>
+
         {% endfor %}
-        <div class="form-actions">
-            {% block account_form_actions %}
-            <input class="btn btn-primary btn-lg pull-right" type="submit" value="{{ title }}">
-            {% endblock %}
-        </div>
         </fieldset>
+        <div class="form-actions">
+            
+            <input class="btn btn-primary btn-lg center-block" type="submit" value="{{ title }}">
+            
+        </div>
+
     </form>
 </div>
 {% endblock %}

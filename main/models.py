@@ -14,7 +14,7 @@ DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 class MyProfile(models.Model):
     user = models.OneToOneField(User, related_name="profile")
     balance = models.FloatField(blank=True, default=0)
-    mobile_number = models.IntegerField(blank=False)
+    mobile_number = models.CharField(max_length=20, blank=False)
     pin = models.IntegerField(blank=False)
     
 

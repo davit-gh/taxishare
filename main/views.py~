@@ -24,7 +24,7 @@ class SearchForm(forms.Form):
             attrs={'size': 100}
             )
 
-
+import pdb
 def search_form(request):
 
     dd = {}
@@ -49,6 +49,7 @@ def _verify_pin(request, mobile_number, pin):
 def ajax_send_pin(request):
     """ Sends SMS PIN to the specified number """
     if request.POST:
+    	pdb.set_trace()
 	    mobile_number = request.POST.get('mobile_number', "")
 	    if not mobile_number:
 		return HttpResponse("No mobile number", content_type='text/plain', status=403)
@@ -162,12 +163,12 @@ def save_feedback(request, event_id):
 			messages.info(request, _("Your feedback is saved. Thank you!"))
             		return HttpResponseRedirect('/users/'+request.user.username)
 		else:
-			rendered = render_to_string('includes/feedback.html', {'form': form, 'event_id': event_id})
-
+			#rendered = render_to_string('includes/feedback.html', {'form': form, 'event_id': event_id})
+			
 			#return HttpResponse(json.dumps({'rendered':rendered}), content_type = 'application/json')
 			lookup = {"username__iexact": request.user.username, "is_active": True}
-			context = {"profile_user": get_object_or_404(User, **lookup), 'rendered': rendered, 'event_id': event_id}
-
+			context = {"profile_user": get_object_or_404(User, **lookup)}
+			messages.info(request, _("Your feedback has not been saved. Please fill in both fields."))
 			return render(request,'accounts/account_profile.html', context)
     	# if a GET (or any other method) we'll create a blank form
     	else:
