@@ -14,6 +14,7 @@
     <script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
     <script type="text/javascript">
         var pin = "";
+        var number_of_clicks = 0;
         function send_pin() {
         $.ajax({
                 url: "{% url 'ajax_send_pin' %}",
@@ -22,7 +23,20 @@
                 },
             })
             .done(function(data) {
+                number_of_clicks += 1;
+                var delay = 1;
+                if (number_of_clicks == 3){
+                    delay = 120;
+                }
                 pin = data.pin;
+                var send_pin = $("input.commentButtClass");
+                send_pin.prop("disabled", true);
+                send_pin.removeClass("commentButtClass");
+                setTimeout(function() {
+                    send_pin.prop("disabled", false);
+                    send_pin.addClass("commentButtClass");
+                }, 60000*delay);
+                
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 //alert(errorThrown + ' : ' + jqXHR.responseText);
@@ -40,8 +54,11 @@
                 $("span#error").html("");
                 return true;
             } else {
+                if ($("div#label_div").children("ul").length){
+                    $("div#label_div").children("ul")[0].remove();
+                }
                 $("span#error").html("Your entered pin is not correct.");
-                return false
+                return false;
             }
         } else {
             return false;
@@ -66,7 +83,7 @@
 
                     {% if field.name == 'pin' %} 
                         <div class="col-xs-12">
-                            <div class="col-xs-12">
+                            <div class="col-xs-12" id="label_div">
                                 
                                 <label class="control-label" for="id_pin">
                                 {% trans  field.label  %}</label>{{ field.errors }}

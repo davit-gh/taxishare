@@ -25,3 +25,9 @@ class FeedbackAdmin(admin.ModelAdmin):
 	list_display=('title','feedback_desc','feedback_date','user', 'event')
 
 admin.site.register(Feedback,FeedbackAdmin)
+
+from main.models import Contactus
+class ContactusAdmin(admin.ModelAdmin):
+	list_display=('name','email','title','description', 'message_date')
+
+admin.site.register(Contactus,ContactusAdmin)

@@ -386,3 +386,11 @@ div#title_div{
 label[for='id_pin']{
 	margin-left: 1.2em;
 }
+
+span#error{
+	color: #B94A48;
+	font-weight: bold;
+	display: inline-block;
+	margin-left: 2em;
+}
+

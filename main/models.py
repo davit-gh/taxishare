@@ -31,6 +31,14 @@ class Feedback(models.Model):
     feedback_desc = models.TextField(blank=False)
     feedback_date = models.DateTimeField(auto_now_add=True, blank=True)
 
+
+class Contactus(models.Model):
+    name = models.CharField(max_length=100, blank=False)
+    email = models.EmailField(blank=False)
+    title = models.CharField(max_length=100, blank=False)
+    description = models.TextField(blank=False)
+    message_date = models.DateTimeField(auto_now_add=True, blank=True)
+
 from paypal.standard.ipn.signals import payment_was_successful
 
 def show_me_the_money(sender, **kwargs):

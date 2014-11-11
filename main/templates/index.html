@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ LANGUAGE_CODE }}">
-{% load pages_tags mezzanine_tags accounts_tags i18n future staticfiles %}
+{% load pages_tags mezzanine_tags accounts_tags i18n future staticfiles widget_tweaks contact_form %}
 
 <head>
 
@@ -56,6 +56,21 @@
                 
             </div>
 
+            <div class="container">
+                {% nevercache %}
+                {% if messages %}
+                <div class="messages">
+                {% for message in messages %}
+                <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+                </div>
+                {% endif %}
+                {% endnevercache %}
+            </div>
+            
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav col-sm-12">
@@ -225,31 +240,28 @@
                     <h3 class="section-subheading text-muted">Գրեք մեզ ցանկացած հարցերի կամ առաջարկների դեպքում․</h3>
                 </div>
             </div>
+            {% get_contact_form request as form %}
             <div class="row">
                 <div class="col-lg-12">
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    <form name="sentMessage" id="contactForm" method="POST" action="/contactus/">
+                    {% csrf_token %}
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Ձեր Անունը *" id="name" required data-validation-required-message="Մուտքագրեք, խնդրեմ, Ձեր անունը։">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="Ձեր Email-ը *" id="email" required data-validation-required-message="Մուտքագրեք, խնդրեմ, Ձեր email հասցեն։">
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Թեմա *" id="phone" required data-validation-required-message="Մուտքագրեք, խնդրեմ, նամակի թեման։">
-                                    <p class="help-block text-danger"></p>
-                                </div>
+                            <div class="col-md-12">
+                                {% errors_for form %}
+                                {% for hidden in form.hidden_fields %}
+                                    {{ hidden }}
+                                {% endfor %}
+                                {% for field in form.visible_fields %}     
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label style="color: #f6bf01; font-size: 2vw" for="id_{{ field.name }}">
+                                            {% trans  field.label  %}</label>{{ field.errors }}
+                                            {% render_field field class="form-control" %} 
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <textarea class="form-control" placeholder="Ձեր նամակը *" id="message" required data-validation-required-message="Մուտքագրեք, խնդրեմ, Ձեր նամակը։"></textarea>
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
+                           
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
                                 <button type="submit" class="btn btn-xl">Ուղարկել նամակը</button>

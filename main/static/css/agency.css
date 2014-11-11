@@ -675,7 +675,7 @@ section#contact .form-group input.form-control {
 }
 
 section#contact .form-group textarea.form-control {
-    height: 236px;
+    height: 160px;
 }
 
 section#contact .form-control:focus {
@@ -959,4 +959,9 @@ label{
 
 ul.dropdown-menu a:hover{
     background-color: #fed136;
+}
+
+ul.errorlist > li{
+    color: red;
+    display: inline-block;
 }

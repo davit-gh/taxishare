@@ -183,3 +183,22 @@ def ppl_return(request):
 		return HttpResponse('Your account has been recharged by '+request.POST['custom'].split(',')[0]+' AMD')
 	else:
 		return HttpResponse('request method is: '+request.method+'<br/> request is: ')
+
+from main.forms import ContactusForm
+
+def contactus(request):
+	if request.method == 'POST':
+        	form = ContactusForm(request.POST)
+        # check whether it's valid:
+        	if form.is_valid():
+            	# process the data in form.cleaned_data as required
+            		form.save()
+            	# redirect to a new URL:
+			messages.info(request, _("We received your message, we will respond shortly. Thank you!"))
+		else:
+			messages.info(request, _("Your message has not been sent. Please fill in all the fields."))
+    	# if a GET (or any other method) we'll create a blank form
+    	else:
+        	form = ContactusForm()
+
+	return render(request,'index.html',{'form':form})

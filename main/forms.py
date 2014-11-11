@@ -20,6 +20,7 @@ from datetimewidget.widgets import DateTimeWidget
 from datetimewidget.widgets import DateWidget
 from main.models import Feedback
 from main.models import MyProfile
+from main.models import Contactus
 import datetime
 import pdb
 
@@ -104,3 +105,9 @@ class FeedbackForm(ModelForm):
 				'placeholder':_('Thank you for your comment!')
 			}),
 		}
+
+class ContactusForm(ModelForm):
+	class Meta:
+		model = Contactus
+		fields = ['name', 'email', 'title', 'description']
+		
