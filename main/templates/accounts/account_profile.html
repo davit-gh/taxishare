@@ -1,8 +1,8 @@
 {% extends "base.html" %}
-{% load i18n future mezzanine_tags accounts_tags staticfiles happenings_tags get_passed_events %}
+{% load i18n future mezzanine_tags accounts_tags staticfiles happenings_tags get_passed_events paypal_formset %}
 
 {% block meta_title %}{{ profile_user|username_or:"get_full_name" }}{% endblock %}
-{% block title %}<h3>Welcome, {{ profile_user|username_or:"get_full_name" }}!</h3>{% endblock %}
+{% block title %}<h3>{% trans "Welcome" %}, {{ profile_user|username_or:"get_full_name" }}!</h3>{% endblock %}
 {% block body_id %}account{% endblock %}
 {% block extra_css %}
     <link rel="stylesheet" href="{% static "css/ajax_select.css" %}" />
@@ -79,7 +79,7 @@
 			$('div.toggle_payment').slideToggle("slow");
 			ppldiv.slideToggle("slow");
 				$(".triggerToggle").text(function(i, text){
-				          return text === "Pay with Paypal" ? "Pay with Credit Card" : "Pay with Paypal";
+				          return text === "Վճարել Paypal-ով" ? "Վճարել Կրեդիտ Քարտով" : "Վճարել Paypal-ով";
 				})	
 
 		});
@@ -144,7 +144,7 @@
 			return false;
 		});
 		
-    	if($("#id_repeat :selected").text() != "Never"){
+    	if($("#id_repeat :selected").text() != "Երբեք"){
 			$('#end_repeat').show();
 		} else {
 			$('#end_repeat').hide();
@@ -224,56 +224,23 @@
 							
 							<div class="ppl_div" style="display:none">
 								<h5 style="text-align: center">Վճարեք Paypal-ի միջոցով</h5>
-								<div class="col-xs-6">
-									<form method="post" action="{{ action }}">
-										{{ form1.as_p }}
-										<input type="image" src="{% static 'img/ppl/300.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
-									</form>
-								</div>
-								<div class="col-xs-6">
-									<form method="post" action="{{ action }}">
-										{{ form2.as_p }}
-										<input type="image" src="{% static 'img/ppl/600.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
-										
-									</form>
-								</div>
-								<div class="col-xs-6">
-									<form method="post" action="{{ action }}">
-										{{ form3.as_p }}
-										<input type="image" src="{% static 'img/ppl/1200_1.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
-										
-									</form>
-								</div>
-								<div class="col-xs-6">
-									<form method="post" action="{{ action }}">
-										{{ form4.as_p }}
-										<input type="image" src="{% static 'img/ppl/2400.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
-										
-									</form>
-								</div>
-								<div class="col-xs-6">
-									<form method="post" action="{{ action }}">
-										{{ form5.as_p }}
-										<input type="image" src="{% static 'img/ppl/4800.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
-										
-									</form>
-								</div>
-								<div class="col-xs-6">
-									<form method="post" action="{{ action }}">
-										{{ form6.as_p }}
-										<input type="image" src="{% static 'img/ppl/6000.JPG' %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
-										
-									</form>
-								</div>
+								{% get_ppl_formset request as formset %}
+								{% for form, url in formset %}
+									<div class="col-xs-6">
+										<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+											{{ form.as_p }}
+											<input type="image" src="{% static url %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
+										</form>
+									</div>
+								{% endfor %}
 
 
 							</div>
 							
-							<div id="buttonDiv" class="col-xs-4 col-xs-offset-5">
-								<button class="triggerToggle btn btn-custom" style="font-size: 2vw">Pay with Paypal</button>
+							<div id="buttonDiv" class="col-xs-12">
+								<button class="triggerToggle btn btn-custom center-block" style="font-size: 2vw">Վճարել Paypal-ով</button>
 							</div>
-							<div class="col-xs-4"></div>
-							<div class="col-xs-4"></div>
+							
 						</div>
 					</div>
 					<div id="tab2">

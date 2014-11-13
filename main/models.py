@@ -7,6 +7,7 @@ from happenings.models import Event
 from happenings.models import Streets
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.utils.translation import ugettext_lazy as _
 
 DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 
@@ -14,8 +15,8 @@ DateInput = partial(forms.DateInput, {'class': 'datepicker'})
 class MyProfile(models.Model):
     user = models.OneToOneField(User, related_name="profile")
     balance = models.FloatField(blank=True, default=0)
-    mobile_number = models.CharField(max_length=20, blank=False)
-    pin = models.IntegerField(blank=False)
+    mobile_number = models.CharField(_("Mobile Number"), max_length=20, blank=False)
+    pin = models.IntegerField(_("Pin"), blank=False)
     
 
 class SourceDest(models.Model):
@@ -27,16 +28,16 @@ class SourceDest(models.Model):
 class Feedback(models.Model):
     event = models.ForeignKey(Event, related_name="event")
     user = models.ForeignKey(User, related_name="usr")
-    title = models.CharField(max_length=100, blank=False)
-    feedback_desc = models.TextField(blank=False)
+    title = models.CharField(_("Title"), max_length=100, blank=False)
+    feedback_desc = models.TextField(_("Feedback Text"), blank=False)
     feedback_date = models.DateTimeField(auto_now_add=True, blank=True)
 
 
 class Contactus(models.Model):
-    name = models.CharField(max_length=100, blank=False)
+    name = models.CharField(_("Name"), max_length=100, blank=False)
     email = models.EmailField(blank=False)
-    title = models.CharField(max_length=100, blank=False)
-    description = models.TextField(blank=False)
+    title = models.CharField(_("Title"), max_length=100, blank=False)
+    description = models.TextField(_("Description"), blank=False)
     message_date = models.DateTimeField(auto_now_add=True, blank=True)
 
 from paypal.standard.ipn.signals import payment_was_successful

@@ -4,6 +4,7 @@ from django.conf.urls import patterns, include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.contrib import admin
 from mezzanine.core.views import direct_to_template
+from solid_i18n.urls import solid_i18n_patterns
 
 from ajax_select import urls as ajax_select_urls
 
@@ -13,16 +14,17 @@ admin.autodiscover()
 # You can also change the ``home`` view to add your own functionality
 # to the project's homepage.
 
-urlpatterns = i18n_patterns("",
+
+urlpatterns = patterns("",
     # Change the admin prefix here to use an alternate URL for the
     # admin interface, which would be marginally more secure.
     # include the lookup urls
     (r'^lookups/', include(ajax_select_urls)),
     ("^admin/", include(admin.site.urls)),
-    
+#    (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
-urlpatterns += patterns('',
+urlpatterns += solid_i18n_patterns('',
 
     # Cartridge URLs.
     ("^shop/", include("cartridge.shop.urls")),

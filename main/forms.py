@@ -35,17 +35,18 @@ class EventForm(ModelForm):
             ('MONTHLY', _('Every Month')),
             ('YEARLY', _('Every Year')),
         )
-	source 	    = AutoCompleteField('street', required=True, help_text=None)
-	destination = AutoCompleteField('street', required=True, help_text=None)
-	repeat 	    = forms.ChoiceField(widget=forms.Select(attrs={'id': "id_repeat", 'class': 'repeatClass', 'onchange':'getRepeat(this);'}), choices=REPEAT_CHOICES, initial='NEVER')
+	source 	    = AutoCompleteField('street', label=_('source'), required=True, help_text=None)
+	destination = AutoCompleteField('street', label=_('destination'), required=True, help_text=None)
+	repeat 	    = forms.ChoiceField(label=_("repeat"), widget=forms.Select(attrs={'id': "id_repeat", 'class': 'repeatClass', 'onchange':'getRepeat(this);'}), choices=REPEAT_CHOICES, initial='NEVER')
 	class Meta:
  		model = Event
 		fields = ['source', 'destination', 'source_detail', 'destination_detail', 'start_date','repeat','end_repeat']
+
 		widgets = {
             		'start_date': DateTimeWidget(attrs={'id':"id_source"}, options={'startDate':'+1d'}, bootstrap_version=3),
 	    		'end_repeat': DateWidget(attrs={'id':"id_end_repeat"}, options={'startDate':'+2d'}, bootstrap_version=3),
-	    		'source_detail':forms.widgets.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;'}),
-	    		'destination_detail':forms.widgets.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;'})
+	    		'source_detail':forms.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;'}),
+	    		'destination_detail':forms.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;'})
         	}
 	def clean_source(self):
 		source = self.cleaned_data['source']

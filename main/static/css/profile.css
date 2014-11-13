@@ -68,8 +68,6 @@ a#customButton{
 }
 
 #submitDiv{
-	position: relative;
-	left: -40px;
 	margin-top: 3em; 
 }
 
@@ -381,6 +379,7 @@ div#form_div{
 
 div#title_div{
 	margin-top: 2em;
+
 }
 
 label[for='id_pin']{

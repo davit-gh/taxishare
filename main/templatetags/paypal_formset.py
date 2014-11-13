@@ -1,7 +1,14 @@
+from main.forms import ContactusForm
+from mezzanine import template
+register = template.Library()
+
 from main.forms import PayPalPaymentsFormCustom
 from django.conf import settings
 from django.core.urlresolvers import reverse
-def proc_that_asks_for_money(request):
+from django.forms.formsets import formset_factory
+import pdb
+@register.as_tag
+def get_ppl_formset(request):
 
     # What you want the button to do.
     paypal_dict1 = {
@@ -60,6 +67,9 @@ def proc_that_asks_for_money(request):
         "return_url": "http://armeninio.pythonanywhere.com/ppl_return/",
         "cancel_return": "http://armeninio.pythonanywhere.com/your-cancel-location/",
     }
+
+#    PaypalFormSet = formset_factory(PayPalPaymentsFormCustom, max_num=6)
+#    formset = PaypalFormSet(initial=[paypal_dict1, paypal_dict2, paypal_dict3, paypal_dict4, paypal_dict5, paypal_dict6])
     # Create the instance.
     form1 = PayPalPaymentsFormCustom(initial=paypal_dict1)
     form2 = PayPalPaymentsFormCustom(initial=paypal_dict2)
@@ -67,6 +77,6 @@ def proc_that_asks_for_money(request):
     form4 = PayPalPaymentsFormCustom(initial=paypal_dict4)
     form5 = PayPalPaymentsFormCustom(initial=paypal_dict5)
     form6 = PayPalPaymentsFormCustom(initial=paypal_dict6)
-    context = {"form1": form1, "form2": form2, "form3": form3, "form4": form4, "form5": form5, "form6": form6, 'action':settings.PAYPAL_SUBMIT_URL}
+    context = [(form1,'img/ppl/300.JPG'), (form2, 'img/ppl/600.JPG'), (form3, 'img/ppl/1200_1.JPG'), (form4, 'img/ppl/2400.JPG'), (form5, 'img/ppl/4800.JPG'), (form6, 'img/ppl/6000.JPG')]
     return context
 

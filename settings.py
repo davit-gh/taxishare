@@ -186,12 +186,13 @@ USE_TZ = True
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = "hy"
+LANGUAGE_CODE = 'hy'
 
 # Supported languages
 _ = lambda s: s
 LANGUAGES = (
-    ('hy', _('Armenian')),
+    ('en', 'English'),
+    ('hy', 'Armenian'),
 )
 
 # A boolean that turns on/off debug mode. When set to ``True``, stack traces
@@ -206,7 +207,9 @@ SITE_ID = 1
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
-USE_I18N = False
+USE_I18N = True
+
+SOLID_I18N_USE_REDIRECTS = False
 
 # Tuple of IP addresses, as strings, that:
 #   * See debug comments, when DEBUG is true
@@ -336,6 +339,7 @@ INSTALLED_APPS = (
     #"mezzanine.mobile",
 )
 
+
 # List of processors used by RequestContext to populate the context.
 # Each one should be a callable that takes the request object as its
 # only parameter and returns a dictionary to add to the context.
@@ -350,7 +354,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "mezzanine.conf.context_processors.settings",
     "mezzanine.pages.context_processors.page",
-    "main.context_processors.proc_that_asks_for_money",
+#    "main.context_processors.get_ppl_formset",
 )
 
 # List of middleware classes to use. Order is important; in the request phase,
@@ -359,7 +363,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 MIDDLEWARE_CLASSES = (
     "mezzanine.core.middleware.UpdateCacheMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "django.middleware.locale.LocaleMiddleware",
+    "solid_i18n.middleware.SolidLocaleMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.redirects.middleware.RedirectFallbackMiddleware",
     "django.middleware.common.CommonMiddleware",
