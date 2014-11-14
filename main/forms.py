@@ -1,6 +1,6 @@
 from ajax_select import make_ajax_field
 from ajax_select import make_ajax_form
-from main.models import SourceDest
+#from main.models import SourceDest
 from happenings.models import Streets
 from django.forms import ModelForm, Textarea
 from ajax_select.fields import AutoCompleteField
@@ -66,27 +66,27 @@ class EventForm(ModelForm):
 		    raise forms.ValidationError(_("Please enter future date."), code='invalid')
 		return start_datetime
 
-class StreetsForm(ModelForm):
-    #form = make_ajax_form(SourceDest, {'streets': 'street'})
-    book_date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker'}, format = '%d/%m/%Y'), input_formats=('%d/%m/%Y',))
-    timestamp = forms.TimeField(widget=forms.TimeInput(attrs={'class': 'timepicker'}, format='%H:%M'))
-    source 	= AutoCompleteField('street', required=True, help_text=None)
-    destination = AutoCompleteField('street', required=True, help_text=None)
-    class Meta:
-        model = SourceDest
-	fields = ['source','destination','book_date', 'timestamp']
+#class StreetsForm(ModelForm):
+#    #form = make_ajax_form(SourceDest, {'streets': 'street'})
+#    book_date = forms.DateField(widget=forms.DateInput(attrs={'class': 'datepicker'}, format = '%d/%m/%Y'), input_formats=('%d/%m/%Y',))
+#    timestamp = forms.TimeField(widget=forms.TimeInput(attrs={'class': 'timepicker'}, format='%H:%M'))
+#    source 	= AutoCompleteField('street', required=True, help_text=None)
+#    destination = AutoCompleteField('street', required=True, help_text=None)
+#    class Meta:
+#        model = SourceDest
+#	fields = ['source','destination','book_date', 'timestamp']
 	
 	
     #haylabel  = make_ajax_field(SourceDest, 'name_hy', 'haystreet', help_text='Need help?')
-    def clean_source(self):
-	source = self.cleaned_data['source']
-	obj = Streets.objects.filter(name_hy=source)[0]
-	return obj
-
-    def clean_destination(self):
-	dest = self.cleaned_data['destination']
-	obj = Streets.objects.filter(name_hy=dest)[0]
-	return obj
+#    def clean_source(self):
+#	source = self.cleaned_data['source']
+#	obj = Streets.objects.filter(name_hy=source)[0]
+#	return obj
+#
+#    def clean_destination(self):
+#	dest = self.cleaned_data['destination']
+#	obj = Streets.objects.filter(name_hy=dest)[0]
+#	return obj
 
 from paypal.standard.forms import PayPalPaymentsForm
 from paypal.standard.widgets import ValueHiddenInput, ReservedValueHiddenInput

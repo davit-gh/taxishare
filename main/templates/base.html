@@ -21,7 +21,6 @@
 <link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
 <link rel="stylesheet" href="{% static "font-awesome-4.1.0/css/font-awesome.min.css" %}" type="text/css">
 <link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
-<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Courgette" />
 
 {% if LANGUAGE_BIDI %}
 <link rel="stylesheet" href="{% static "css/rtl.css" %}">
@@ -33,6 +32,8 @@
 {% endif %}
 {% endifinstalled %}
 {% endcompress %}
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Courgette" />
+
 {% block extra_css %}{% endblock %}
 
 <script src="{% static "js/jquery-1.11.1.min.js" %}"></script>

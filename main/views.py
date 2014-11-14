@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response
 from django import forms
 from django.template import RequestContext
 from ajax_select.fields import AutoCompleteField
-from main.forms import StreetsForm
+#from main.forms import StreetsForm
 from django.http import HttpResponseRedirect
 from twilio.rest import TwilioRestClient
 from django.conf import settings
