@@ -13,7 +13,7 @@
    
 {% endblock %}
 {% block extra_js %}
-	<script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	<script src="{% static 'js/jquery-ui.min.js' %}"></script>
 	<script src="{% static 'js/resp_tab/easyResponsiveTabs.js' %}"></script>
 	<script src="{% static 'js/ajax_select.js' %}"></script>
 	<script src="{% static 'happenings/js/calendar.js' %}"></script>
@@ -32,7 +32,6 @@
 	var	amountAMD = '';
 	var handler = StripeCheckout.configure({
 		    key: 'pk_test_9mC5ObhmQDE0DVcSxipuCNG5',
-		    image: '/th.png',
 		    token: function(token, args) {
 		      // Use the token to create the charge with a server-side script.
 		      // You can access the token ID with `token.id`
@@ -90,7 +89,7 @@
 	    	amountAMD = $(this).data('amount') * 100;
 		    handler.open({
 		      name: 'Տաքսին Միասին',
-		      image: '{% static 'img/th.jpeg' %}',
+		      image: '{% static 'img/index_photos/icon.JPG' %}',
 		      description: 'Հաշվի լիցքավորում ('+$(this).data('amount')+'դր)',
 		      amount: amountAMD,
 		      currency: "amd"

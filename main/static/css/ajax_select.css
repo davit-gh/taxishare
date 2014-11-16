@@ -29,7 +29,6 @@ ul.ui-autocomplete {
 
 	fixed width is harder see http://stackoverflow.com/questions/4607164/changing-width-of-jquery-ui-autocomplete-widgets-individually
 */
-
 	margin: 0;
 	padding: 0;
 	position: absolute;
@@ -41,7 +40,7 @@ ul.ui-autocomplete li {
 ul.ui-autocomplete li a {
 	display: block;
 	padding: 2px 3px;
-	background-color: #808080;
+	background-color: #fff;
 	color: #000;
 	cursor: pointer;
 }
