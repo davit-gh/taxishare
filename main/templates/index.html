@@ -40,7 +40,7 @@
 </head>
 
 <body id="page-top" class="index">
-<a class="navbar-brand page-scroll" style="margin-top: 3em" href="#page-top"><img src="{% static "img/index_photos/icon.JPG" %}" width="150" alt="Taxin Miasin"></a>
+<a class="navbar-brand page-scroll" style="margin-top: 3em" href="#page-top"><img src="{% static "img/index_photos/icon.JPG" %}" width="150" alt="Տաքսին Միասին"></a>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -92,7 +92,7 @@
                 {% if request.user.is_authenticated %}
                   {% url "profile" request.user.username as profile_url %}
                       <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">{% trans "Hello " %}<b>{{ request.user.username }}</b><strong class="caret"></strong></a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Բարև<b>{{ request.user.username }}</b><strong class="caret"></strong></a>
                         <ul class="dropdown-menu" role="menu">
                           
                             {% if profile_url %}
@@ -154,7 +154,6 @@
             <div class="intro-text">
                 <div class="intro-lead-in">Բարի Գալուստ «Տաքսին Միասին»!</div>
                 <div class="intro-heading">Միասին էժան է և ուրախ!</div>
-                <a href="#services" class="page-scroll btn btn-xl">Մանրամասն</a>
             </div>
         </div>
     </header>

@@ -191,7 +191,6 @@ LANGUAGE_CODE = 'hy'
 # Supported languages
 _ = lambda s: s
 LANGUAGES = (
-    ('en', 'English'),
     ('hy', 'Armenian'),
 )
 
