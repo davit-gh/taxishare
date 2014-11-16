@@ -301,6 +301,9 @@ header .intro-text .intro-heading {
     header .intro-text .intro-heading {
         margin-left: 150px;
     }
+    .intro-lead-in{
+        float: right;
+    }
 }
 
 @media(min-width:768px) {
