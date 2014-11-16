@@ -208,7 +208,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .nav li a {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: bold;
+    font-weight: 400;
     letter-spacing: 1px;
     color: #fff;
 }
@@ -266,7 +266,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(../img/taxi);
+    background-image: url(../img/header-bg.jpg);
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -278,7 +278,6 @@ header {
 header .intro-text {
     padding-top: 100px;
     padding-bottom: 50px;
-    background-color: rgba(97, 97, 97, 0.58);
 }
 
 header .intro-text .intro-lead-in {
@@ -965,8 +964,4 @@ ul.dropdown-menu a:hover{
 ul.errorlist > li{
     color: red;
     display: inline-block;
-}
-
-.nav>li {
-	font-size: 13px;
 }
