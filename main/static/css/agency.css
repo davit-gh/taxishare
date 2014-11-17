@@ -726,8 +726,9 @@ section#contact .text-danger {
 }
 
 footer {
-    padding: 25px 0;
     text-align: center;
+    height: 85px;
+    background-color: #ccc;
 }
 
 footer span.copyright {
