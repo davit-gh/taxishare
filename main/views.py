@@ -178,11 +178,14 @@ def save_feedback(request, event_id):
 
 @csrf_exempt
 def ppl_return(request):
-
+	amount = username = error = ""
 	if request.method == 'POST':
-		return HttpResponse('Your account has been recharged by '+request.POST['custom'].split(',')[0]+' AMD')
+		amount, username = request.POST['custom'].split(',')
+		#return HttpResponse('Your account has been recharged by '+request.POST['custom'].split(',')[0]+' AMD')
 	else:
-		return HttpResponse('request method is: '+request.method+'<br/> request is: ')
+		error = "error"
+		#return HttpResponse('request method is: '+request.method+'<br/> request is: ')
+	return render(request,"paypal.html",{'amount': amount, 'username': username, 'error': error})
 
 from main.forms import ContactusForm
 

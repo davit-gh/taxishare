@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block extra_head %}
+	<link rel="stylesheet" href="{% static "css/feedbackform.css" %}" >
+{% endblock %}
+{% block tabs %}
+	
+		<div class="col-sm-12 center-block" style="margin-top: 6em;">
+    		{% if error %}
+    			<p style="font-size: 2vw">Ինչ-որ բան այն չէ, փորձեք նորից, խնդրեմ։</p>
+    		{% else %}
+    			<p style="font-size: 2vw">Շնորհակալություն, {{ username }}! Դուք լիցքավորեցիք Ձեր հաշիվը {{ amount }} դրամով։</p>
+    		{% endif %}
+    		<a class="btn btn-custom center-block" style="font-size: 2vw; width: 25%" href="{% url 'profile_redirect' %}">Վերադառնալ</a>
+    	</div>
+	
+{% endblock %}
