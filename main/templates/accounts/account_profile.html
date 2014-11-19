@@ -44,7 +44,7 @@
 			      	url: '{% url "process_token" %}',
 			      	success: function(data){
 			      		
-			      		$(".col-sm-6 > h4#balance").html(data.new_balance + '&nbsp;դրամ');
+			      		$(".col-xs-6 > h4#balance").html(data.new_balance + '&nbsp;դրամ');
 			      	},
 			      	error: function(data){
 			      		console.log(data);

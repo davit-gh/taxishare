@@ -937,7 +937,7 @@ msgstr ""
 #: main/django/contrib/admin/templates/admin/auth/user/change_password.html:27
 #: main/django/contrib/admin/templates/registration/password_change_form.html:20
 msgid "Please correct the error below."
-msgstr ""
+msgstr "Խնդրում ենք ուղղել հետևյալ սխալները՝"
 
 #: main/django/contrib/admin/templates/admin/change_form.html:46
 #: main/django/contrib/admin/templates/admin/change_list.html:67
@@ -3967,40 +3967,40 @@ msgstr "Անվավեր օգտանուն/email և ծածկագիր"
 
 #: main/mezzanine/accounts/forms.py:58
 msgid "Your account is inactive"
-msgstr ""
+msgstr "Ձեր հաշիվը դեռ ակտիվ չէ, խնդրում ենք ակտիվացնել։"
 
 #: main/mezzanine/accounts/forms.py:91
 msgid "Only letters, numbers, dashes or underscores please"
-msgstr ""
+msgstr "Միայն տառեր, թվեր կամ (ընդգծման) գծեր, խնդրեմ"
 
 #: main/mezzanine/accounts/forms.py:107
 msgid "Leave blank unless you want to change your password"
-msgstr ""
+msgstr "Դատարկ թողեք, եթե չեք ուզում փոխել ծածկագիրը։"
 
 #: main/mezzanine/accounts/forms.py:130
 msgid "Username can only contain letters, numbers, dashes or underscores."
-msgstr ""
+msgstr "Օգտանունը կարող է պարունակել միայն տառեր, թվեր կամ (ընդգծման) գծեր։"
 
 #: main/mezzanine/accounts/forms.py:138
 msgid "This username is already registered"
-msgstr ""
+msgstr "Այս օգտանունն արդեն գրանցված է։"
 
 #: main/mezzanine/accounts/forms.py:151
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Ծածկագրերը չեն համընկնում։"
 
 #: main/mezzanine/accounts/forms.py:154
 #, python-format
 msgid "Password must be at least %s characters"
-msgstr ""
+msgstr "Ծածկագիրը պետք է պարունակի նվազագույնը %s նիշ"
 
 #: main/mezzanine/accounts/forms.py:169
 msgid "This email is already registered"
-msgstr ""
+msgstr "Այս email-ը արդեն գրանցված է"
 
 #: main/mezzanine/accounts/forms.py:242
 msgid "Invalid username/email"
-msgstr ""
+msgstr "Անվավեր օգտանուն/email"
 
 #: main/mezzanine/accounts/views.py:30
 msgid "Successfully logged in"
@@ -4019,7 +4019,7 @@ msgstr ""
 #: main/mezzanine/accounts/views.py:61
 msgid ""
 "A verification email has been sent with a link for activating your account."
-msgstr ""
+msgstr "Ձեր email հասցեին նամակ ուղարկվեց, որը պարունակում է ակտիվացման հղումը։"
 
 #: main/mezzanine/accounts/views.py:65 main/mezzanine/accounts/views.py:84
 msgid "Successfully signed up"
