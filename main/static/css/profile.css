@@ -43,7 +43,7 @@ input[type='text'], input[type='password'], input[type='email'], input[type='num
      width: 100%;
 }
 label{
-	font-size: 1em;
+	font-size: 2vw;
 }
 
 
@@ -75,20 +75,57 @@ a#customButton{
     #submitDiv{
     	margin-top: 5em; 
     }
+
 }
 
 @media only screen and (max-width: 422px) {
     #submitDiv{
-    	margin-top: 7em; 
+    	margin-top: 1em; 
     }
+    h4#balance{
+    	margin-top: -0.5em;
+    	text-align: right;
+    }
+    .no-gutter [class*="-6"] {
+	    padding-left:3px;
+	    padding-right: 3px;
+	}
+	div.lastdiv{
+		display: block;
+	}
+	label{
+		font-size: 3vw;
+	}
+	label[for='id_repeat']{
+		margin-top: 10em;	
+	}
+	#id_repeat{
+		width: 85%;
+	}
+
+	#id_source_0, #id_end_repeat_0{
+		width: 10em;
+		margin-left: 0;
+		padding-left: 5px;
+		padding-right: 0;
+	}
+	button.cnclButtClass.cnclButtClassPlus{
+		font-size: 3vw;
+	}
+	div#month-event-title-parent{
+
+	}
+	button.fback.btn.btn-custom.col-sm-12{
+		padding-right: 2px;
+		padding-left: 2px;
+		font-size: 2.5vw;
+	}
 }
 
 #end_repeat{
-	margin-top: 20px;
+	margin-top: 1em;
 
 }
-
-
 
 button#cal-today-btn.btn.btn-small{
 	color: blue;
@@ -202,8 +239,18 @@ div#tabs{
 	}	
 }
 
+@media only screen and (min-width: 600px) {
+    div#avatar_div, div#balance_div{
+		margin-top: 2em;
+	}	
+	.no-gutter [class*="-6"] {
+	    padding-left:25px;
+	    padding-right: 25px;
+	}
+}
+
 h3{
-	font: font: italic bold 3vw 'Courgette', Helvetica, Sans-serif;
+	font: 3vw 'Courgette', Helvetica, Sans-serif;
 	color: #333;
 }
 
@@ -382,9 +429,6 @@ div#title_div{
 
 }
 
-label[for='id_pin']{
-	margin-left: 1.2em;
-}
 
 span#error{
 	color: #B94A48;
@@ -398,6 +442,7 @@ span#error{
   font-family: 'Courgette';
   font-style: normal;
   font-weight: 400;
-  src: local('Courgette Regular'), local('Courgette-Regular'), url(./font/BHG8ZtTfO0yYnp02--QxqhJtnKITppOI_IvcXXDNrsc.woff2) format('woff2');
+  src: local('Courgette Regular'), local('Courgette-Regular'), url(./font/Courgette.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
+

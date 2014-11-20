@@ -167,17 +167,17 @@
 {% block main %}
 
 	
-		<div class="col-xs-6">
-            <img class="img-thumbnail" src="{% gravatar_url profile_user.email 64 %}">
-            {% if profile_user == request.user %}
-            <br><a class="btn btn-primary" href="{% url "profile_update" %}">Թարմացնել պրոֆիլը</a>
-            {% endif %}
-        </div>
-        <div class="col-xs-6">
-            <h4>Ձեր հաշվին կա </h4>
-            <h4 id="balance">{{ request.user.profile.balance }} դրամ
-            </h4>
-        </div>
+			<div class="col-xs-6" id="avatar_div">
+	            <img class="img-thumbnail" src="{% gravatar_url profile_user.email 64 %}">
+	            {% if profile_user == request.user %}
+	            <br><a class="btn btn-primary" href="{% url "profile_update" %}">Թարմացնել պրոֆիլը</a>
+	            {% endif %}
+	        </div>
+	        <div class="col-xs-6" id="balance_div">
+	            <h4>Ձեր հաշվին կա </h4>
+	            <h4 id="balance">{{ request.user.profile.balance }} դրամ
+	            </h4>
+	        </div>
 		
 						
 		
@@ -224,14 +224,16 @@
 							<div class="ppl_div" style="display:none">
 								<h5 style="text-align: center">Վճարեք Paypal-ի միջոցով</h5>
 								{% get_ppl_formset request as formset %}
-								{% for form, url in formset %}
-									<div class="col-xs-6">
-										<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
-											{{ form.as_p }}
-											<input type="image" src="{% static url %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
-										</form>
+									<div class="row no-gutter">
+										{% for form, url in formset %}
+											<div class="col-xs-6">
+												<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+													{{ form.as_p }}
+													<input type="image" src="{% static url %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
+												</form>
+											</div>
+										{% endfor %}
 									</div>
-								{% endfor %}
 
 
 							</div>
@@ -247,7 +249,7 @@
 							<div class="col-md-12">
 								<h5>Մուտքագրեք, խնդրեմ, Ձեր ուղևորության սկզբնակետն ու վերջնակետը</h5>
 							</div>
-							<div class="col-md-12">
+							<div class="row no-gutter" >
 								{% include "form/form.html" %}
 							</div>
 						</div>

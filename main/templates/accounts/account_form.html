@@ -64,7 +64,8 @@
             return false;
         }
       });
-      $("#id_mobile_number").mask("999 99-99-99");  
+      $("#id_mobile_number").mask("999 99-99-99");
+      $("#id_pin").mask("99999");  
     });
 
     </script>
@@ -83,18 +84,16 @@
 
                     {% if field.name == 'pin' %} 
                         <div class="col-xs-12">
-                            <div class="col-xs-12" id="label_div">
-                                
+                            <div class="col-xs-12" style="margin-left: -2em">    
                                 <label class="control-label" for="id_pin">
                                 {% trans  field.label  %}</label>{{ field.errors }}
-                                <span id="error"></span>
                             </div>
                             
-                            <div class="col-xs-6">
-                                    {% render_field field style="width: 80%" placeholder="xxxxx"%}
+                            <div class="col-xs-8">
+                                    {{ field }}
                             </div>
-                            <div class="col-xs-6">
-                                <input type="submit" onClick="send_pin(); return false" value="Ստանալ Pin-ը" class="commentButtClass">
+                            <div class="col-xs-4">
+                                <input type="submit" style="white-space: normal; margin-left: -2em" onClick="send_pin(); return false" value="Ստանալ Pin-ը" class="commentButtClass">
                             </div>
                         </div>
                     {% else %}

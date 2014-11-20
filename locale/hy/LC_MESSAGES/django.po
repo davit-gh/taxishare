@@ -3326,31 +3326,31 @@ msgstr ""
 
 #: main/django/utils/dates.py:10
 msgid "Mon"
-msgstr ""
+msgstr "Երկ"
 
 #: main/django/utils/dates.py:10
 msgid "Tue"
-msgstr ""
+msgstr "Երք"
 
 #: main/django/utils/dates.py:10
 msgid "Wed"
-msgstr ""
+msgstr "Չոր"
 
 #: main/django/utils/dates.py:10
 msgid "Thu"
-msgstr ""
+msgstr "Հնգ"
 
 #: main/django/utils/dates.py:10
 msgid "Fri"
-msgstr ""
+msgstr "Ուրբ"
 
 #: main/django/utils/dates.py:11
 msgid "Sat"
-msgstr ""
+msgstr "Շբթ"
 
 #: main/django/utils/dates.py:11
 msgid "Sun"
-msgstr ""
+msgstr "Կիր"
 
 #: main/django/utils/dates.py:18
 msgid "January"
@@ -3394,7 +3394,7 @@ msgstr ""
 
 #: main/django/utils/dates.py:19
 msgid "November"
-msgstr ""
+msgstr "Նոյ"
 
 #: main/django/utils/dates.py:20
 msgid "December"
@@ -4141,7 +4141,7 @@ msgstr ""
 #: main/mezzanine/accounts/templates/email/signup_verify.html:4
 #: main/mezzanine/accounts/templates/email/signup_verify.txt:4
 msgid "Please use the link below to activate it."
-msgstr "Սեղմեք, խնդրեմ, ստորև բերված հղումը այն ակտիվացնելու համար։"
+msgstr "Սեղմեք, խնդրեմ, ստորև բերված հղումը Ձեր հաշիվն ակտիվացնելու համար։"
 
 #: main/mezzanine/accounts/templates/email/account_approve_subject.txt:2
 msgid "An account requires activation"
@@ -4185,7 +4185,7 @@ msgstr ""
 #: main/mezzanine/accounts/templates/email/signup_verify.html:3
 #: main/mezzanine/accounts/templates/email/signup_verify.txt:3
 msgid "Hey there, thanks for creating your account."
-msgstr ""
+msgstr "Ողջու՜յն, շնորհակալություն մեզ մոտ գրանցվելու համար"
 
 #: main/mezzanine/accounts/templates/email/signup_verify_subject.txt:2
 msgid "Activate your account"
