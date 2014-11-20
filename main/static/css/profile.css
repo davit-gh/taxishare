@@ -97,7 +97,7 @@ a#customButton{
 		font-size: 3vw;
 	}
 	label[for='id_repeat']{
-		margin-top: 10em;	
+		margin-top: 7em;	
 	}
 	#id_repeat{
 		width: 85%;
@@ -155,7 +155,7 @@ h2{
 	border-radius: 1em;
 	border: 1px solid #DDD;
 	box-shadow: 0 0 2px #ccc;
-	font-size: 5vw;
+	font-size: 4vw;	
 }
 
 .commentButtClass{
@@ -237,6 +237,9 @@ div#tabs{
     #button_text{
 		margin-left: -12px;
 	}	
+	div#wrap{
+	margin-bottom: 4em;
+}
 }
 
 @media only screen and (min-width: 600px) {
@@ -446,3 +449,6 @@ span#error{
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
+ul.list-inline.social-buttons{
+	margin-top: 1.5em;
+}

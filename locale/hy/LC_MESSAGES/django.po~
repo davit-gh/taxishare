@@ -3326,31 +3326,31 @@ msgstr ""
 
 #: main/django/utils/dates.py:10
 msgid "Mon"
-msgstr ""
+msgstr "Երկ"
 
 #: main/django/utils/dates.py:10
 msgid "Tue"
-msgstr ""
+msgstr "Երք"
 
 #: main/django/utils/dates.py:10
 msgid "Wed"
-msgstr ""
+msgstr "Չոր"
 
 #: main/django/utils/dates.py:10
 msgid "Thu"
-msgstr ""
+msgstr "Հնգ"
 
 #: main/django/utils/dates.py:10
 msgid "Fri"
-msgstr ""
+msgstr "Ուրբ"
 
 #: main/django/utils/dates.py:11
 msgid "Sat"
-msgstr ""
+msgstr "Շբթ"
 
 #: main/django/utils/dates.py:11
 msgid "Sun"
-msgstr ""
+msgstr "Կիր"
 
 #: main/django/utils/dates.py:18
 msgid "January"
