@@ -57,7 +57,7 @@ def ajax_send_pin(request):
 	    pin = _get_pin()
 
 	    # store the PIN in the cache for later verification.
-	    request.session['pin'] = pin # valid for 24 hrs
+	    #request.session['pin'] = pin # valid for 24 hrs
 
 	    client = TwilioRestClient(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
 	    message = client.messages.create(

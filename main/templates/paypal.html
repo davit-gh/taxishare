@@ -6,8 +6,8 @@
 {% block tabs %}
 	
 		<div class="col-sm-12 center-block" style="margin-top: 6em;">
-    		{% if error %}
-    			<p style="font-size: 2vw">Ինչ-որ բան այն չէ, փորձեք նորից, խնդրեմ։</p>
+    		{% if error == "error" %}
+    			<p style="font-size: 2vw">Ձեր հաշիվը վերալիցքավորված է, շնորհակալությու՜ն։</p>
     		{% else %}
     			<p style="font-size: 2vw">Շնորհակալություն, {{ username }}! Դուք լիցքավորեցիք Ձեր հաշիվը {{ amount }} դրամով։</p>
     		{% endif %}

@@ -498,4 +498,5 @@ SHOP_ORDER_FROM_EMAIL  = DEFAULT_FROM_EMAIL
 PAYPAL_SUBMIT_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
 PAYPAL_RECEIVER_EMAIL = "2244022248-facilitator@qq.com"
 PAYPAL_TEST = True
+PAYPAL_RETURN_WITH_HTTPS = True
 

@@ -80,7 +80,7 @@ msgstr "Վերնագիր"
 
 #: main/models.py:32
 msgid "Feedback Text"
-msgstr "Ձեր գնահատակը"
+msgstr "Ձեր գնահատականը"
 
 #: main/models.py:37 main/django/contrib/comments/forms.py:96
 #: main/happenings/models.py:191
@@ -947,7 +947,7 @@ msgstr "Խնդրում ենք ուղղել հետևյալ սխալները՝"
 #: main/mezzanine/conf/templates/admin/conf/setting/change_list.html:8
 #: main/mezzanine/core/templates/includes/form_errors.html:8
 msgid "Please correct the errors below."
-msgstr ""
+msgstr "Խնդրում ենք ուղղել հետևյալ սխալները՝"
 
 #: main/django/contrib/admin/templates/admin/change_list.html:58
 #, python-format
@@ -3354,43 +3354,43 @@ msgstr "Կիր"
 
 #: main/django/utils/dates.py:18
 msgid "January"
-msgstr ""
+msgstr "Հուն"
 
 #: main/django/utils/dates.py:18
 msgid "February"
-msgstr ""
+msgstr "Փետ"
 
 #: main/django/utils/dates.py:18
 msgid "March"
-msgstr ""
+msgstr "Մար"
 
 #: main/django/utils/dates.py:18
 msgid "April"
-msgstr ""
+msgstr "Ապր"
 
 #: main/django/utils/dates.py:18
 msgid "May"
-msgstr ""
+msgstr "Մայ"
 
 #: main/django/utils/dates.py:18
 msgid "June"
-msgstr ""
+msgstr "Հուն"
 
 #: main/django/utils/dates.py:19
 msgid "July"
-msgstr ""
+msgstr "Հուլ"
 
 #: main/django/utils/dates.py:19
 msgid "August"
-msgstr ""
+msgstr "Օգ"
 
 #: main/django/utils/dates.py:19
 msgid "September"
-msgstr ""
+msgstr "Սեպ"
 
 #: main/django/utils/dates.py:19
 msgid "October"
-msgstr ""
+msgstr "Հոկ"
 
 #: main/django/utils/dates.py:19
 msgid "November"
@@ -3398,55 +3398,55 @@ msgstr "Նոյ"
 
 #: main/django/utils/dates.py:20
 msgid "December"
-msgstr ""
+msgstr "Դեկ"
 
 #: main/django/utils/dates.py:23
 msgid "jan"
-msgstr ""
+msgstr "հուն"
 
 #: main/django/utils/dates.py:23
 msgid "feb"
-msgstr ""
+msgstr "փետ"
 
 #: main/django/utils/dates.py:23
 msgid "mar"
-msgstr ""
+msgstr "մար"
 
 #: main/django/utils/dates.py:23
-msgid "apr"
+msgid "ապր"
 msgstr ""
 
 #: main/django/utils/dates.py:23
 msgid "may"
-msgstr ""
+msgstr "մայ"
 
 #: main/django/utils/dates.py:23
 msgid "jun"
-msgstr ""
+msgstr "հուն"
 
 #: main/django/utils/dates.py:24
 msgid "jul"
-msgstr ""
+msgstr "հուլ"
 
 #: main/django/utils/dates.py:24
 msgid "aug"
-msgstr ""
+msgstr "օգ"
 
 #: main/django/utils/dates.py:24
 msgid "sep"
-msgstr ""
+msgstr "սեփ"
 
 #: main/django/utils/dates.py:24
 msgid "oct"
-msgstr ""
+msgstr "հոկ"
 
 #: main/django/utils/dates.py:24
 msgid "nov"
-msgstr ""
+msgstr "նոյ"
 
 #: main/django/utils/dates.py:24
 msgid "dec"
-msgstr ""
+msgstr "դեկ"
 
 #: main/django/utils/dates.py:31
 msgctxt "abbrev. month"
@@ -4069,7 +4069,7 @@ msgstr "Ծածկագրի փոխում"
 msgid ""
 "You're already logged in. If you'd like to log in as a different user, "
 "you'll need to log out first."
-msgstr "Դուք արդեն մուտք եք գործել։ Եթե ցանկանում եք մուտք գործել որպես այլ օգտագործող պետք է նախապես դուրս գաք համակարգից։"
+msgstr "Դուք արդեն մուտք եք գործել։ Եթե ցանկանում եք մուտք գործել որպես այլ օգտագործող պետք է նախապես դուրս գալ համակարգից։"
 
 #: main/mezzanine/accounts/templates/accounts/account_login.html:11
 #: main/templates/accounts/account_login.html:11
@@ -4180,7 +4180,7 @@ msgstr ""
 
 #: main/mezzanine/accounts/templates/email/password_reset_verify_subject.txt:2
 msgid "Reset your password"
-msgstr ""
+msgstr "Վերատեղադրեք ծածկագիրը"
 
 #: main/mezzanine/accounts/templates/email/signup_verify.html:3
 #: main/mezzanine/accounts/templates/email/signup_verify.txt:3
@@ -4189,7 +4189,7 @@ msgstr "Ողջու՜յն, շնորհակալություն մեզ մոտ գրա�
 
 #: main/mezzanine/accounts/templates/email/signup_verify_subject.txt:2
 msgid "Activate your account"
-msgstr ""
+msgstr "Ակտիվացրեք Ձեր հաշիվը։"
 
 #: main/mezzanine/blog/admin.py:22
 msgid "Other posts"

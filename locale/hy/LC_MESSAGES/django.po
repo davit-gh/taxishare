@@ -80,7 +80,7 @@ msgstr "Վերնագիր"
 
 #: main/models.py:32
 msgid "Feedback Text"
-msgstr "Ձեր գնահատակը"
+msgstr "Ձեր գնահատականը"
 
 #: main/models.py:37 main/django/contrib/comments/forms.py:96
 #: main/happenings/models.py:191
@@ -947,7 +947,7 @@ msgstr "Խնդրում ենք ուղղել հետևյալ սխալները՝"
 #: main/mezzanine/conf/templates/admin/conf/setting/change_list.html:8
 #: main/mezzanine/core/templates/includes/form_errors.html:8
 msgid "Please correct the errors below."
-msgstr ""
+msgstr "Խնդրում ենք ուղղել հետևյալ սխալները՝"
 
 #: main/django/contrib/admin/templates/admin/change_list.html:58
 #, python-format
@@ -4069,7 +4069,7 @@ msgstr "Ծածկագրի փոխում"
 msgid ""
 "You're already logged in. If you'd like to log in as a different user, "
 "you'll need to log out first."
-msgstr "Դուք արդեն մուտք եք գործել։ Եթե ցանկանում եք մուտք գործել որպես այլ օգտագործող պետք է նախապես դուրս գաք համակարգից։"
+msgstr "Դուք արդեն մուտք եք գործել։ Եթե ցանկանում եք մուտք գործել որպես այլ օգտագործող պետք է նախապես դուրս գալ համակարգից։"
 
 #: main/mezzanine/accounts/templates/accounts/account_login.html:11
 #: main/templates/accounts/account_login.html:11
@@ -4180,7 +4180,7 @@ msgstr ""
 
 #: main/mezzanine/accounts/templates/email/password_reset_verify_subject.txt:2
 msgid "Reset your password"
-msgstr ""
+msgstr "Վերատեղադրեք ծածկագիրը"
 
 #: main/mezzanine/accounts/templates/email/signup_verify.html:3
 #: main/mezzanine/accounts/templates/email/signup_verify.txt:3
@@ -4189,7 +4189,7 @@ msgstr "Ողջու՜յն, շնորհակալություն մեզ մոտ գրա�
 
 #: main/mezzanine/accounts/templates/email/signup_verify_subject.txt:2
 msgid "Activate your account"
-msgstr ""
+msgstr "Ակտիվացրեք հաշիվը, խնդրեմ։"
 
 #: main/mezzanine/blog/admin.py:22
 msgid "Other posts"

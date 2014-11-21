@@ -1,7 +1,7 @@
 {% load weekday i18n %}
 <h2>Ձեր Անցած Պատվերները</h2>
     {% for d, event in passed_events %}
-            <div class="col-xs-6 col-sm-3 col-md-2 text-center" id="month-event-title-parent">
+            <div class="col-xs-6 col-sm-4 col-md-2 text-center" id="month-event-title-parent">
                 <div class="month-event-title">
                     
                         <a href="{{ event.get_absolute_url }}">
@@ -18,7 +18,7 @@
                             </div>
                             {% for c in event.cancellations.all %}
                                 {% if c.date == d.date %}
-                                    (ՉԵՂԱՐԿՎԱԾ)
+                                    <p>(ՉԵՂԱՐԿՎԱԾ)</p>
                                 {% endif %}
                             {% endfor %}
                         </a>

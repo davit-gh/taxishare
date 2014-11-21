@@ -40,27 +40,29 @@
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 //alert(errorThrown + ' : ' + jqXHR.responseText);
-                alert("Please check your mobile number and try again.")
+                alert("Սկզբում մուտքագրեք հեռախոսահամարը, խնդրեմ.")
             });
         }
         
 
     $(function(){
-      $("input[value='Sign up']").click(function(){
+      $("input[value='Գրանցվել']").click(function(){
         var pin_val = $("#id_pin").val();
+            
         if (pin_val.length == 0) {return true;} //return true to enable django's standart validation
         if (pin){
             if (pin_val == pin){
                 $("span#error").html("");
                 return true;
             } else {
-                if ($("div#label_div").children("ul").length){
-                    $("div#label_div").children("ul")[0].remove();
+                if ($("div#pin_div").children("ul").length){
+                    $("div#pin_div").children("ul")[0].remove();
                 }
-                $("span#error").html("Your entered pin is not correct.");
+                $("span#error").html("Ձեր մուտքագրած Pin-ը ճիշտ չէ։");
                 return false;
             }
         } else {
+            alert("Սեղմեք, խնդրեմ, «Ստանալ Pin» SMS կոդ ստանալու համար։");
             return false;
         }
       });
@@ -84,16 +86,16 @@
 
                     {% if field.name == 'pin' %} 
                         <div class="col-xs-12">
-                            <div class="col-xs-12" style="margin-left: -2em">    
+                            <div class="col-xs-12" id="pin_div" style="margin-left: -2em">    
                                 <label class="control-label" for="id_pin">
-                                {% trans  field.label  %}</label>{{ field.errors }}
+                                {% trans  field.label  %}</label>{{ field.errors }}<span id="error"></span>
                             </div>
                             
                             <div class="col-xs-8">
                                     {{ field }}
                             </div>
                             <div class="col-xs-4">
-                                <input type="submit" style="white-space: normal; margin-left: -2em" onClick="send_pin(); return false" value="Ստանալ Pin-ը" class="commentButtClass">
+                                <input type="submit" style="white-space: normal; margin-left: -2em" onClick="send_pin(); return false" value="Ստանալ Pin" class="commentButtClass">
                             </div>
                         </div>
                     {% else %}
