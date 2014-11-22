@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-13 22:03+0400\n"
+"POT-Creation-Date: 2014-11-23 01:36+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,14 @@ msgstr "Վերջնակետ"
 msgid "repeat"
 msgstr "Կրկնել"
 
+#: main/forms.py:48
+msgid "around market"
+msgstr "Օրինակ՝ շուկայի մոտ"
+
+#: main/forms.py:49
+msgid "around university"
+msgstr "Օրինակ՝ պետ․ համալսարանի մոտ"
+
 #: main/forms.py:66
 msgid "Please enter future date."
 msgstr "Մուտքագրեք, խնդրեմ, ապագայի ամսաթիվ։"
@@ -104,11 +112,11 @@ msgstr "Ձեր գնահատականը պահպանվեց։"
 msgid "Your feedback has not been saved. Please fill in both fields."
 msgstr "Ձեր գնահատականը չպահպանվեց, խնդրում ենք լրացնել 2 դաշտերն էլ։"
 
-#: main/views.py:197
+#: main/views.py:200
 msgid "We received your message, we will respond shortly. Thank you!"
 msgstr "Մենք ստացանք Ձեր նամակը, Ձեզ կպատասխանենք կարճ ժամանակ անց։"
 
-#: main/views.py:199
+#: main/views.py:202
 msgid "Your message has not been sent. Please fill in all the fields."
 msgstr "Ձեր նամակը չուղարկվեց, խնդրում ենք լրացնել բոլոր դաշտերը։"
 
@@ -896,7 +904,7 @@ msgstr "Ծածկագիր"
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel.html:17
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel_nav.html:11
 #: main/mezzanine/core/templates/includes/editable_toolbar.html:9
-#: main/templates/index.html:113
+#: main/templates/index.html:110
 msgid "Log out"
 msgstr ""
 
@@ -1162,7 +1170,8 @@ msgstr "Մուտքագրեք օգտանուն և ծածկագիր։"
 #: main/django/contrib/admin/templates/admin/auth/user/change_password.html:31
 #, python-format
 msgid "Enter a new password for the user <strong>%(username)s</strong>."
-msgstr "<strong>%(username)s</strong> օգտագործողի համար մուտքագրեք նոր ծածկագիր"
+msgstr ""
+"<strong>%(username)s</strong> օգտագործողի համար մուտքագրեք նոր ծածկագիր"
 
 #: main/django/contrib/admin/templates/admin/auth/user/change_password.html:38
 #: main/django/contrib/auth/forms.py:83 main/django/contrib/auth/forms.py:132
@@ -1291,7 +1300,9 @@ msgstr "Ծածկագրի փոխումն անհաջող է։"
 msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.  Please request a new password reset."
-msgstr "Ծածկագիրը փոխելու հղումն անվավեր է, հնարավոր է որ այն արդեն օգտագործվել է։ Խնդրում ենք կրկնել պրոցեսը։"
+msgstr ""
+"Ծածկագիրը փոխելու հղումն անվավեր է, հնարավոր է որ այն արդեն օգտագործվել է։ "
+"Խնդրում ենք կրկնել պրոցեսը։"
 
 #: main/django/contrib/admin/templates/registration/password_reset_done.html:11
 #: main/django/contrib/admin/templates/registration/password_reset_done.html:15
@@ -3413,8 +3424,9 @@ msgid "mar"
 msgstr "մար"
 
 #: main/django/utils/dates.py:23
-msgid "ապր"
-msgstr ""
+#, fuzzy
+msgid "apr"
+msgstr "մար"
 
 #: main/django/utils/dates.py:23
 msgid "may"
@@ -3840,15 +3852,11 @@ msgstr ""
 msgid "reason"
 msgstr ""
 
-#: main/happenings/templates/happenings/event_day_list.html:11
-msgid "Back to calendar"
-msgstr ""
-
-#: main/happenings/templates/happenings/event_day_list.html:15
+#: main/happenings/templates/happenings/event_day_list.html:12
 msgid "Events"
-msgstr ""
+msgstr "Պատվերներ"
 
-#: main/happenings/templates/happenings/event_day_list.html:17
+#: main/happenings/templates/happenings/event_day_list.html:14
 #, python-format
 msgid ""
 "\n"
@@ -3857,7 +3865,7 @@ msgid ""
 "            "
 msgstr ""
 
-#: main/happenings/templates/happenings/event_day_list.html:22
+#: main/happenings/templates/happenings/event_day_list.html:19
 #, python-format
 msgid ""
 "\n"
@@ -3865,7 +3873,7 @@ msgid ""
 "            "
 msgstr ""
 
-#: main/happenings/templates/happenings/event_day_list.html:26
+#: main/happenings/templates/happenings/event_day_list.html:23
 #, python-format
 msgid ""
 "\n"
@@ -3873,40 +3881,35 @@ msgid ""
 "            "
 msgstr ""
 
-#: main/happenings/templates/happenings/event_day_list.html:32
-msgid "For"
+#: main/happenings/templates/happenings/event_day_list.html:37
+msgid "Նախորդ օր"
 msgstr ""
 
-#: main/happenings/templates/happenings/event_day_list.html:38
-msgid "Prev Day"
-msgstr "Նախորդ օր"
+#: main/happenings/templates/happenings/event_day_list.html:40
+msgid "Հաջորդ օր"
+msgstr ""
 
-#: main/happenings/templates/happenings/event_day_list.html:41
-#, fuzzy
-msgid "Next Day"
-msgstr "Նախորդ օր"
+#: main/happenings/templates/happenings/event_day_list.html:47
+msgid "Դեռ պատվերներ չկան․․․"
+msgstr ""
 
-#: main/happenings/templates/happenings/event_day_list.html:48
-msgid "Oops.. No events!"
-msgstr "Դեռ պատվերներ չկան։"
-
-#: main/happenings/templates/happenings/event_detail.html:6
+#: main/happenings/templates/happenings/event_detail.html:15
 msgid "Start: "
 msgstr "Սկզբնակետ՝ "
 
-#: main/happenings/templates/happenings/event_detail.html:6
+#: main/happenings/templates/happenings/event_detail.html:15
 msgid "End: "
 msgstr "Վերջնակետ՝ "
 
-#: main/happenings/templates/happenings/event_detail.html:7
+#: main/happenings/templates/happenings/event_detail.html:16
 msgid "Start point details: "
 msgstr "Սկզբնակետի մանրամասներ՝ "
 
-#: main/happenings/templates/happenings/event_detail.html:7
+#: main/happenings/templates/happenings/event_detail.html:16
 msgid "End point details: "
 msgstr "Վերջնակետի մանրամասներ՝ "
 
-#: main/happenings/templates/happenings/event_detail.html:23
+#: main/happenings/templates/happenings/event_detail.html:32
 msgid "today is: "
 msgstr "Այսօր` "
 
@@ -4019,7 +4022,8 @@ msgstr ""
 #: main/mezzanine/accounts/views.py:61
 msgid ""
 "A verification email has been sent with a link for activating your account."
-msgstr "Ձեր email հասցեին նամակ ուղարկվեց, որը պարունակում է ակտիվացման հղումը։"
+msgstr ""
+"Ձեր email հասցեին նամակ ուղարկվեց, որը պարունակում է ակտիվացման հղումը։"
 
 #: main/mezzanine/accounts/views.py:65 main/mezzanine/accounts/views.py:84
 msgid "Successfully signed up"
@@ -4051,7 +4055,7 @@ msgstr "Ձեր հաշվի բալանսը բավարար չէ պատվերի հա
 msgid "Profile updated"
 msgstr "Պրոֆիլը թարմացված է"
 
-#: main/mezzanine/accounts/views.py:209 main/templates/index.html:107
+#: main/mezzanine/accounts/views.py:209 main/templates/index.html:104
 msgid "Update Profile"
 msgstr "Թարմացնել պրոֆիլը"
 
@@ -4069,10 +4073,12 @@ msgstr "Ծածկագրի փոխում"
 msgid ""
 "You're already logged in. If you'd like to log in as a different user, "
 "you'll need to log out first."
-msgstr "Դուք արդեն մուտք եք գործել։ Եթե ցանկանում եք մուտք գործել որպես այլ օգտագործող պետք է նախապես դուրս գալ համակարգից։"
+msgstr ""
+"Դուք արդեն մուտք եք գործել։ Եթե ցանկանում եք մուտք գործել որպես այլ "
+"օգտագործող պետք է նախապես դուրս գալ համակարգից։"
 
 #: main/mezzanine/accounts/templates/accounts/account_login.html:11
-#: main/templates/accounts/account_login.html:11
+#: main/templates/accounts/account_login.html:10
 #, python-format
 msgid ""
 "If you don't have an account you can <a href=\"%(signup_url)s?next=%(next)s"
@@ -4080,50 +4086,57 @@ msgid ""
 msgstr ""
 "Եթե դեռ գրանցված չեք, ապա կարող եք <a href=\"%(signup_url)s?next=%(next)s"
 "\">գրանցվել</a> հիմա։"
+
 #: main/mezzanine/accounts/templates/accounts/account_login.html:14
-#: main/templates/accounts/account_login.html:14
+#: main/templates/accounts/account_login.html:13
 #, python-format
 msgid ""
 "<p>You can also <a href=\"%(password_reset_url)s?next=%(profile_update_url)s"
 "\">reset your password</a> if you've forgotten it.</p>"
 msgstr ""
-"<p>Եթե մոռացել եք, ապա կարող եք նաև <a href=\"%(password_reset_url)s?next=%(profile_update_url)s"
-"\">փոխել ձեր ծածկագիրը</a>"
+"<p>Եթե մոռացել եք, ապա կարող եք նաև <a href=\"%(password_reset_url)s?next="
+"%(profile_update_url)s\">փոխել ձեր ծածկագիրը</a>"
+
 #: main/mezzanine/accounts/templates/accounts/account_password_reset.html:6
+#: main/templates/accounts/account_password_reset.html:5
 msgid ""
 "Enter your username or email address and you'll receive an email with a link "
 "you need to click, in order to log in and change your password."
 msgstr ""
-"Մուտքագրեք Ձեր օգտանունն ու email հասցեն և դուք կստանաք հղում պարունակող էլ․ նամակ։ Պետք է սեղմեք հղումը՝ ծածկագիրը փոխելու համար։"
+"Մուտքագրեք Ձեր օգտանունն ու email հասցեն և դուք կստանաք հղում պարունակող էլ․ "
+"նամակ։ Պետք է սեղմեք հղումը՝ ծածկագիրը փոխելու համար։"
+
 #: main/mezzanine/accounts/templates/accounts/account_signup.html:7
 #: main/templates/accounts/account_signup.html:11
 msgid ""
 "You're already logged in. If you'd like to create a new account, you'll need "
 "to log out first."
 msgstr ""
-"Դուք արդեն մուտք եք գործել։ Եթե ցանկանում եք մուտք գործել որպես այլ օգտագործող պետք է նախապես դուրս գաք համակարգից։"
+"Դուք արդեն մուտք եք գործել։ Եթե ցանկանում եք մուտք գործել որպես այլ "
+"օգտագործող պետք է նախապես դուրս գաք համակարգից։"
 
 #: main/mezzanine/accounts/templates/accounts/account_signup.html:11
-#: main/templates/accounts/account_signup.html:15
+#: main/templates/accounts/account_signup.html:14
 msgid ""
 "After signing up, your account will be reviewed for approval. You'll receive "
 "an email when your account is activated."
 msgstr ""
 
 #: main/mezzanine/accounts/templates/accounts/account_signup.html:13
-#: main/templates/accounts/account_signup.html:17
+#: main/templates/accounts/account_signup.html:16
 msgid ""
 "After signing up, you'll receive an email with a link you need to click, in "
 "order to activate your account."
-msgstr "Գրանցվելուց հետո Դուք կստանաք էլ․ նամակ, որում գտնվող հղումը սեղմելով կակտիվացնեք Ձեր հաշիվը։"
+msgstr ""
+"Գրանցվելուց հետո Դուք կստանաք էլ․ նամակ, որում գտնվող հղումը սեղմելով "
+"կակտիվացնեք Ձեր հաշիվը։"
 
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel.html:5
 msgid "Logged in as: "
 msgstr "Մուտք է գործված որպես՝ "
 
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel.html:11
-#: main/templates/index.html:103
-#: main/templates/accounts/account_profile.html:174
+#: main/templates/index.html:100
 msgid "Update profile"
 msgstr "Թարմացնել պրոֆիլը"
 
@@ -4140,6 +4153,8 @@ msgstr ""
 #: main/mezzanine/accounts/templates/email/account_approve.txt:9
 #: main/mezzanine/accounts/templates/email/signup_verify.html:4
 #: main/mezzanine/accounts/templates/email/signup_verify.txt:4
+#: main/templates/email/signup_verify.html:4
+#: main/templates/email/signup_verify.txt:4
 msgid "Please use the link below to activate it."
 msgstr "Սեղմեք, խնդրեմ, ստորև բերված հղումը Ձեր հաշիվն ակտիվացնելու համար։"
 
@@ -4184,12 +4199,14 @@ msgstr "Վերատեղադրեք ծածկագիրը"
 
 #: main/mezzanine/accounts/templates/email/signup_verify.html:3
 #: main/mezzanine/accounts/templates/email/signup_verify.txt:3
+#: main/templates/email/signup_verify.html:3
+#: main/templates/email/signup_verify.txt:3
 msgid "Hey there, thanks for creating your account."
 msgstr "Ողջու՜յն, շնորհակալություն մեզ մոտ գրանցվելու համար"
 
 #: main/mezzanine/accounts/templates/email/signup_verify_subject.txt:2
 msgid "Activate your account"
-msgstr "Ակտիվացրեք հաշիվը, խնդրեմ։"
+msgstr "Ակտիվացրեք հաշիվը, խնդրեմf։"
 
 #: main/mezzanine/blog/admin.py:22
 msgid "Other posts"
@@ -5791,14 +5808,6 @@ msgstr ""
 msgid "Recent Tweets"
 msgstr ""
 
-#: main/templates/index.html:95
-msgid "Hello "
-msgstr ""
-
-#: main/templates/accounts/account_profile.html:5
-msgid "Welcome"
-msgstr "Բարի Գալուստ"
-
 #: main/templates/email/partial_confirmation.html:3
 #: main/templates/email/partial_confirmation.txt:3
 msgid ""
@@ -5807,6 +5816,19 @@ msgid ""
 "In case no other 2 users' order timing and route match with your your order "
 "will be refunded. Sorry for inconveniences caused."
 msgstr ""
+
+#~ msgid "Prev Day"
+#~ msgstr "Նախորդ օր"
+
+#, fuzzy
+#~ msgid "Next Day"
+#~ msgstr "Նախորդ օր"
+
+#~ msgid "Oops.. No events!"
+#~ msgstr "Դեռ պատվերներ չկան։"
+
+#~ msgid "Welcome"
+#~ msgstr "Բարի Գալուստ"
 
 #~ msgid "Pay with Paypal"
 #~ msgstr "Վճարել Paypal-ով"

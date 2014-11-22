@@ -45,8 +45,8 @@ class EventForm(ModelForm):
 		widgets = {
             		'start_date': DateTimeWidget(attrs={'id':"id_source"}, options={'startDate':'+1d'}, bootstrap_version=3),
 	    		'end_repeat': DateWidget(attrs={'id':"id_end_repeat"}, options={'startDate':'+2d'}, bootstrap_version=3),
-	    		'source_detail':forms.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;'}),
-	    		'destination_detail':forms.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;'})
+	    		'source_detail':forms.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;', 'placeholder':_("around market")}),
+	    		'destination_detail':forms.Textarea(attrs={'rows': 10, 'style': 'height: 5em; resize: none;', 'placeholder':_('around university')})
         	}
 	def clean_source(self):
 		source = self.cleaned_data['source']
