@@ -208,7 +208,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .nav li a {
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 400;
+    font-weight: bold;
     letter-spacing: 1px;
     color: #fff;
 }
@@ -266,7 +266,7 @@ header {
     text-align: center;
     color: #fff;
     background-attachment: scroll;
-    background-image: url(../img/header-bg.jpg);
+    background-image: url(../img/taxi);
     background-position: center center;
     background-repeat: none;
     -webkit-background-size: cover;
@@ -278,22 +278,32 @@ header {
 header .intro-text {
     padding-top: 100px;
     padding-bottom: 50px;
+    background-color: rgba(97, 97, 97, 0.58);
 }
 
 header .intro-text .intro-lead-in {
     margin-bottom: 25px;
     font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 22px;
+    font-size: 2vw;
     font-style: italic;
-    line-height: 22px;
+    line-height: 25px;
 }
 
 header .intro-text .intro-heading {
     margin-bottom: 25px;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 50px;
+    font-size: 3vw;
     font-weight: 700;
     line-height: 50px;
+}
+
+@media(max-width:768px) {
+    header .intro-text .intro-heading {
+        margin-left: 150px;
+    }
+    .intro-heading{
+        float: right;
+    }
 }
 
 @media(min-width:768px) {
@@ -340,7 +350,7 @@ section h3.section-subheading {
 
 @media(min-width:768px) {
     section {
-        padding: 150px 0;
+        padding: 80px 0;
     }
 }
 
@@ -716,8 +726,9 @@ section#contact .text-danger {
 }
 
 footer {
-    padding: 25px 0;
     text-align: center;
+    height: 85px;
+    background-color: #ccc;
 }
 
 footer span.copyright {
@@ -737,6 +748,7 @@ footer ul.quicklinks {
 
 ul.social-buttons {
     margin-bottom: 0;
+    margin-top: 1.5em;
 }
 
 ul.social-buttons li a {
@@ -964,4 +976,36 @@ ul.dropdown-menu a:hover{
 ul.errorlist > li{
     color: red;
     display: inline-block;
+}
+
+.nav>li {
+	font-size: 13px;
+}
+
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
+
+@media only screen and (min-width: 991px) {
+	div#wrap{
+		margin-bottom: 4em;
+	}
+}
+
+body{
+	padding-top: 0px;
+	height: 100%;
+}
+
+div#copyright, div#icons{
+	background-color: #ccc;
+}
+
+div#copyright{
+	padding: 0 4em;	
 }
