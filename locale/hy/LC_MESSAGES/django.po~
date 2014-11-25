@@ -1326,15 +1326,15 @@ msgstr ""
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
-msgstr ""
+msgstr "Դուք ստացել եք այս նամակը, քանի որ %(site_name)s - ում ծածկագրի փոխման հարցում եք ուղարկել"
 
 #: main/django/contrib/admin/templates/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
-msgstr ""
+msgstr "Այցելեք այս էջը, խնդրեմ, և ընտրեք նոր ծածկագիր։"
 
 #: main/django/contrib/admin/templates/registration/password_reset_email.html:8
 msgid "Your username, in case you've forgotten:"
-msgstr ""
+msgstr "Ձեր ծածկագիրը, եթե մոռացել եք այն՝ "
 
 #: main/django/contrib/admin/templates/registration/password_reset_email.html:10
 msgid "Thanks for using our site!"
@@ -5851,7 +5851,7 @@ msgid ""
 "Hey %(user)s, your order has been created. You will get SMS confirmation of "
 "your order as soon as 2 other users choose the same time and route as you. "
 "Below are you order details."
-msgstr ""
+msgstr "Բա՜րև %(user)s։ Ձեր պատվերը ստեղծված է։ Դուք կստանաք հաստատման SMS հենց որ 2 այլ ուղևորների պատվերները լինեն նույն ուղղությամբ ինչ որ Ձերը։ SMS - ը կպարունակի տաքսին ճանաչելու բոլոր մանրամասները։"
 
 #: main/templates/email/partial_confirmation.txt:3
 msgid ""

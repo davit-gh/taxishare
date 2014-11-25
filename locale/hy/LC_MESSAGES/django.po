@@ -4061,7 +4061,7 @@ msgstr "Կրկնել պատվերը՝ "
 
 #: main/mezzanine/accounts/views.py:161
 msgid "Number of your orders: "
-msgstr "Պավերների քանակը՝ "
+msgstr "Պատվերների քանակը՝ "
 
 #: main/mezzanine/accounts/views.py:162
 #, python-format

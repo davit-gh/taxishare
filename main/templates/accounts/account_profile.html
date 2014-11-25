@@ -116,7 +116,7 @@
 							success: function(data){
 								var butto = $('#'+data.butt_id);
 								butto.before("(ՉԵՂԱՐԿՎԱԾ)");
-								$(".col-sm-6 > h4#balance").html(data.new_balance + '.0&nbsp;դրամ');
+								$(".col-xs-6 > h4#balance").html(data.new_balance + '.0&nbsp;դրամ');
 								butto.attr('disabled','disabled').removeClass('cnclButtClassPlus');
 								
 								//$("#cancelButton").attr('disabled','disabled');
