@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-23 01:36+0400\n"
+"POT-Creation-Date: 2014-11-25 12:46+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -91,7 +91,7 @@ msgid "Feedback Text"
 msgstr "Ձեր գնահատականը"
 
 #: main/models.py:37 main/django/contrib/comments/forms.py:96
-#: main/happenings/models.py:191
+#: main/happenings/models.py:194
 #: main/mezzanine/accounts/templates/email/account_approve.html:5
 #: main/mezzanine/accounts/templates/email/account_approve.txt:5
 #: main/mezzanine/generic/forms.py:84 main/mezzanine/utils/views.py:89
@@ -904,9 +904,9 @@ msgstr "Ծածկագիր"
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel.html:17
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel_nav.html:11
 #: main/mezzanine/core/templates/includes/editable_toolbar.html:9
-#: main/templates/index.html:110
+#: main/templates/index.html:111
 msgid "Log out"
-msgstr ""
+msgstr "Ելք"
 
 #: main/django/contrib/admin/templates/admin/base_site.html:4
 msgid "Django site admin"
@@ -1854,7 +1854,7 @@ msgid "checksum"
 msgstr ""
 
 #: main/django/contrib/auth/models.py:71
-#: main/django/contrib/auth/models.py:120 main/happenings/models.py:223
+#: main/django/contrib/auth/models.py:120 main/happenings/models.py:226
 msgid "name"
 msgstr ""
 
@@ -2158,7 +2158,7 @@ msgstr ""
 msgid "flag"
 msgstr ""
 
-#: main/django/contrib/comments/models.py:180 main/happenings/models.py:235
+#: main/django/contrib/comments/models.py:180 main/happenings/models.py:238
 msgid "date"
 msgstr ""
 
@@ -2312,7 +2312,7 @@ msgid "Flatpage with url %(url)s already exists for site %(site)s"
 msgstr ""
 
 #: main/django/contrib/flatpages/models.py:12 main/happenings/models.py:65
-#: main/happenings/models.py:212
+#: main/happenings/models.py:215
 msgid "title"
 msgstr ""
 
@@ -3777,78 +3777,82 @@ msgid "locations"
 msgstr ""
 
 #: main/happenings/models.py:72
+msgid "created by"
+msgstr ""
+
+#: main/happenings/models.py:75
 msgid "categories"
 msgstr ""
 
-#: main/happenings/models.py:74
+#: main/happenings/models.py:77
 msgid "tags"
 msgstr ""
 
-#: main/happenings/models.py:78
+#: main/happenings/models.py:81
 msgid "background color"
 msgstr ""
 
-#: main/happenings/models.py:81
+#: main/happenings/models.py:84
 msgid "background color custom"
 msgstr ""
 
-#: main/happenings/models.py:82
+#: main/happenings/models.py:85
 msgid "Must be a valid hex triplet. Default is gray (eeeeee)"
 msgstr ""
 
-#: main/happenings/models.py:85
+#: main/happenings/models.py:88
 msgid "font color"
 msgstr ""
 
-#: main/happenings/models.py:88
+#: main/happenings/models.py:91
 msgid "font color custom"
 msgstr ""
 
-#: main/happenings/models.py:89
+#: main/happenings/models.py:92
 msgid "Must be a valid hex triplet. Default is black (000000)"
 msgstr ""
 
-#: main/happenings/models.py:162
+#: main/happenings/models.py:165
 msgid "Color must be a valid hex triplet."
 msgstr ""
 
-#: main/happenings/models.py:185
+#: main/happenings/models.py:188
 msgid "event"
 msgstr ""
 
-#: main/happenings/models.py:186
+#: main/happenings/models.py:189
 msgid "events"
 msgstr ""
 
-#: main/happenings/models.py:193
+#: main/happenings/models.py:196
 msgid "Address Line 1"
 msgstr ""
 
-#: main/happenings/models.py:195
+#: main/happenings/models.py:198
 msgid "Address Line 2"
 msgstr ""
 
-#: main/happenings/models.py:197
+#: main/happenings/models.py:200
 msgid "Address Line 3"
 msgstr ""
 
-#: main/happenings/models.py:199
+#: main/happenings/models.py:202
 msgid "State / Province / Region"
 msgstr ""
 
-#: main/happenings/models.py:201
+#: main/happenings/models.py:204
 msgid "City / Town"
 msgstr ""
 
-#: main/happenings/models.py:203
+#: main/happenings/models.py:206
 msgid "ZIP / Postal Code"
 msgstr ""
 
-#: main/happenings/models.py:204
+#: main/happenings/models.py:207
 msgid "Country"
 msgstr ""
 
-#: main/happenings/models.py:234
+#: main/happenings/models.py:237
 msgid "reason"
 msgstr ""
 
@@ -4035,7 +4039,7 @@ msgstr "Հաջողությամբ գրանցվեցիք"
 msgid "Sign up"
 msgstr "Գրանցվել"
 
-#: main/mezzanine/accounts/views.py:87 main/mezzanine/accounts/views.py:230
+#: main/mezzanine/accounts/views.py:87 main/mezzanine/accounts/views.py:233
 msgid "The link you clicked is no longer valid."
 msgstr "Հղումն այլևս վավերական չէ։"
 
@@ -4043,28 +4047,61 @@ msgstr "Հղումն այլևս վավերական չէ։"
 msgid "Order: "
 msgstr "Պատվեր՝ "
 
-#: main/mezzanine/accounts/views.py:172
+#: main/mezzanine/accounts/views.py:156
+msgid "We received your order"
+msgstr "Մենք ստացանք Ձեր պատվերը։"
+
+#: main/mezzanine/accounts/views.py:159
+msgid "Your order is placed for: "
+msgstr "Ձեր պատվերի ամսաթիվն է՝ "
+
+#: main/mezzanine/accounts/views.py:160
+msgid "Order frequency: "
+msgstr "Կրկնել պատվերը՝ "
+
+#: main/mezzanine/accounts/views.py:161
+msgid "Number of your orders: "
+msgstr "Պավերների քանակը՝ "
+
+#: main/mezzanine/accounts/views.py:162
+#, python-format
+msgid "Your route starts at : %(source)s, ends at %(dest)s"
+msgstr "Սկզբնակետը՝ %(source)s, վերջնակետը՝ %(dest)s"
+
+#: main/mezzanine/accounts/views.py:163
+#, python-format
+msgid ""
+"Your start point details are : %(source_det)s, end point details are "
+"%(dest_det)s"
+msgstr ""
+"Սկզբնակետի մանրամասներ՝ %(source_det)s, վերջնակետի մանրամասներ՝ %(dest_det)s"
+
+#: main/mezzanine/accounts/views.py:164
+msgid "Your oder cost: "
+msgstr "Պատվերի արժեքը՝ "
+
+#: main/mezzanine/accounts/views.py:175
 msgid "Your order is successful! A confirmation email is sent to you."
 msgstr "Ձեր պատվերը հաջող է, հաստատման email-ը ուղարկվել է Ձեզ։"
 
-#: main/mezzanine/accounts/views.py:174
+#: main/mezzanine/accounts/views.py:177
 msgid "Your balance is not enough for your order."
 msgstr "Ձեր հաշվի բալանսը բավարար չէ պատվերի համար։"
 
-#: main/mezzanine/accounts/views.py:204
+#: main/mezzanine/accounts/views.py:207
 msgid "Profile updated"
 msgstr "Պրոֆիլը թարմացված է"
 
-#: main/mezzanine/accounts/views.py:209 main/templates/index.html:104
+#: main/mezzanine/accounts/views.py:212 main/templates/index.html:105
 msgid "Update Profile"
 msgstr "Թարմացնել պրոֆիլը"
 
-#: main/mezzanine/accounts/views.py:218
+#: main/mezzanine/accounts/views.py:221
 msgid ""
 "A verification email has been sent with a link for resetting your password."
 msgstr ""
 
-#: main/mezzanine/accounts/views.py:220
+#: main/mezzanine/accounts/views.py:223
 msgid "Password Reset"
 msgstr "Ծածկագրի փոխում"
 
@@ -4136,7 +4173,7 @@ msgid "Logged in as: "
 msgstr "Մուտք է գործված որպես՝ "
 
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel.html:11
-#: main/templates/index.html:100
+#: main/templates/index.html:101
 msgid "Update profile"
 msgstr "Թարմացնել պրոֆիլը"
 
@@ -5809,6 +5846,13 @@ msgid "Recent Tweets"
 msgstr ""
 
 #: main/templates/email/partial_confirmation.html:3
+#, python-format
+msgid ""
+"Hey %(user)s, your order has been created. You will get SMS confirmation of "
+"your order as soon as 2 other users choose the same time and route as you. "
+"Below are you order details."
+msgstr ""
+
 #: main/templates/email/partial_confirmation.txt:3
 msgid ""
 "Hey there, your order has been created. You will get SMS confirmation of "
