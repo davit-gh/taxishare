@@ -105,6 +105,9 @@
 				resizeable: false,
 				dialogClass: 'no-close success-dialog',
 				buttons:{
+					"Ոչ":function(){
+						$(this).dialog("close");
+					},
 					"Այո": function() {
 						$.ajax({
 							type: 'POST',
@@ -125,10 +128,8 @@
 						});
 						
 						$(this).dialog("close");
-					},
-					"Ոչ":function(){
-						$(this).dialog("close");
 					}
+					
 				}
 		});
 		$("button[id|='cancelButton']").click(function(e){
@@ -227,7 +228,7 @@
 									<div class="row no-gutter">
 										{% for form, url in formset %}
 											<div class="col-xs-6">
-												<form method="post" action="https://www.sandbox.paypal.com/cgi-bin/webscr">
+												<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
 													{{ form.as_p }}
 													<input type="image" src="{% static url %}" border="0" name="submit" alt="Վճարեք Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
 												</form>
@@ -258,7 +259,7 @@
 						<div id="tab_container" class="container">
 							<div class="row">
 								<div class="col-xs-12">
-								    	{% upcoming_events %}
+								    	{% upcoming_events request %}
 								</div>
 								<div class="col-xs-12">
 								    	{% passed_events request %}

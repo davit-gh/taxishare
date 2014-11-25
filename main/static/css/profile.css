@@ -143,7 +143,7 @@ h1{
 	color: #008080;
 	background-color: rgba(127, 195, 255, 0.27);
 	text-align: center;
-	line-height: 2em;
+	line-height: 1.5em;
 	border-radius: 1em;
 	border: 1px solid #DDD;
 	box-shadow: 0 0 2px #ccc;
@@ -393,14 +393,14 @@ button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only{
 }
 
 button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only:first-child:hover{
-	background: #990000;
-	box-shadow: inset 2px -7px 11px #E60026;
+	background: #99CD30;
+	box-shadow: inset 2px -7px 11px green;
 	color: #fff;
 }
 
 button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only:hover{
-	background: #99CD30;
-	box-shadow: inset 2px -7px 11px green;
+	background: #990000;
+	box-shadow: inset 2px -7px 11px #E60026;
 	color: #fff;
 }
 

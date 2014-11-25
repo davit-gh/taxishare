@@ -495,8 +495,8 @@ SHOP_ORDER_FROM_EMAIL  = DEFAULT_FROM_EMAIL
 # For installations on which you want to use the sandbox,
 # set PAYPAL_TEST to True.  Ensure PAYPAL_RECEIVER_EMAIL is set to
 # your sandbox account email too.
-PAYPAL_SUBMIT_URL = "https://www.sandbox.paypal.com/cgi-bin/webscr"
-PAYPAL_RECEIVER_EMAIL = "2244022248-facilitator@qq.com"
-PAYPAL_TEST = True
+PAYPAL_SUBMIT_URL = "https://www.paypal.com/cgi-bin/webscr"
+PAYPAL_RECEIVER_EMAIL = "2244022248@qq.com"
+PAYPAL_TEST = False
 PAYPAL_RETURN_WITH_HTTPS = True
 

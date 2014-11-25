@@ -906,7 +906,7 @@ msgstr "Ծածկագիր"
 #: main/mezzanine/core/templates/includes/editable_toolbar.html:9
 #: main/templates/index.html:110
 msgid "Log out"
-msgstr ""
+msgstr "Ելք"
 
 #: main/django/contrib/admin/templates/admin/base_site.html:4
 msgid "Django site admin"
