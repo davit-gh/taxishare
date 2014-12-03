@@ -16,10 +16,9 @@ def get_ppl_formset(request):
         "amount": "0.792",
         "item_name": "350 dram",
 	"custom": "350,"+request.user.username,
-	"hosted_button_id": "JL7L94278G4C8",
         "notify_url": "http://www.taxinmiasin.com" + reverse('paypal-ipn'),
         "return_url": "http://www.taxinmiasin.com/ppl_return/",
-        "cancel_return": "http://www.taxinmiasin.com/your-cancel-location/",
+        "cancel_return": "http://www.taxinmiasin.com/cancel/",
     }
     paypal_dict2 = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
@@ -28,7 +27,7 @@ def get_ppl_formset(request):
 	"custom": "700,"+request.user.username,
         "notify_url": "http://www.taxinmiasin.com" + reverse('paypal-ipn'),
         "return_url": "http://www.taxinmiasin.com/ppl_return/",
-        "cancel_return": "http://www.taxinmiasin.com/your-cancel-location/",
+        "cancel_return": "http://www.taxinmiasin.com/cancel/",
     }
     paypal_dict3 = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
@@ -37,7 +36,7 @@ def get_ppl_formset(request):
 	"custom": "1400,"+request.user.username,
         "notify_url": "http://www.taxinmiasin.com" + reverse('paypal-ipn'),
         "return_url": "http://www.taxinmiasin.com/ppl_return/",
-        "cancel_return": "http://www.taxinmiasin.com/your-cancel-location/",
+        "cancel_return": "http://www.taxinmiasin.com/cancel/",
     }
     paypal_dict4 = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
@@ -46,7 +45,7 @@ def get_ppl_formset(request):
 	"custom": "2800,"+request.user.username,
         "notify_url": "http://www.taxinmiasin.com" + reverse('paypal-ipn'),
         "return_url": "http://www.taxinmiasin.com/ppl_return/",
-        "cancel_return": "http://www.taxinmiasin.com/your-cancel-location/",
+        "cancel_return": "http://www.taxinmiasin.com/cancel/",
     }
     paypal_dict5 = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
@@ -55,7 +54,7 @@ def get_ppl_formset(request):
 	"custom": "5600,"+request.user.username,
         "notify_url": "http://www.taxinmiasin.com" + reverse('paypal-ipn'),
         "return_url": "http://www.taxinmiasin.com/ppl_return/",
-        "cancel_return": "http://www.taxinmiasin.com/your-cancel-location/",
+        "cancel_return": "http://www.taxinmiasin.com/cancel/",
     }
     paypal_dict6 = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
@@ -65,7 +64,7 @@ def get_ppl_formset(request):
 	"custom": "7000,"+request.user.username,
         "notify_url": "http://www.taxinmiasin.com" + reverse('paypal-ipn'),
         "return_url": "http://www.taxinmiasin.com/ppl_return/",
-        "cancel_return": "http://www.taxinmiasin.com/your-cancel-location/",
+        "cancel_return": "http://www.taxinmiasin.com/cancel/",
     }
 
 #    PaypalFormSet = formset_factory(PayPalPaymentsFormCustom, max_num=6)

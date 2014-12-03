@@ -7,9 +7,9 @@
 	
 		<div class="col-sm-12 center-block" style="margin-top: 6em;">
     		{% if error == "error" %}
-    			<p style="font-size: 2vw">Ձեր հաշիվը վերալիցքավորված է, շնորհակալությու՜ն։</p>
+    			<p style="font-size: 2vw">Ձեր հաշիվը վերալիցքավորված է, Paypal-ի կողմից կստանաք գործարքի մանրամասները պարունակող էլ․ նամակ։ Շնորհակալությու՜ն։</p>
     		{% else %}
-    			<p style="font-size: 2vw">Շնորհակալություն, {{ username }}! Դուք լիցքավորեցիք Ձեր հաշիվը {{ amount }} դրամով։</p>
+    			<p style="font-size: 2vw">Շնորհակալություն, {{ username }}! Դուք լիցքավորեցիք Ձեր հաշիվը {{ amount }} դրամով։ Paypal-ի կողմից կստանաք գործարքի մանրամասները պարունակող էլ․ նամակ։</p>
     		{% endif %}
     		<a class="btn btn-custom center-block" style="font-size: 2vw; width: 25%" href="{% url 'profile_redirect' %}">Վերադառնալ</a>
     	</div>

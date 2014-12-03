@@ -187,6 +187,10 @@ def ppl_return(request):
 		#return HttpResponse('request method is: '+request.method+'<br/> request is: ')
 	return render(request,"paypal.html",{'amount': amount, 'username': username, 'error': error})
 
+@csrf_exempt
+def cancel(request):
+	return render(request,"paypal_cancel.html")
+	
 from main.forms import ContactusForm
 
 def contactus(request):

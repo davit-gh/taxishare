@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block extra_head %}
+	<link rel="stylesheet" href="{% static "css/feedbackform.css" %}" >
+{% endblock %}
+{% block tabs %}
+	
+		<div class="col-sm-12 center-block" style="margin-top: 6em;">
+    		
+			<p style="font-size: 2vw">Ձեր հաշիվը չի վերալիցքավովել։ Փորձեք կրկին, խնդրեմ։</p>
+    		<a class="btn btn-custom center-block" style="font-size: 2vw; width: 25%" href="{% url 'profile_redirect' %}">Վերադառնալ</a>
+    	</div>
+	
+{% endblock %}
