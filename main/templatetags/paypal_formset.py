@@ -13,7 +13,7 @@ def get_ppl_formset(request):
     # What you want the button to do.
     paypal_dict1 = {
         "business": settings.PAYPAL_RECEIVER_EMAIL,
-        "amount": "0.792",
+        "amount": "0.79",
         "item_name": "350 dram",
 	"custom": "350,"+request.user.username,
         "notify_url": "http://www.taxinmiasin.com" + reverse('paypal-ipn'),
