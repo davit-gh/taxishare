@@ -92,13 +92,14 @@ a#customButton{
 	    padding-right: 3px;
 	}
 	div.lastdiv{
-		display: block;
+		float: left;
+		margin-top: -1em;
 	}
 	label{
 		font-size: 3vw;
 	}
 	label[for='id_repeat']{
-		margin-top: 7em;	
+		margin-top: 9em;	
 	}
 	#id_repeat{
 		width: 85%;
@@ -255,6 +256,14 @@ div#avatar_div, div#balance_div{
 	.no-gutter [class*="-6"] {
 	    padding-left:25px;
 	    padding-right: 25px;
+	}
+	div.lastdiv{
+		float: right;
+		margin-top: -5em;
+	}
+	div#passanger_number_div.col-xs-12{
+		margin-left: 1em;
+		margin-top: 1em;
 	}
 }
 
@@ -429,7 +438,7 @@ div#form_div{
 
 /* Set the fixed height of the footer here */
 #footer {
-  height: 100px;
+  height: 90px;
   background-color: #ccc;
 }
 

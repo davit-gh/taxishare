@@ -9,7 +9,7 @@
                 {% endif %}
                 {# Include the visible fields #}
                 {% for field in form.visible_fields %}
-                  {% if forloop.last %}
+                  {% if field.id_for_label == 'id_end_repeat_0' %}
                         <div class="col-xs-6 lastdiv">
                           <div id="end_repeat">
                             
@@ -19,6 +19,11 @@
                             {% endfor %}
                           {{ field }}
                         </div>
+                        </div>
+                    {% elif field.id_for_label == 'id_passanger_number' %}
+                        <div class="col-xs-12" id="passanger_number_div">
+                          {{ field.label_tag }}{{ field.errors }}<br/>
+                          {{ field }}
                         </div>
                     {% else %}
                       <div class="col-xs-6">

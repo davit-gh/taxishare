@@ -116,23 +116,27 @@ from django.template.defaultfilters import slugify
 from django.views.decorators.csrf import csrf_exempt
 
 def cancelEvent(request):
-	SINGLE_FARE = 300.0
+	SINGLE_FARE = 350.0
 	if request.method == 'POST':
 		e_id = request.POST['event_id']
+		
 		dt_tm = request.POST['date']
 		butt_id = request.POST['butt_id']
 		date = dt_tm.rsplit(',',1)[0] #splits into 2 parts and takes the first one
 		#slugified = slugify(date)
-		
-		u = User.objects.filter(username=request.user)[0]
-	  	balance = get_user_balance(u)
-	  	
-	  	new_balance = balance + SINGLE_FARE
-	  	set_user_balance(u, new_balance)
-
-		
 		d = datetime.strptime(date, '%b. %d, %Y')
 		ev = Event.objects.get(id=e_id)
+
+		u = User.objects.filter(username=request.user)[0]
+		balance = u.profile.balance
+	  	#balance = get_user_balance(u)
+	  	
+	  	new_balance = balance + SINGLE_FARE * int(ev.passanger_number)
+	  	#set_user_balance(u, new_balance)
+	  	u.profile.balance = new_balance
+        	u.profile.save()
+		
+		
 		c = Cancellation(event=ev, reason='',date=d)
 		c.save()
 		return HttpResponse(json.dumps({'butt_id':butt_id, 'new_balance': new_balance}), content_type = 'application/json')
@@ -168,7 +172,7 @@ def save_feedback(request, event_id):
 			#return HttpResponse(json.dumps({'rendered':rendered}), content_type = 'application/json')
 			lookup = {"username__iexact": request.user.username, "is_active": True}
 			context = {"profile_user": get_object_or_404(User, **lookup)}
-			messages.info(request, _("Your feedback has not been saved. Please fill in both fields."))
+			messages.error(request, _("Your feedback has not been saved. Please fill in both fields."))
 			return render(request,'accounts/account_profile.html', context)
     	# if a GET (or any other method) we'll create a blank form
     	else:
@@ -203,7 +207,7 @@ def contactus(request):
             	# redirect to a new URL:
 			messages.info(request, _("We received your message, we will respond shortly. Thank you!"))
 		else:
-			messages.info(request, _("Your message has not been sent. Please fill in all the fields."))
+			messages.error(request, _("Your message has not been sent. Please fill in all the fields."))
     	# if a GET (or any other method) we'll create a blank form
     	else:
         	form = ContactusForm()

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-25 12:46+0400\n"
+"POT-Creation-Date: 2014-12-04 16:58+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,31 +45,35 @@ msgstr "Ամեն ամիս"
 msgid "Every Year"
 msgstr "Ամեն տարի"
 
-#: main/forms.py:38
+#: main/forms.py:44
 msgid "source"
 msgstr "Սկզբնակետ"
 
-#: main/forms.py:39
+#: main/forms.py:45
 msgid "destination"
 msgstr "Վերջնակետ"
 
-#: main/forms.py:40 main/happenings/models.py:62
+#: main/forms.py:46 main/happenings/models.py:63
 msgid "repeat"
 msgstr "Կրկնել"
 
-#: main/forms.py:48
+#: main/forms.py:47 main/happenings/models.py:65
+msgid "How many?"
+msgstr "Քա՞նի հոգի"
+
+#: main/forms.py:55
 msgid "around market"
 msgstr "Օրինակ՝ շուկայի մոտ"
 
-#: main/forms.py:49
+#: main/forms.py:56
 msgid "around university"
 msgstr "Օրինակ՝ պետ․ համալսարանի մոտ"
 
-#: main/forms.py:66
+#: main/forms.py:73
 msgid "Please enter future date."
 msgstr "Մուտքագրեք, խնդրեմ, ապագայի ամսաթիվ։"
 
-#: main/forms.py:106
+#: main/forms.py:113
 msgid "Thank you for your comment!"
 msgstr "Շնորհակալություն Ձեր գնահատականի համար։"
 
@@ -91,7 +95,7 @@ msgid "Feedback Text"
 msgstr "Ձեր գնահատականը"
 
 #: main/models.py:37 main/django/contrib/comments/forms.py:96
-#: main/happenings/models.py:194
+#: main/happenings/models.py:196
 #: main/mezzanine/accounts/templates/email/account_approve.html:5
 #: main/mezzanine/accounts/templates/email/account_approve.txt:5
 #: main/mezzanine/generic/forms.py:84 main/mezzanine/utils/views.py:89
@@ -112,11 +116,11 @@ msgstr "Ձեր գնահատականը պահպանվեց։"
 msgid "Your feedback has not been saved. Please fill in both fields."
 msgstr "Ձեր գնահատականը չպահպանվեց, խնդրում ենք լրացնել 2 դաշտերն էլ։"
 
-#: main/views.py:200
+#: main/views.py:204
 msgid "We received your message, we will respond shortly. Thank you!"
 msgstr "Մենք ստացանք Ձեր նամակը, Ձեզ կպատասխանենք կարճ ժամանակ անց։"
 
-#: main/views.py:202
+#: main/views.py:206
 msgid "Your message has not been sent. Please fill in all the fields."
 msgstr "Ձեր նամակը չուղարկվեց, խնդրում ենք լրացնել բոլոր դաշտերը։"
 
@@ -1326,7 +1330,9 @@ msgstr ""
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
-msgstr "Դուք ստացել եք այս նամակը, քանի որ %(site_name)s - ում ծածկագրի փոխման հարցում եք ուղարկել"
+msgstr ""
+"Դուք ստացել եք այս նամակը, քանի որ %(site_name)s - ում ծածկագրի փոխման "
+"հարցում եք ուղարկել"
 
 #: main/django/contrib/admin/templates/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
@@ -1854,7 +1860,7 @@ msgid "checksum"
 msgstr ""
 
 #: main/django/contrib/auth/models.py:71
-#: main/django/contrib/auth/models.py:120 main/happenings/models.py:226
+#: main/django/contrib/auth/models.py:120 main/happenings/models.py:228
 msgid "name"
 msgstr ""
 
@@ -2158,7 +2164,7 @@ msgstr ""
 msgid "flag"
 msgstr ""
 
-#: main/django/contrib/comments/models.py:180 main/happenings/models.py:238
+#: main/django/contrib/comments/models.py:180 main/happenings/models.py:240
 msgid "date"
 msgstr ""
 
@@ -2311,8 +2317,8 @@ msgstr ""
 msgid "Flatpage with url %(url)s already exists for site %(site)s"
 msgstr ""
 
-#: main/django/contrib/flatpages/models.py:12 main/happenings/models.py:65
-#: main/happenings/models.py:215
+#: main/django/contrib/flatpages/models.py:12 main/happenings/models.py:67
+#: main/happenings/models.py:217
 msgid "title"
 msgstr ""
 
@@ -3724,135 +3730,135 @@ msgstr ""
 msgid "Empty list and '%(class_name)s.allow_empty' is False."
 msgstr ""
 
-#: main/happenings/models.py:42
+#: main/happenings/models.py:43
 msgid "gray"
 msgstr ""
 
-#: main/happenings/models.py:43
+#: main/happenings/models.py:44
 msgid "red"
 msgstr ""
 
-#: main/happenings/models.py:44
+#: main/happenings/models.py:45
 msgid "blue"
 msgstr ""
 
-#: main/happenings/models.py:45
+#: main/happenings/models.py:46
 msgid "green"
 msgstr ""
 
-#: main/happenings/models.py:46
+#: main/happenings/models.py:47
 msgid "black"
 msgstr ""
 
-#: main/happenings/models.py:47
+#: main/happenings/models.py:48
 msgid "white"
 msgstr ""
 
-#: main/happenings/models.py:56
+#: main/happenings/models.py:57
 msgid "Source Details"
 msgstr "Սկզբնակետի մանրամասներ"
 
-#: main/happenings/models.py:58
+#: main/happenings/models.py:59
 msgid "Destination Details"
 msgstr "Վերջնակետի մանրամասներ"
 
-#: main/happenings/models.py:59
+#: main/happenings/models.py:60
 msgid "start date"
 msgstr "Սկսման ամսաթիվ"
 
-#: main/happenings/models.py:60
+#: main/happenings/models.py:61
 msgid "end date"
 msgstr "Ավարտի ամսաթիվ"
 
-#: main/happenings/models.py:64
+#: main/happenings/models.py:66
 msgid "end repeat"
 msgstr "Կրկնման ավարտ"
 
-#: main/happenings/models.py:66
+#: main/happenings/models.py:68
 msgid "description"
 msgstr "Նկարագրություն"
 
-#: main/happenings/models.py:68
+#: main/happenings/models.py:70
 msgid "locations"
 msgstr ""
 
-#: main/happenings/models.py:72
+#: main/happenings/models.py:74
 msgid "created by"
 msgstr ""
 
-#: main/happenings/models.py:75
+#: main/happenings/models.py:77
 msgid "categories"
 msgstr ""
 
-#: main/happenings/models.py:77
+#: main/happenings/models.py:79
 msgid "tags"
 msgstr ""
 
-#: main/happenings/models.py:81
+#: main/happenings/models.py:83
 msgid "background color"
 msgstr ""
 
-#: main/happenings/models.py:84
+#: main/happenings/models.py:86
 msgid "background color custom"
 msgstr ""
 
-#: main/happenings/models.py:85
+#: main/happenings/models.py:87
 msgid "Must be a valid hex triplet. Default is gray (eeeeee)"
 msgstr ""
 
-#: main/happenings/models.py:88
+#: main/happenings/models.py:90
 msgid "font color"
 msgstr ""
 
-#: main/happenings/models.py:91
+#: main/happenings/models.py:93
 msgid "font color custom"
 msgstr ""
 
-#: main/happenings/models.py:92
+#: main/happenings/models.py:94
 msgid "Must be a valid hex triplet. Default is black (000000)"
 msgstr ""
 
-#: main/happenings/models.py:165
+#: main/happenings/models.py:167
 msgid "Color must be a valid hex triplet."
 msgstr ""
 
-#: main/happenings/models.py:188
+#: main/happenings/models.py:190
 msgid "event"
 msgstr ""
 
-#: main/happenings/models.py:189
+#: main/happenings/models.py:191
 msgid "events"
 msgstr ""
 
-#: main/happenings/models.py:196
+#: main/happenings/models.py:198
 msgid "Address Line 1"
 msgstr ""
 
-#: main/happenings/models.py:198
+#: main/happenings/models.py:200
 msgid "Address Line 2"
 msgstr ""
 
-#: main/happenings/models.py:200
+#: main/happenings/models.py:202
 msgid "Address Line 3"
 msgstr ""
 
-#: main/happenings/models.py:202
+#: main/happenings/models.py:204
 msgid "State / Province / Region"
 msgstr ""
 
-#: main/happenings/models.py:204
+#: main/happenings/models.py:206
 msgid "City / Town"
 msgstr ""
 
-#: main/happenings/models.py:206
+#: main/happenings/models.py:208
 msgid "ZIP / Postal Code"
 msgstr ""
 
-#: main/happenings/models.py:207
+#: main/happenings/models.py:209
 msgid "Country"
 msgstr ""
 
-#: main/happenings/models.py:237
+#: main/happenings/models.py:239
 msgid "reason"
 msgstr ""
 
@@ -4039,7 +4045,7 @@ msgstr "Հաջողությամբ գրանցվեցիք"
 msgid "Sign up"
 msgstr "Գրանցվել"
 
-#: main/mezzanine/accounts/views.py:87 main/mezzanine/accounts/views.py:233
+#: main/mezzanine/accounts/views.py:87 main/mezzanine/accounts/views.py:242
 msgid "The link you clicked is no longer valid."
 msgstr "Հղումն այլևս վավերական չէ։"
 
@@ -4056,19 +4062,15 @@ msgid "Your order is placed for: "
 msgstr "Ձեր պատվերի ամսաթիվն է՝ "
 
 #: main/mezzanine/accounts/views.py:160
-msgid "Order frequency: "
-msgstr "Կրկնել պատվերը՝ "
-
-#: main/mezzanine/accounts/views.py:161
 msgid "Number of your orders: "
 msgstr "Պատվերների քանակը՝ "
 
-#: main/mezzanine/accounts/views.py:162
+#: main/mezzanine/accounts/views.py:161
 #, python-format
 msgid "Your route starts at : %(source)s, ends at %(dest)s"
 msgstr "Սկզբնակետը՝ %(source)s, վերջնակետը՝ %(dest)s"
 
-#: main/mezzanine/accounts/views.py:163
+#: main/mezzanine/accounts/views.py:162
 #, python-format
 msgid ""
 "Your start point details are : %(source_det)s, end point details are "
@@ -4076,32 +4078,32 @@ msgid ""
 msgstr ""
 "Սկզբնակետի մանրամասներ՝ %(source_det)s, վերջնակետի մանրամասներ՝ %(dest_det)s"
 
-#: main/mezzanine/accounts/views.py:164
+#: main/mezzanine/accounts/views.py:163
 msgid "Your oder cost: "
 msgstr "Պատվերի արժեքը՝ "
 
-#: main/mezzanine/accounts/views.py:175
+#: main/mezzanine/accounts/views.py:174
 msgid "Your order is successful! A confirmation email is sent to you."
 msgstr "Ձեր պատվերը հաջող է, հաստատման email-ը ուղարկվել է Ձեզ։"
 
-#: main/mezzanine/accounts/views.py:177
+#: main/mezzanine/accounts/views.py:176
 msgid "Your balance is not enough for your order."
 msgstr "Ձեր հաշվի բալանսը բավարար չէ պատվերի համար։"
 
-#: main/mezzanine/accounts/views.py:207
+#: main/mezzanine/accounts/views.py:216
 msgid "Profile updated"
 msgstr "Պրոֆիլը թարմացված է"
 
-#: main/mezzanine/accounts/views.py:212 main/templates/index.html:105
+#: main/mezzanine/accounts/views.py:221 main/templates/index.html:105
 msgid "Update Profile"
 msgstr "Թարմացնել պրոֆիլը"
 
-#: main/mezzanine/accounts/views.py:221
+#: main/mezzanine/accounts/views.py:230
 msgid ""
 "A verification email has been sent with a link for resetting your password."
 msgstr ""
 
-#: main/mezzanine/accounts/views.py:223
+#: main/mezzanine/accounts/views.py:232
 msgid "Password Reset"
 msgstr "Ծածկագրի փոխում"
 
@@ -5851,7 +5853,10 @@ msgid ""
 "Hey %(user)s, your order has been created. You will get SMS confirmation of "
 "your order as soon as 2 other users choose the same time and route as you. "
 "Below are you order details."
-msgstr "Բա՜րև %(user)s։ Ձեր պատվերը ստեղծված է։ Դուք կստանաք հաստատման SMS հենց որ 2 այլ ուղևորների պատվերները լինեն նույն ուղղությամբ ինչ որ Ձերը։ SMS - ը կպարունակի տաքսին ճանաչելու բոլոր մանրամասները։"
+msgstr ""
+"Բա՜րև %(user)s։ Ձեր պատվերը ստեղծված է։ Դուք կստանաք հաստատման SMS հենց որ 2 "
+"այլ ուղևորների պատվերները լինեն նույն ուղղությամբ ինչ որ Ձերը։ SMS - ը "
+"կպարունակի տաքսին ճանաչելու բոլոր մանրամասները։"
 
 #: main/templates/email/partial_confirmation.txt:3
 msgid ""
@@ -5860,6 +5865,9 @@ msgid ""
 "In case no other 2 users' order timing and route match with your your order "
 "will be refunded. Sorry for inconveniences caused."
 msgstr ""
+
+#~ msgid "Order frequency: "
+#~ msgstr "Կրկնել պատվերը՝ "
 
 #~ msgid "Prev Day"
 #~ msgstr "Նախորդ օր"

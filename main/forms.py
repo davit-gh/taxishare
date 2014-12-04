@@ -35,12 +35,19 @@ class EventForm(ModelForm):
             ('MONTHLY', _('Every Month')),
             ('YEARLY', _('Every Year')),
         )
+
+	PASSANGER_NUMBER_CHOICES = (
+            ('1', 1),
+            ('2', 2),
+            ('3', 3),
+    )
 	source 	    = AutoCompleteField('street', label=_('source'), required=True, help_text=None)
 	destination = AutoCompleteField('street', label=_('destination'), required=True, help_text=None)
 	repeat 	    = forms.ChoiceField(label=_("repeat"), widget=forms.Select(attrs={'id': "id_repeat", 'class': 'repeatClass', 'onchange':'getRepeat(this);'}), choices=REPEAT_CHOICES, initial='NEVER')
+	passanger_number = forms.ChoiceField(label=_("How many?"), widget=forms.Select(attrs={'id': "id_passanger_number", 'class': 'passnumClass'}), choices=PASSANGER_NUMBER_CHOICES, initial='ONE')
 	class Meta:
  		model = Event
-		fields = ['source', 'destination', 'source_detail', 'destination_detail', 'start_date','repeat','end_repeat']
+		fields = ['source', 'destination', 'source_detail', 'destination_detail', 'start_date','repeat','passanger_number','end_repeat']
 
 		widgets = {
             		'start_date': DateTimeWidget(attrs={'id':"id_source"}, options={'startDate':'+1d'}, bootstrap_version=3),
