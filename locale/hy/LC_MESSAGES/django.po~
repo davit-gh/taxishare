@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-04 16:46+0400\n"
+"POT-Creation-Date: 2014-12-05 22:57+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,31 +45,35 @@ msgstr "Ամեն ամիս"
 msgid "Every Year"
 msgstr "Ամեն տարի"
 
-#: main/forms.py:38
+#: main/forms.py:44
 msgid "source"
 msgstr "Սկզբնակետ"
 
-#: main/forms.py:39
+#: main/forms.py:45
 msgid "destination"
 msgstr "Վերջնակետ"
 
-#: main/forms.py:40 main/happenings/models.py:62
+#: main/forms.py:46 main/happenings/models.py:63
 msgid "repeat"
 msgstr "Կրկնել"
 
-#: main/forms.py:48
+#: main/forms.py:47 main/happenings/models.py:65
+msgid "How many?"
+msgstr "Քա՞նի հոգի"
+
+#: main/forms.py:55
 msgid "around market"
 msgstr "Օրինակ՝ շուկայի մոտ"
 
-#: main/forms.py:49
+#: main/forms.py:56
 msgid "around university"
 msgstr "Օրինակ՝ պետ․ համալսարանի մոտ"
 
-#: main/forms.py:66
+#: main/forms.py:73
 msgid "Please enter future date."
 msgstr "Մուտքագրեք, խնդրեմ, ապագայի ամսաթիվ։"
 
-#: main/forms.py:106
+#: main/forms.py:113
 msgid "Thank you for your comment!"
 msgstr "Շնորհակալություն Ձեր գնահատականի համար։"
 
@@ -91,7 +95,7 @@ msgid "Feedback Text"
 msgstr "Ձեր գնահատականը"
 
 #: main/models.py:37 main/django/contrib/comments/forms.py:96
-#: main/happenings/models.py:195
+#: main/happenings/models.py:196
 #: main/mezzanine/accounts/templates/email/account_approve.html:5
 #: main/mezzanine/accounts/templates/email/account_approve.txt:5
 #: main/mezzanine/generic/forms.py:84 main/mezzanine/utils/views.py:89
@@ -104,19 +108,19 @@ msgstr "Անուն"
 msgid "Description"
 msgstr "Նկարագրություն"
 
-#: main/views.py:163
+#: main/views.py:167
 msgid "Your feedback is saved. Thank you!"
 msgstr "Ձեր գնահատականը պահպանվեց։"
 
-#: main/views.py:171
+#: main/views.py:175
 msgid "Your feedback has not been saved. Please fill in both fields."
 msgstr "Ձեր գնահատականը չպահպանվեց, խնդրում ենք լրացնել 2 դաշտերն էլ։"
 
-#: main/views.py:204
+#: main/views.py:208
 msgid "We received your message, we will respond shortly. Thank you!"
 msgstr "Մենք ստացանք Ձեր նամակը, Ձեզ կպատասխանենք կարճ ժամանակ անց։"
 
-#: main/views.py:206
+#: main/views.py:210
 msgid "Your message has not been sent. Please fill in all the fields."
 msgstr "Ձեր նամակը չուղարկվեց, խնդրում ենք լրացնել բոլոր դաշտերը։"
 
@@ -1856,7 +1860,7 @@ msgid "checksum"
 msgstr ""
 
 #: main/django/contrib/auth/models.py:71
-#: main/django/contrib/auth/models.py:120 main/happenings/models.py:227
+#: main/django/contrib/auth/models.py:120 main/happenings/models.py:228
 msgid "name"
 msgstr ""
 
@@ -2160,7 +2164,7 @@ msgstr ""
 msgid "flag"
 msgstr ""
 
-#: main/django/contrib/comments/models.py:180 main/happenings/models.py:239
+#: main/django/contrib/comments/models.py:180 main/happenings/models.py:240
 msgid "date"
 msgstr ""
 
@@ -2313,8 +2317,8 @@ msgstr ""
 msgid "Flatpage with url %(url)s already exists for site %(site)s"
 msgstr ""
 
-#: main/django/contrib/flatpages/models.py:12 main/happenings/models.py:66
-#: main/happenings/models.py:216
+#: main/django/contrib/flatpages/models.py:12 main/happenings/models.py:67
+#: main/happenings/models.py:217
 msgid "title"
 msgstr ""
 
@@ -3726,139 +3730,135 @@ msgstr ""
 msgid "Empty list and '%(class_name)s.allow_empty' is False."
 msgstr ""
 
-#: main/happenings/models.py:42
+#: main/happenings/models.py:43
 msgid "gray"
 msgstr ""
 
-#: main/happenings/models.py:43
+#: main/happenings/models.py:44
 msgid "red"
 msgstr ""
 
-#: main/happenings/models.py:44
+#: main/happenings/models.py:45
 msgid "blue"
 msgstr ""
 
-#: main/happenings/models.py:45
+#: main/happenings/models.py:46
 msgid "green"
 msgstr ""
 
-#: main/happenings/models.py:46
+#: main/happenings/models.py:47
 msgid "black"
 msgstr ""
 
-#: main/happenings/models.py:47
+#: main/happenings/models.py:48
 msgid "white"
 msgstr ""
 
-#: main/happenings/models.py:56
+#: main/happenings/models.py:57
 msgid "Source Details"
 msgstr "Սկզբնակետի մանրամասներ"
 
-#: main/happenings/models.py:58
+#: main/happenings/models.py:59
 msgid "Destination Details"
 msgstr "Վերջնակետի մանրամասներ"
 
-#: main/happenings/models.py:59
+#: main/happenings/models.py:60
 msgid "start date"
 msgstr "Սկսման ամսաթիվ"
 
-#: main/happenings/models.py:60
+#: main/happenings/models.py:61
 msgid "end date"
 msgstr "Ավարտի ամսաթիվ"
 
-#: main/happenings/models.py:64
-msgid "How many?"
-msgstr ""
-
-#: main/happenings/models.py:65
+#: main/happenings/models.py:66
 msgid "end repeat"
 msgstr "Կրկնման ավարտ"
 
-#: main/happenings/models.py:67
+#: main/happenings/models.py:68
 msgid "description"
 msgstr "Նկարագրություն"
 
-#: main/happenings/models.py:69
+#: main/happenings/models.py:70
 msgid "locations"
 msgstr ""
 
-#: main/happenings/models.py:73
+#: main/happenings/models.py:74
 msgid "created by"
 msgstr ""
 
-#: main/happenings/models.py:76
+#: main/happenings/models.py:77
 msgid "categories"
 msgstr ""
 
-#: main/happenings/models.py:78
+#: main/happenings/models.py:79
 msgid "tags"
 msgstr ""
 
-#: main/happenings/models.py:82
+#: main/happenings/models.py:83
 msgid "background color"
 msgstr ""
 
-#: main/happenings/models.py:85
+#: main/happenings/models.py:86
 msgid "background color custom"
 msgstr ""
 
-#: main/happenings/models.py:86
+#: main/happenings/models.py:87
 msgid "Must be a valid hex triplet. Default is gray (eeeeee)"
 msgstr ""
 
-#: main/happenings/models.py:89
+#: main/happenings/models.py:90
 msgid "font color"
 msgstr ""
 
-#: main/happenings/models.py:92
+#: main/happenings/models.py:93
 msgid "font color custom"
 msgstr ""
 
-#: main/happenings/models.py:93
+#: main/happenings/models.py:94
 msgid "Must be a valid hex triplet. Default is black (000000)"
 msgstr ""
 
-#: main/happenings/models.py:166
+#: main/happenings/models.py:167
 msgid "Color must be a valid hex triplet."
 msgstr ""
 
-#: main/happenings/models.py:189
+#: main/happenings/models.py:190
 msgid "event"
 msgstr ""
 
-#: main/happenings/models.py:190
+#: main/happenings/models.py:191
 msgid "events"
 msgstr ""
 
-#: main/happenings/models.py:197
+#: main/happenings/models.py:198
 msgid "Address Line 1"
 msgstr ""
 
-#: main/happenings/models.py:199
+#: main/happenings/models.py:200
 msgid "Address Line 2"
 msgstr ""
 
-#: main/happenings/models.py:201
+#: main/happenings/models.py:202
 msgid "Address Line 3"
 msgstr ""
 
-#: main/happenings/models.py:203
+#: main/happenings/models.py:204
 msgid "State / Province / Region"
 msgstr ""
 
-#: main/happenings/models.py:205
+#: main/happenings/models.py:206
 msgid "City / Town"
 msgstr ""
 
-#: main/happenings/models.py:207
+#: main/happenings/models.py:208
 msgid "ZIP / Postal Code"
 msgstr ""
 
-#: main/happenings/models.py:208
+#: main/happenings/models.py:209
 msgid "Country"
 msgstr ""
 
-#: main/happenings/models.py:238
+#: main/happenings/models.py:239
 msgid "reason"
 msgstr ""
 
@@ -4049,7 +4049,7 @@ msgstr "Գրանցվել"
 msgid "The link you clicked is no longer valid."
 msgstr "Հղումն այլևս վավերական չէ։"
 
-#: main/mezzanine/accounts/views.py:148
+#: main/mezzanine/accounts/views.py:147
 msgid "Order: "
 msgstr "Պատվեր՝ "
 
@@ -5846,6 +5846,148 @@ msgstr ""
 #: main/mezzanine/twitter/templates/twitter/tweets.html:7
 msgid "Recent Tweets"
 msgstr ""
+
+#: main/templates/index.html:154
+msgid "Welcome to 'Taxin Miasin'!"
+msgstr "Բարի Գալուստ «Տաքսին Միասին»!"
+
+#: main/templates/index.html:155
+msgid "It's fun together and it's cheap!"
+msgstr "Միասին էժան է և ուրախ!"
+
+#: main/templates/index.html:157
+msgid "Demo Video"
+msgstr "Նայի՛ր Վիդեոն"
+
+#: main/templates/index.html:167
+msgid "How it works"
+msgstr "Ինչպե՞ս է աշխատում"
+
+#: main/templates/index.html:169
+msgid ""
+"You are undoubtedly familiar with the situation when you have to take a "
+"'marshrutka' when it doesn't really have a free seat. You have to get to "
+"your work, to your studies or some other place and you cannot miss the "
+"'marshrutka' otherwise you'll be late. Ordering taxi every day is pretty "
+"expensive and you have to take your ride standing all the way to your "
+"destination which is so unconvenient. You don't have to do that anymore, you "
+"can share the cost of your ride using 'Taxin Miasin'. The taxi fare will be "
+"divided among 3 passengers. You will enjoy your convenient ride and pay "
+"about 3 times less than ordering an ordinary taxi. It's a little more than a "
+"'marshrutka' fare it's just 350AMD per person․"
+msgstr ""
+"Բոլորին, անկասկած, ծանոթ է այն իրավիճակը, երբ ստիպված եք բարձրանալ "
+"երթուղային տաքսի, որն այլևս նստելու տեղ չունի։ Ձեզ անհրաժեշտ է հասնել "
+"աշխատավայր կամ ուսումնական հաստատություն կամ մեկ այլ վայր ու Դուք չեք կարող "
+"բաց թողնել երթուղային տաքսին, այլապես կուշանաք։ Ամեն օր տաքսի պատվիրելը շատ "
+"թանկ է և Դուք նորից ստիպած եք կռացած երթևեկել, ինչը, ինչպես բոլորս գիտենք "
+"մեր փորձից, շատ անհարմար է։ Այսուհետ Դուք ստիպված չեք այդպես վարվել, Դուք "
+"կարող եք կիսել Տաքսին Միասին։ Ուղեվարձը կբաժանվի 3 ուղևորների միջև։ Դուք "
+"կունենաք հարմարավետ երթևեկություն և կվճարեք շատ ավելի ցածր, քան ինքներդ "
+"տաքսի կանչելու դեպքում ու քիչ ավելի բարձր, քան երթուղային տաքսով երթևեկելու "
+"դեպքում` 350 դրամ։"
+
+#: main/templates/index.html:178
+msgid "Step 1"
+msgstr "Քայլ 1"
+
+#: main/templates/index.html:179
+msgid ""
+"You need to input your first and last names, username and mobile phone "
+"number for registration. You will receive SMS pin code you need to input to "
+"complete the registration."
+msgstr ""
+"Գրանցվելիս անհրաժեշտ է մուտքագրել անուն, ազգանուն, օգտագործողի անուն և "
+"հեռախոսահամար։ Ձեր հեռախոսին կգա SMS ստուգիչ կոդ, որն անհրաժեշտ է մուտքագրել "
+"համապատասխան դաշտում՝ գրանցումն ավարտելու համար։"
+
+#: main/templates/index.html:188
+msgid "Step 2"
+msgstr "Քայլ 2"
+
+#: main/templates/index.html:189
+msgid ""
+"Enter your route's starting and ending points, departure date, time and "
+"frequency. As soon 2 other passengers choose a similar route and date/time "
+"as you then you'll get SMS confirmation with details of your order. If you "
+"don't want to wait for other passengers you can pay for 3 and have the taxi "
+"serve only you."
+msgstr ""
+"Մուտքագրեք Ձեր ելակետը (Որտեղի՞ց) և նպատակակետը (Ու՞ր), մեկնման ամսաթիվը, "
+"ժամն ու հաճախականությունը։ Երբ որ ևս 2 ուղևոր ընտրեն նույն երթուղին ինչ որ "
+"Դուք, ապա Ձեր պատվերը կհամարվի հաստատված և կստանաք այդ մասին վկայող SMS: Եթե "
+"չեք ցանկանում սպասել այլ ուևորների, ապա կարող եք վճարել միանգամից 3 հոգու "
+"համար և տաքսին կսպասարկի միայն Ձեզ։"
+
+#: main/templates/index.html:197
+msgid "Step 3"
+msgstr "Քայլ 3"
+
+#: main/templates/index.html:198
+msgid ""
+"On the set date and time the taxi will be available in your specified "
+"starting point. You will identify the taxi according to the details in SMS "
+"like car model, licence plate. Just show the driver your order number and "
+"you're good to go!"
+msgstr ""
+"Նշված օրը և ժամին տաքսին կմոտենա Ձեր նշած վայրին։ Տաքսին կգտնեք ըստ Ձեզ "
+"ուղարկված SMS-ում առկա պետ․ համարանիշերի ու մակնիշի և վարորդին կներկայացնեք "
+"պատվերի համարը։ Ձեզ բարի ե՛րթ։"
+
+#: main/templates/index.html:210
+msgid "Payment"
+msgstr "Վճարում"
+
+#: main/templates/index.html:211
+#, python-format
+msgid ""
+"Topping up your account is done via Paypal for now. We have plans to "
+"integrate more payment solutions like TelCell terminals and others in the "
+"future. We use https protocol so your communication with the website is "
+"100%% safe and secure. After registration you have the option to top up your "
+"account and then create an order if you have enough credit on your account. "
+"Orders can be created from the next day of the current day. A single order "
+"costs 350AMD. One car will serve 3 persons."
+msgstr ""
+"Հաշվի լիցքավորումն իրականացվում է առցանց` առայժմ օգտագործելով միայն Paypal "
+"վճարային համակարգը։ Հետագայում պլաններ ունենք ավելացնել TelCell տերմինալների "
+"միջոցով լիցքավորման հնարավորություն։ Բոլոր տվյալների փոխանցումը գաղտնագրված "
+"է և 100% ապահով։</em> Գրանցվելուց հետո Դուք հնարավորություն կստանաք "
+"լիցքավորել Ձեր հաշիվը, որից հետո կարող եք պատվեր ստեղծել, եթե Ձեր հաշվին կան "
+"բավարար միջոցներ։ Պատվերները կարող են ստեղծվել միայն տվյալ օրվան հաջորդող "
+"օրերի համար։ Միանգամյա պատվերի արժեքն է 350 դրամ։ Մի մեքենան սպասարկելու է 3 "
+"ուղևոր։"
+
+#: main/templates/index.html:223
+msgid "About us"
+msgstr "Մեր Մասին"
+
+#: main/templates/index.html:224
+msgid ""
+"We are a small group of active young people. We want to have our little "
+"contribution in making positive changes in our society. Hopefully 'Taxin "
+"Miasin' will be loved by our compatriates and guests making their daily "
+"transportation more convenient and affordable. The idea of creating the "
+"website popped up out of our gloomy experience when getting to work and back "
+"home was literally pain in a back. We all have a new choice now."
+msgstr ""
+"Մենք մի խումբ ակտիվ երիտասարդներ ենք։ Ուզում ենք մեր փոքրիկ ներդրումն ունենալ մեր հասարակության մեջ դրական փոփոխություններ կատարելու գործում։ Լիահույս ենք, որ «Տաքսին Մասին» կսիրվի մեր հայրենակիցների և հյուրերի կողմից և նրանց առօրյա տեղափոխումը կդարձնի առավել հարմարավետ ու մատչելի։ Կայքը պատրաստելու գաղափարն առաջացավ մեր սեփական տհաճ փորձից, երբ առավոտյան ու երեկոյան բազմիցս ստիպված ենք եղել կռացած երթևեկել նստելու տեղ չունեցող երթուղայիններով։ Այսուհետ բոլորս ունենք նոր ընտրության հնարավորություն։"
+
+#: main/templates/index.html:240
+msgid "Contact us"
+msgstr "Կապվեք Մեզ"
+
+#: main/templates/index.html:241
+msgid "Contact us if you have any questions or suggestions."
+msgstr "Գրեք մեզ ցանկացած հարցերի կամ առաջարկների դեպքում:"
+
+#: main/templates/index.html:268
+msgid "Send Message"
+msgstr "Ուղարկել նամակը"
+
+#: main/templates/index.html:294
+msgid "Taxin Miasin 2014"
+msgstr "Տաքսին Միասին 2014"
 
 #: main/templates/email/partial_confirmation.html:3
 #, python-format

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="keywords" content="{% block meta_keywords %}{% endblock %}">
 <meta name="description" content="{% block meta_description %}{% endblock %}">
-<title>Կիսվիր Տաքսիովդ</title>
+<title>{% trans "Share your cab" %}</title>
 <link rel="shortcut icon" href="{% static "img/logos/favicon.jpg" %}">
 
 {% ifinstalled mezzanine.blog %}
@@ -63,10 +63,15 @@
                         
                         <div class="col-xs-12">
                             <div class="col-xs-6">
-                                <a class="navbar-brand page-scroll" href="/"><img src="{% static "img/index_photos/icon.JPG" %}" width="120" alt="Taxin Miasin"></a>    
+                                {% get_current_language as LANGUAGE_CODE %}
+                                <a class="navbar-brand page-scroll" href="{% if LANGUAGE_CODE == 'en' %}/{% else %}/hy{% endif %}"><img src="{% static "img/index_photos/icon.JPG" %}" width="120" alt="Taxin Miasin"></a>    
                             </div>
-                            <div  class="col-xs-6" id="title_div">
+                            <div  class="col-xs-5" id="title_div">
                                 {% block title %}{% endblock %}
+                            </div>
+                            <div  class="col-xs-1" id="title_div">
+                                <a href='/'><img src="{% static 'img/flags/us.png' %}"/></a>
+                                <a href='/hy'><img src="{% static 'img/flags/am.png' %}"/></a>
                             </div>
                         </div>
                         
@@ -140,7 +145,7 @@
                             <li><a href="http://www.pinterest.com/taxinmiasin/" target="_blank"><i class="fa fa-pinterest"></i></a>
                             </li>
                         </ul>
-                        <span class="copyright">&copy; Տաքսին Միասին 2014</span>
+                        <span class="copyright">&copy; {% trans "Taxin Miasin 2014" %}</span>
                     </div>
                     <div class="col-xs-6">
                         <img src="{% static 'img/logos/PayPal_Logo.jpg' %}" style="max-width:100%; height:auto;" width="125" style="max-width:100%; height:auto;" />

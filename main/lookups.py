@@ -14,7 +14,7 @@ class StreetLookup(LookupChannel):
   
     def get_result(self, obj):
         u""" result is the simple text that is the completion of what the person typed """
-        return obj.name_hy
+        return obj.name_en
 
     def format_match(self, obj):
         """ (HTML) formatted item for display in the dropdown """

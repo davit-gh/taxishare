@@ -40,13 +40,18 @@
             })
             .fail(function(jqXHR, textStatus, errorThrown) {
                 //alert(errorThrown + ' : ' + jqXHR.responseText);
-                alert("Ներեցեք, ստուգեք բջջային համարը, թարմացրեք էջը և փորձեք նորից, խնդրեմ.")
+                alert("{% trans 'Sorry, check your phone number, refresh the page and start over again, please.' %}");
             });
         }
         
 
     $(function(){
-      $("input[value='Գրանցվել']").click(function(){
+      $("input[value='Sign up']").click(function(){
+        console.log($(this).val());
+        if (($(this).val() != "Sign up") && ($(this).val() != "Գրանցվել")){
+            console.log("true");
+            return true;
+        }
         var pin_val = $("#id_pin").val();
             
         if (pin_val.length == 0) {return true;} //return true to enable django's standart validation
@@ -58,11 +63,11 @@
                 if ($("div#pin_div").children("ul").length){
                     $("div#pin_div").children("ul")[0].remove();
                 }
-                $("span#error").html("Ձեր մուտքագրած Pin-ը ճիշտ չէ։");
+                $("span#error").html("{% trans 'The pin you entered is wrong.' %}");
                 return false;
             }
         } else {
-            alert("Սեղմեք, խնդրեմ, «Ստանալ Pin» SMS կոդ ստանալու համար։");
+            alert("{% trans 'Please click <Get Pin> to receive SMS pin code.' %}");
             return false;
         }
       });
@@ -95,7 +100,7 @@
                                     {{ field }}
                             </div>
                             <div class="col-xs-4">
-                                <input type="submit" style="white-space: normal; margin-left: -2em" onClick="send_pin(); return false" value="Ստանալ Pin" class="commentButtClass">
+                                <input type="submit" style="white-space: normal; margin-left: -2em" onClick="send_pin(); return false" value='{% trans "Get Pin" %}' class="commentButtClass">
                             </div>
                         </div>
                     {% else %}
@@ -108,7 +113,7 @@
         </fieldset>
         <div class="form-actions">
             
-            <input class="btn btn-primary btn-lg center-block" type="submit" value="{{ title }}">
+            <input id="submit_button" class="btn btn-primary btn-lg center-block" type="submit" value="{{ title }}">
             
         </div>
 

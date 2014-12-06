@@ -1,5 +1,5 @@
 {% load weekday i18n %}
-<h2>Ձեր Անցած Պատվերները</h2>
+<h2>{% trans 'Passed Orders' %}</h2>
     {% for d, event in passed_events %}
             <div class="col-xs-6 col-sm-4 col-md-2 text-center" id="month-event-title-parent">
                 <div class="month-event-title">
@@ -18,17 +18,17 @@
                             </div>
                             {% for c in event.cancellations.all %}
                                 {% if c.date == d.date %}
-                                    <p>(ՉԵՂԱՐԿՎԱԾ)</p>
+                                    <p>{% trans '(CANCELLED)' %}</p>
                                 {% endif %}
                             {% endfor %}
                         </a>
                     
-                        <button class="fback btn btn-custom col-sm-12" data-form="{% url "feedback" event.id %}" data-desc="{{ event.title }}"><p id="button_text" style="margin-left:auto;margin-right:auto;">Գնահատել Պատվերը</p></button>
+                        <button class="fback btn btn-custom col-sm-12" data-form="{% url "feedback" event.id %}" data-desc="{{ event.title }}"><p id="button_text" style="margin-left:auto;margin-right:auto;">{% trans 'Leave Feedback' %}</p></button>
                         <div class="modal fade" id="myModal"></div>
                     
                 </div>
             </div>
     {% empty %}
-    Դեռ պատվերներ չկան․․․
+    {% trans 'No orders yet...' %}
     {% endfor %}
   

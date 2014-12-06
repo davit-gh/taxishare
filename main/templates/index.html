@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Տաքսին Միասի՛ն</title>
+    <title>{% trans "Share your cab" %}</title>
     <link rel="shortcut icon" href="{% static "img/logos/favicon.jpg" %}">
     <!-- Bootstrap Core CSS -->
     <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
@@ -68,7 +68,10 @@
                 {% endif %}
                 {% endnevercache %}
             </div>
-            
+            <div style="float:right">
+                <a href='/'><img src="{% static 'img/flags/us.png' %}"/></a>
+                <a href='/hy'><img src="{% static 'img/flags/am.png' %}"/></a>
+            </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav col-sm-12">
@@ -76,21 +79,21 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">Ինչպե՞ս է աշխատում</a>
+                        <a class="page-scroll" href="#services">{% trans "How it works" %}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Վճարում</a>
+                        <a class="page-scroll" href="#portfolio">{% trans "Payment" %}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">Մեր Մասին</a>
+                        <a class="page-scroll" href="#about">{% trans "About us" %}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Կապվեք Մեզ</a>
+                        <a class="page-scroll" href="#contact">{% trans "Contact us" %}</a>
                     </li>
                 {% if request.user.is_authenticated %}
                   {% url "profile" request.user.username as profile_url %}
                       <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Բարեվ <b>{{ request.user.username }}</b><strong class="caret"></strong></a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">{% trans "Hello" %} <b>{{ request.user.username }}</b><strong class="caret"></strong></a>
                         <ul class="dropdown-menu" role="menu">
                           
                             {% if profile_url %}
@@ -115,7 +118,7 @@
                   {% else %}
                     
                     <li class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">Մուտք<strong class="caret"></strong></a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">{% trans "Log in" %}<strong class="caret"></strong></a>
                             <ul class="dropdown-menu" role="menu">
                                 <li id="form_li">
                                     
@@ -124,12 +127,12 @@
                                           <form action="{% url "login" %}?next={{ request.path }}" method="post">
                                                 {% csrf_token %}
                                                 {{ form.as_p }}
-                                                <input class="btn btn-primary center-block" id="login_button" style="clear: left; height: 32px; font-size: 13px;" type="submit" name="commit" value="Մուտք Գործել" />
+                                                <input class="btn btn-primary center-block" id="login_button" style="clear: left; height: 32px; font-size: 13px;" type="submit" name="commit" value='{% trans "Log in" %}' />
                                            
                                             
                                           </form>
-                                          <a style="margin-top: -10px; color: blue" href="/accounts/password/reset">Մոռացել եմ ծածկագիրս</a>
-                                          <span>Գրանցված չե՞ք</span><a style="color: blue" href="{% url "signup" %}?next={{ request.path }}">&nbsp;Գրանցվել</a>
+                                          <a style="margin-top: -10px; color: blue" href="/accounts/password/reset">{% trans "Forgot password" %}</a>
+                                          <span>{% trans "Not registered?" %}</span><a style="color: blue" href="{% url "signup" %}?next={{ request.path }}">&nbsp;{% trans "Register" %}</a>
                                     </div>
                                     
                               
@@ -139,21 +142,21 @@
                           
                     </li>
                   {% endif %} 
+                  
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-
     <!-- Header -->
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Բարի Գալուստ «Տաքսին Միասին»!</div>
-                <div class="intro-heading">Միասին էժան է և ուրախ!</div>
+                <div class="intro-lead-in">{% trans "Welcome to 'Taxin Miasin'!" %}</div>
+                <div class="intro-heading">{% trans "It's fun together and it's cheap!" %}</div>
                 
-                <a class="youtube btn-xl" href="https://www.youtube.com/watch?v=2gO0GXP2U5Q"><i style="font-size: 3vw" class="fa fa-youtube-play"></i>&nbsp;Նայի՛ր Վիդեոն</a>
+                <a class="youtube btn-xl" href="https://www.youtube.com/watch?v=2gO0GXP2U5Q"><i style="font-size: 3vw" class="fa fa-youtube-play"></i>&nbsp;{% trans "Demo Video" %}</a>
             </div>
         </div>
     </header>
@@ -163,9 +166,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Ինչպե՞ս է աշխատում</h2>
+                    <h2 class="section-heading">{% trans "How it works" %}</h2>
                     <h3 class="section-subheading text-muted">
-Բոլորին, անկասկած, ծանոթ է այն իրավիճակը, երբ ստիպված եք բարձրանալ երթուղային տաքսի, որն այլևս նստելու տեղ չունի։ Ձեզ անհրաժեշտ է հասնել աշխատավայր կամ ուսումնական հաստատություն կամ մեկ այլ վայր ու Դուք չեք կարող բաց թողնել երթուղային տաքսին, այլապես կուշանաք։ Ամեն օր տաքսի պատվիրելը շատ թանկ է և Դուք նորից ստիպած եք կռացած երթևեկել, ինչը, ինչպես բոլորս գիտենք մեր փորձից, շատ անհարմար է։ Այսուհետ Դուք ստիպված չեք այդպես վարվել, Դուք կարող եք կիսել Տաքսին Միասին։ Ուղեվարձը կբաժանվի 3 ուղևորների միջև։ Դուք կունենաք հարմարավետ երթևեկություն և կվճարեք շատ ավելի ցածր, քան ինքներդ տաքսի կանչելու դեպքում ու քիչ ավելի բարձր, քան երթուղային տաքսով երթևեկելու դեպքում։</h3>
+{% trans "You are undoubtedly familiar with the situation when you have to take a 'marshrutka' when it doesn't really have a free seat. You have to get to your work, to your studies or some other place and you cannot miss the 'marshrutka' otherwise you'll be late. Ordering taxi every day is pretty expensive and you have to take your ride standing all the way to your destination which is so annoying. You don't have to do that anymore, you can share the cost of your ride using 'Taxin Miasin'. The taxi fare will be divided among 3 passengers. You will enjoy your convenient ride and pay about 3 times less than ordering an ordinary taxi. It's a little more than a 'marshrutka' fare, it's just 350AMD per person․" %}</h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -174,8 +177,8 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-sign-in fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Քայլ 1</h4>
-                    <p class="text-muted">Գրանցվելիս անհրաժեշտ է մուտքագրել անուն, ազգանուն, օգտագործողի անուն և հեռախոսահամար։ Ձեր հեռախոսին կգա SMS ստուգիչ կոդ, որն անհրաժեշտ է մուտքագրել համապատասխան դաշտում՝ գրանցումն ավարտելու համար։ 
+                    <h4 class="service-heading">{% trans "Step 1" %}</h4>
+                    <p class="text-muted">{% trans "You need to enter your first and last names, username and mobile phone number for registration. You will receive SMS pin code you need to input to complete the registration. After registration you'll get an email with a link you need to click to activate your account." %} 
                     </p>
                     <img src="{% static "img/index_photos/girll.jpg" %}" class="img-responsive" alt="Registration">
                 </div>
@@ -184,8 +187,8 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Քայլ 2</h4>
-                    <p class="text-muted">Մուտքագրեք Ձեր ելակետը (Որտեղի՞ց) և նպատակակետը (Ու՞ր), մեկնման ամսաթիվը, ժամն ու հաճախականությունը։ Երբ որ ևս 2 ուղևոր ընտրեն նույն երթուղին ինչ որ Դուք, ապա Ձեր պատվերը կհամարվի հաստատված և կստանաք այդ մասին վկայող SMS</p>
+                    <h4 class="service-heading">{% trans "Step 2" %}</h4>
+                    <p class="text-muted">{% trans "Enter your route's starting and ending points, departure date/time, frequency and the number of passengers. As soon as 2 other passengers choose a similar route and date/time as you you'll get SMS confirmation with the details of your order. If you don't want to share the ride with 2 other passengers you can pay for 3 and have the taxi serve only you." %}</p>
                     <img src="{% static "img/index_photos/laptop_screen.jpg" %}" class="img-responsive" alt="Select Your Route">
                 </div>
                 <div class="col-md-4">
@@ -193,8 +196,8 @@
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-taxi fa-stack-1x fa-inverse"></i>
                     </span>
-                    <h4 class="service-heading">Քայլ 3</h4>
-                    <p class="text-muted">Նշված օրը և ժամին տաքսին կմոտենա Ձեր նշած վայրին։ Տաքսին կգտնեք ըստ Ձեզ ուղարկված SMS-ում առկա պետ․ համարանիշերի ու մակնիշի և վարորդին կներկայացնեք պատվերի համարը։ Ձեզ բարի ե՛րթ</p>
+                    <h4 class="service-heading">{% trans "Step 3" %}</h4>
+                    <p class="text-muted">{% trans "On the set date and time the taxi will be available in your specified starting point. You will identify the taxi according to the details in SMS like car model, licence plate. Just show the driver your order number and you're good to go!"  %}</p>
                     <img src="{% static "img/index_photos/sdfs.jpg" %}" class="img-responsive" alt="Set off">
                 </div>
             </div>
@@ -206,8 +209,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Վճարում</h2>
-                    <h3 class="section-subheading text-muted">Հաշվի լիցքավորումն իրականացվում է առցանց` առայժմ օգտագործելով միայն Paypal վճարային համակարգը։ Հետագայում պլաններ ունենք ավելացնել TelCell տերմինալների միջոցով լիցքավորման հնարավորություն։ Բոլոր տվյալների փոխանցումը գաղտնագրված է և 100% ապահով։</em> Գրանցվելուց հետո Դուք հնարավորություն կստանաք լիցքավորել Ձեր հաշիվը, որից հետո կարող եք պատվեր ստեղծել, եթե Ձեր հաշվին կան բավարար միջոցներ։ Պատվերները կարող են ստեղծվել միայն տվյալ օրվան հաջորդող օրերի համար։ Միանգամյա պատվերի արժեքն է 350 դրամ։ Մի մեքենան սպասարկելու է 3 ուղևոր։ </h3> 
+                    <h2 class="section-heading">{% trans "Payment" %}</h2>
+                    <h3 class="section-subheading text-muted">{% trans "Topping up your account is done via Paypal for now. We have plans to integrate more payment solutions like TelCell terminals and others in the future. We use https protocol so your communication with the website is completely safe and secure. After registration you have the option to top up your account and then create an order if you have enough credit on your account. Orders can be created starting from the next day of the current day. A single order costs 350AMD. One car will serve 3 persons." %}</h3> 
                 </div>
             </div>
             
@@ -219,8 +222,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Մեր Մասին</h2>
-                    <h3 class="section-subheading text-muted">Մենք մի խումբ ակտիվ երիտասարդներ ենք։ Ուզում ենք մեր փոքրիկ ներդրումն ունենալ մեր հասարակության մեջ դրական փոփոխություններ կատարելու գործում։ Լիահույս ենք, որ «Տաքսին Մասին» կսիրվի մեր հայրենակիցների կողմից և նրանց առօրյա տեղափոխումը կդարձնի առավել հարմարավետ ու մատչելի։ Կայքը պատրաստելու գաղափարն առաջացավ մեր սեփական տհաճ փորձից, երբ առավոտյան ու երեկոյան բազմիցս ստիպված ենք եղել կռացած երթևեկել նստելու տեղ չունեցող երթուղայիններով։ Այսուհետ բոլորս ունենք նոր ընտրության հնարավորություն։</h3>
+                    <h2 class="section-heading">{% trans "About us" %}</h2>
+                    <h3 class="section-subheading text-muted">{% trans "We are a small group of active young people. We want to have our little contribution in making positive changes in our society. Hopefully 'Taxin Miasin' will be loved by our compatriotes and guests making their daily transportation more convenient and affordable. The idea of creating the website popped up out of our own gloomy experience when getting to work and back home was literally pain in a back. We all have a new choice now." %}</h3>
                 </div>
             </div>
         </div>
@@ -236,8 +239,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Կապվեք Մեզ</h2>
-                    <h3 class="section-subheading text-muted">Գրեք մեզ ցանկացած հարցերի կամ առաջարկների դեպքում․</h3>
+                    <h2 class="section-heading">{% trans "Contact us" %}</h2>
+                    <h3 class="section-subheading text-muted">{% trans "Contact us if you have any questions or suggestions." %}</h3>
                 </div>
             </div>
             {% get_contact_form request as form %}
@@ -264,7 +267,7 @@
                            
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">Ուղարկել նամակը</button>
+                                <button type="submit" class="btn btn-xl">{% trans "Send Message" %}</button>
                             </div>
                         </div>
                     </form> 
@@ -290,7 +293,7 @@
                                 </li>
                             </ul>
                         
-                            <span class="copyright">&copy; Տաքսին Միասին 2014</span>
+                            <span class="copyright">&copy; {% trans "Taxin Miasin 2014" %}</span>
                     </div>
                     <div class="col-xs-4">
                         <img src="{% static 'img/logos/PayPal_Logo.jpg' %}" style="max-width:100%; height:auto;" width="125" style="max-width:100%; height:auto;" />

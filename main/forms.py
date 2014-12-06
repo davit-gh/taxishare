@@ -41,9 +41,9 @@ class EventForm(ModelForm):
             ('2', 2),
             ('3', 3),
     )
-	source 	    = AutoCompleteField('street', label=_('source'), required=True, help_text=None)
-	destination = AutoCompleteField('street', label=_('destination'), required=True, help_text=None)
-	repeat 	    = forms.ChoiceField(label=_("repeat"), widget=forms.Select(attrs={'id': "id_repeat", 'class': 'repeatClass', 'onchange':'getRepeat(this);'}), choices=REPEAT_CHOICES, initial='NEVER')
+	source 	    = AutoCompleteField('street', label=_('Source'), required=True, help_text=None)
+	destination = AutoCompleteField('street', label=_('Destination'), required=True, help_text=None)
+	repeat 	    = forms.ChoiceField(label=_("Repeat"), widget=forms.Select(attrs={'id': "id_repeat", 'class': 'repeatClass', 'onchange':'getRepeat(this);'}), choices=REPEAT_CHOICES, initial='NEVER')
 	passanger_number = forms.ChoiceField(label=_("How many?"), widget=forms.Select(attrs={'id': "id_passanger_number", 'class': 'passnumClass'}), choices=PASSANGER_NUMBER_CHOICES, initial='ONE')
 	class Meta:
  		model = Event
@@ -57,12 +57,12 @@ class EventForm(ModelForm):
         	}
 	def clean_source(self):
 		source = self.cleaned_data['source']
-		obj, created = Streets.objects.get_or_create(name_hy=source, defaults={'name_en': 'not set'})
+		obj, created = Streets.objects.get_or_create(name_en=source, defaults={'name_hy': 'not set'})
 		return obj
 
 	def clean_destination(self):
 		dest = self.cleaned_data['destination']
-		obj, created = Streets.objects.get_or_create(name_hy=dest, defaults={'name_en': 'not set'})
+		obj, created = Streets.objects.get_or_create(name_en=dest, defaults={'name_hy': 'not set'})
 		return obj
 
 	def clean_start_date(self):

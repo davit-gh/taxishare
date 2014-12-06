@@ -2,7 +2,7 @@
 {% load i18n future mezzanine_tags accounts_tags staticfiles happenings_tags get_passed_events paypal_formset %}
 
 {% block meta_title %}{{ profile_user|username_or:"get_full_name" }}{% endblock %}
-{% block title %}<h3>Բարի գալուստ, {{ profile_user|username_or:"get_full_name" }}!</h3>{% endblock %}
+{% block title %}<h3>{% trans 'Welcome, ' %}{{ profile_user|username_or:"get_full_name" }}!</h3>{% endblock %}
 {% block body_id %}account{% endblock %}
 {% block extra_css %}
     <link rel="stylesheet" href="{% static "css/ajax_select.css" %}" />
@@ -17,7 +17,7 @@
 	<script src="{% static 'js/resp_tab/easyResponsiveTabs.js' %}"></script>
 	<script src="{% static 'js/ajax_select.js' %}"></script>
 	<script src="{% static 'happenings/js/calendar.js' %}"></script>
-	<script src="https://checkout.stripe.com/checkout.js"></script>
+	<!-- STRIPE js was here -->
 	<script type="text/javascript">
 		function getRepeat(sel){
 			if(sel.value != "NEVER"){
@@ -29,30 +29,30 @@
 	</script>
 	<script type="text/javascript">
 	//var chargedAmount = '',
-	var	amountAMD = '';
-	var handler = StripeCheckout.configure({
-		    key: 'pk_test_9mC5ObhmQDE0DVcSxipuCNG5',
-		    token: function(token, args) {
-		      // Use the token to create the charge with a server-side script.
-		      // You can access the token ID with `token.id`
-		      		//token['amount'] = amount;
-			      console.log(JSON.stringify(args));
-			      
-			      $.ajax({
-			      	type: 'POST',
-			      	data: { token: token.id, email: token.email, amountAMD: amountAMD, csrfmiddlewaretoken: '{{ csrf_token }}'},
-			      	url: '{% url "process_token" %}',
-			      	success: function(data){
-			      		
-			      		$(".col-xs-6 > h4#balance").html(data.new_balance + '&nbsp;դրամ');
-			      	},
-			      	error: function(data){
-			      		console.log(data);
-			      	}
-			      });
-		    }
-		 
-	});
+	//var	amountAMD = '';
+	//var handler = StripeCheckout.configure({
+	//	    key: 'pk_test_9mC5ObhmQDE0DVcSxipuCNG5',
+	//	    token: function(token, args) {
+	//	      // Use the token to create the charge with a server-side script.
+	//	      // You can access the token ID with `token.id`
+	//	      		//token['amount'] = amount;
+	//		      console.log(JSON.stringify(args));
+	//		      
+	//		      $.ajax({
+	//		      	type: 'POST',
+	//		      	data: { token: token.id, email: token.email, amountAMD: amountAMD, csrfmiddlewaretoken: '{{ csrf_token }}'},
+	//		      	url: '{% url "process_token" %}',
+	//		      	success: function(data){
+	//		      		
+	//		      		$(".col-xs-6 > h4#balance").html(data.new_balance + '&nbsp;{% trans "AMD" %}');
+	//		      	},
+	//		      	error: function(data){
+	//		      		console.log(data);
+	//		      	}
+	//		      });
+	//	    }
+	//	 
+	//});
 	   	  
 	
 	$(function(){
@@ -78,7 +78,7 @@
 			$('div.toggle_payment').slideToggle("slow");
 			ppldiv.slideToggle("slow");
 				$(".triggerToggle").text(function(i, text){
-				          return text === "Լիցքավորել Paypal-ով" ? "Լիցքավորել Կրեդիտ Քարտով" : "Լիցքավորել Paypal-ով";
+				          return text === "{% trans 'Top up with Paypal' %}" ? "{% trans 'Top up with credit card' %}" : "{% trans 'Top up with Paypal' %}";
 				})	
 
 		});
@@ -88,9 +88,9 @@
 	    	//chargedAmount = chargedAmount.toFixed(2);
 	    	amountAMD = $(this).data('amount') * 100;
 		    handler.open({
-		      name: 'Տաքսին Միասին',
+		      name: '{% trans "Taxin Miasin" %}',
 		      image: '{% static 'img/index_photos/icon.JPG' %}',
-		      description: 'Հաշվի լիցքավորում ('+$(this).data('amount')+'դր)',
+		      description: '{% trans "Account top up (" %}'+$(this).data('amount')+'{% trans "AMD" %})',
 		      amount: amountAMD,
 		      currency: "amd"
 		    });
@@ -115,7 +115,7 @@
 							data: {'event_id': $(this).data('event_id'), 'date': $(this).data('date'), 'butt_id': $(this).data('butt_id'), 'csrfmiddlewaretoken': '{{ csrf_token }}'},
 							success: function(data){
 								var butto = $('#'+data.butt_id);
-								butto.before("(ՉԵՂԱՐԿՎԱԾ)");
+								butto.before("{% trans '(CANCELLED)' %}");
 								$(".col-xs-6 > h4#balance").html(data.new_balance + '.0&nbsp;դրամ');
 								butto.attr('disabled','disabled').removeClass('cnclButtClassPlus');
 								
@@ -144,7 +144,7 @@
 			return false;
 		});
 		
-    	if($("#id_repeat :selected").text() != "Երբեք"){
+    	if($("#id_repeat :selected").text() != "{% trans 'Never' %}"){
 			$('#end_repeat').show();
 		} else {
 			$('#end_repeat').hide();
@@ -171,20 +171,20 @@
 			<div class="col-xs-6" id="avatar_div">
 	            <img class="img-thumbnail" src="{% gravatar_url profile_user.email 64 %}">
 	            {% if profile_user == request.user %}
-	            <br><a class="btn btn-primary" href="{% url "profile_update" %}">Թարմացնել պրոֆիլը</a>
+	            <br><a class="btn btn-primary" href="{% url "profile_update" %}">{% trans 'Update Profile' %}</a>
 	            {% endif %}
 	        </div>
 	        <div class="col-xs-6" id="balance_div">
-	            <h4>Ձեր հաշվին կա </h4>
-	            <h4 id="balance">{{ request.user.profile.balance }} դրամ
+	            <h4>{% trans 'Your balance is:' %} </h4>
+	            <h4 id="balance">{{ request.user.profile.balance }} {% trans 'AMD' %}
 	            </h4>
 	        </div>
 		
 						
 		
 
-			<div id="dialog-confirm" title="Չեղարկե՞լ">
-				<p>Համոզվա՞ծ եք, որ ուզում եք չեղյալ անել այս պատվերը</p>
+			<div id="dialog-confirm" title="{% trans 'Cancel?' %}">
+				<p>{% trans 'Are you sure you want to cancel this order?' %}</p>
 			</div>	
 
 
@@ -192,10 +192,10 @@
 {% block tabs %}
 	<div id="tabs" >
 				<ul class='resp-tabs-list'>
-				<li>Լիցքավորել Հաշիվը</li>
-				<li>Պատվիրել</li>
-				<li>Իմ Պատվերները</li>
-				<li>Օրացույց</li>
+				<li>{% trans 'Top up Account' %}</li>
+				<li>{% trans 'Create an Order' %}</li>
+				<li>{% trans 'My Orders' %}</li>
+				<li>{% trans 'Calendar' %}</li>
 				</ul>
 				<div class="resp-tabs-container">
 					<div>
@@ -204,14 +204,14 @@
 
 																
 							<div class="ppl_div">
-								<h5 style="text-align: center">Լիցքավորել Paypal-ի միջոցով</h5>
+								<h5 style="text-align: center">{% trans 'Top up using Paypal' %}</h5>
 								{% get_ppl_formset request as formset %}
 									<div class="row no-gutter">
 										{% for form, url in formset %}
 											<div class="col-xs-6">
 												<form method="post" action="https://www.paypal.com/cgi-bin/webscr">
 													{{ form.as_p }}
-													<input type="image" src="{% static url %}" border="0" name="submit" alt="Լիցքավորել Paypal-ի միջոցով՝ արագ, անվճար ու ապահով!" style="max-width:100%; height:auto;">
+													<input type="image" src="{% static url %}" border="0" name="submit" alt="{% trans 'Top up using Paypal - the fast and the safe way' %}" style="max-width:100%; height:auto;">
 												</form>
 											</div>
 										{% endfor %}
@@ -225,7 +225,7 @@
 					<div id="tab2">
 						<div id="tab_container" class="container col-lg-12">
 							<div class="col-md-12">
-								<h5>Մուտքագրեք, խնդրեմ, Ձեր ուղևորության սկզբնակետն ու վերջնակետը</h5>
+								<h5>{% trans 'Fill in the fields below, please.' %}</h5>
 							</div>
 							<div class="row no-gutter" >
 								{% include "form/form.html" %}

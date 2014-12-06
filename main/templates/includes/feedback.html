@@ -1,9 +1,10 @@
+  {% load i18n %}
   <form class="feedback-form" method="post" action="{% url "feedback" event_id %}">
       <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h4 class="modal-title">Ձեր Գնահատականը</h4>
+          <h4 class="modal-title">{% trans 'Your Feedback' %}</h4>
         </div>
         <div class="modal-body">
           {% csrf_token %}
@@ -21,8 +22,8 @@
           {% endfor %}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Փակել</button>
-          <button type="submit" id="id_save" class="btn btn-primary">Պահպանել</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">{% trans 'Close' %}</button>
+          <button type="submit" id="id_save" class="btn btn-primary">{% trans 'Save' %}</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

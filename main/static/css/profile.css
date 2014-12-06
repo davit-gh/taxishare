@@ -467,3 +467,7 @@ span#error{
 ul.list-inline.social-buttons{
 	margin-top: 1.5em;
 }
+
+#id_passanger_number{
+	width: 4em;
+}
