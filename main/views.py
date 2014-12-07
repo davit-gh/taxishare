@@ -48,7 +48,7 @@ def _verify_pin(request, mobile_number, pin):
 
 def ajax_send_pin(request):
     """ Sends SMS PIN to the specified number """
-    if request.POST:
+    if request.POST and request.is_ajax():
 	    mobile_number = request.POST.get('mobile_number', "").split()
 	    mobile_number = '+374' + ''.join([mobile_number[0]]+mobile_number[1].split('-'))[1:]
 	    if not mobile_number:
@@ -66,9 +66,6 @@ def ajax_send_pin(request):
 		                from_=settings.TWILIO_FROM_NUMBER,
 		            )
 	    return HttpResponse(json.dumps({'pin': pin}), content_type='application/json')
-
-    else:
-   	    return render(request, 'temp.html')
 
 def set_user_balance(u, new_balance):
 	b = MyProfile.objects.filter(user=u)[0]

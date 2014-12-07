@@ -461,8 +461,9 @@ else:
 LOCALE_PATHS = ('/home/hero/taxishare/locale',)
 ACCOUNTS_VERIFICATION_REQUIRED = True
 ACCOUNTS_PROFILE_VIEWS_ENABLED = True
-LOGIN_REDIRECT_URL = '/users/'
+from django.core.urlresolvers import reverse_lazy
 
+LOGIN_REDIRECT_URL = reverse_lazy('profile_redirect')
 AUTH_PROFILE_MODULE = "main.MyProfile"
 #AUTH_USER_MODEL = "main.MyProfile"
 ACCOUNTS_PROFILE_FORM_EXCLUDE_FIELDS = (

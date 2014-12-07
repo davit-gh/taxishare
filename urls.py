@@ -20,7 +20,7 @@ urlpatterns = patterns("",
     # admin interface, which would be marginally more secure.
     # include the lookup urls
     (r'^lookups/', include(ajax_select_urls)),
-    ("^admin/", include(admin.site.urls)),
+    ("^pingwin/", include(admin.site.urls)),
 #    (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
@@ -32,7 +32,7 @@ urlpatterns += solid_i18n_patterns('',
         name="shop_order_history"),
     url(r'^search_form',  view='main.views.search_form', name='search_form'),
     url(r'^twilio',  view='main.views.ajax_send_pin', name='ajax_send_pin'),
-    url(r'^stripe',  view='main.views.process_token', name='process_token'),
+#    url(r'^stripe',  view='main.views.process_token', name='process_token'),
     url(r'^calendar/', include('happenings.urls', namespace='calendar')),
     url(r'^ppl_return/', view='main.views.ppl_return', name='pplret'),
     url(r'^cancel/', view='main.views.cancel', name='cancel'),
