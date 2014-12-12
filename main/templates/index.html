@@ -38,7 +38,7 @@
 
 <body id="page-top" class="index">
   <div id="wrap">
-    <a class="navbar-brand page-scroll" style="margin-top: 3em" href="#page-top"><img src="{% static "img/index_photos/icon.JPG" %}" width="150" alt="Տաքսին Միասին"></a>
+    <a class="navbar-brand page-scroll" style="margin-top: 3em" href="#page-top"><img src="{% static "img/index_photos/logo.png" %}" width="180" alt="Տաքսին Միասին"></a>
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
@@ -245,17 +245,17 @@
             </div>
             {% get_contact_form request as form %}
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-md-12">
                     <form name="sentMessage" id="contactForm" method="POST" action="/contactus/">
                     {% csrf_token %}
                         <div class="row">
-                            <div class="col-md-12">
+                            
                                 {% errors_for form %}
                                 {% for hidden in form.hidden_fields %}
                                     {{ hidden }}
                                 {% endfor %}
                                 {% for field in form.visible_fields %}     
-                                    <div class="col-md-6">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <label style="color: #f6bf01; font-size: 2vw" for="id_{{ field.name }}">
                                             {% trans  field.label  %}</label>{{ field.errors }}
@@ -263,11 +263,10 @@
                                         </div>
                                     </div>
                                 {% endfor %}
-                            </div>
+                            
                            
-                            <div class="col-lg-12 text-center">
-                                <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">{% trans "Send Message" %}</button>
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn btn-xl center-block">{% trans "Send Message" %}</button>
                             </div>
                         </div>
                     </form> 
