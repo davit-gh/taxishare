@@ -259,7 +259,6 @@ div#avatar_div, div#balance_div{
 	}
 	div.lastdiv{
 		float: right;
-		margin-top: -5em;
 	}
 	div#passanger_number_div.col-xs-12{
 		margin-left: 1em;
@@ -470,4 +469,16 @@ ul.list-inline.social-buttons{
 
 #id_passanger_number{
 	width: 4em;
+}
+
+div#passanger_number.col-xs-6{
+	margin-top: 2em;
+}
+
+div#payment_method.col-xs-6{
+	margin-top: -3em;
+}
+
+ul#id_payment_method{
+	list-style-type: none;
 }

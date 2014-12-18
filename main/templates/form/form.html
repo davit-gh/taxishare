@@ -21,13 +21,8 @@
                           {{ field }}
                         </div>
                         </div>
-                    {% elif field.id_for_label == 'id_passanger_number' %}
-                        <div class="col-xs-12" id="passanger_number_div">
-                          {{ field.label_tag }}{{ field.errors }}<br/>
-                          {{ field }}
-                        </div>
                     {% else %}
-                      <div class="col-xs-6">
+                      <div class="col-xs-6" id="{{ field.html_name }}">
                         
                         {{ field.label_tag }}{{ field.errors }}<br/>
                         {{ field }}

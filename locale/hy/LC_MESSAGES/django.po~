@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-05 22:57+0400\n"
+"POT-Creation-Date: 2014-12-18 18:21+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: main/forms.py:30 main/happenings/models.py:32
+#: main/templates/accounts/account_profile.html:122
 msgid "Never"
 msgstr "Երբեք"
 
@@ -45,35 +46,47 @@ msgstr "Ամեն ամիս"
 msgid "Every Year"
 msgstr "Ամեն տարի"
 
-#: main/forms.py:44
-msgid "source"
+#: main/forms.py:46
+msgid "With cash"
+msgstr "Կանխիկ"
+
+#: main/forms.py:47
+msgid "Use My Balance"
+msgstr "Իմ հաշվից"
+
+#: main/forms.py:49
+msgid "Source"
 msgstr "Սկզբնակետ"
 
-#: main/forms.py:45
-msgid "destination"
+#: main/forms.py:50
+msgid "Destination"
 msgstr "Վերջնակետ"
 
-#: main/forms.py:46 main/happenings/models.py:63
-msgid "repeat"
+#: main/forms.py:51
+msgid "Repeat"
 msgstr "Կրկնել"
 
-#: main/forms.py:47 main/happenings/models.py:65
+#: main/forms.py:52 main/happenings/models.py:65
 msgid "How many?"
 msgstr "Քա՞նի հոգի"
 
-#: main/forms.py:55
+#: main/forms.py:53 main/happenings/models.py:66
+msgid "Payment Method"
+msgstr "Ինչպե՞ս վճարել"
+
+#: main/forms.py:61
 msgid "around market"
 msgstr "Օրինակ՝ շուկայի մոտ"
 
-#: main/forms.py:56
+#: main/forms.py:62
 msgid "around university"
 msgstr "Օրինակ՝ պետ․ համալսարանի մոտ"
 
-#: main/forms.py:73
+#: main/forms.py:79
 msgid "Please enter future date."
 msgstr "Մուտքագրեք, խնդրեմ, ապագայի ամսաթիվ։"
 
-#: main/forms.py:113
+#: main/forms.py:119
 msgid "Thank you for your comment!"
 msgstr "Շնորհակալություն Ձեր գնահատականի համար։"
 
@@ -95,7 +108,7 @@ msgid "Feedback Text"
 msgstr "Ձեր գնահատականը"
 
 #: main/models.py:37 main/django/contrib/comments/forms.py:96
-#: main/happenings/models.py:196
+#: main/happenings/models.py:197
 #: main/mezzanine/accounts/templates/email/account_approve.html:5
 #: main/mezzanine/accounts/templates/email/account_approve.txt:5
 #: main/mezzanine/generic/forms.py:84 main/mezzanine/utils/views.py:89
@@ -108,19 +121,19 @@ msgstr "Անուն"
 msgid "Description"
 msgstr "Նկարագրություն"
 
-#: main/views.py:167
+#: main/views.py:164
 msgid "Your feedback is saved. Thank you!"
 msgstr "Ձեր գնահատականը պահպանվեց։"
 
-#: main/views.py:175
+#: main/views.py:172
 msgid "Your feedback has not been saved. Please fill in both fields."
 msgstr "Ձեր գնահատականը չպահպանվեց, խնդրում ենք լրացնել 2 դաշտերն էլ։"
 
-#: main/views.py:208
+#: main/views.py:205
 msgid "We received your message, we will respond shortly. Thank you!"
 msgstr "Մենք ստացանք Ձեր նամակը, Ձեզ կպատասխանենք կարճ ժամանակ անց։"
 
-#: main/views.py:210
+#: main/views.py:207
 msgid "Your message has not been sent. Please fill in all the fields."
 msgstr "Ձեր նամակը չուղարկվեց, խնդրում ենք լրացնել բոլոր դաշտերը։"
 
@@ -729,6 +742,7 @@ msgstr ""
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel.html:20
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel_nav.html:14
 #: main/mezzanine/core/templates/admin/login.html:63
+#: main/templates/index.html:121 main/templates/index.html.py:130
 msgid "Log in"
 msgstr "Մուտք գործել"
 
@@ -908,7 +922,7 @@ msgstr "Ծածկագիր"
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel.html:17
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel_nav.html:11
 #: main/mezzanine/core/templates/includes/editable_toolbar.html:9
-#: main/templates/index.html:111
+#: main/templates/index.html:114
 msgid "Log out"
 msgstr "Ելք"
 
@@ -1127,8 +1141,9 @@ msgstr ""
 #: main/django/contrib/admin/templates/admin/submit_line.html:3
 #: main/mezzanine/conf/templates/admin/conf/setting/change_list.html:31
 #: main/mezzanine/core/templates/includes/editable_form.html:16
+#: main/templates/includes/feedback.html:26
 msgid "Save"
-msgstr ""
+msgstr "Պահպանել"
 
 #: main/django/contrib/admin/templates/admin/search_form.html:7
 #: main/mezzanine/core/templates/includes/search_form.html:5
@@ -1860,7 +1875,7 @@ msgid "checksum"
 msgstr ""
 
 #: main/django/contrib/auth/models.py:71
-#: main/django/contrib/auth/models.py:120 main/happenings/models.py:228
+#: main/django/contrib/auth/models.py:120 main/happenings/models.py:229
 msgid "name"
 msgstr ""
 
@@ -2164,7 +2179,7 @@ msgstr ""
 msgid "flag"
 msgstr ""
 
-#: main/django/contrib/comments/models.py:180 main/happenings/models.py:240
+#: main/django/contrib/comments/models.py:180 main/happenings/models.py:241
 msgid "date"
 msgstr ""
 
@@ -2317,8 +2332,8 @@ msgstr ""
 msgid "Flatpage with url %(url)s already exists for site %(site)s"
 msgstr ""
 
-#: main/django/contrib/flatpages/models.py:12 main/happenings/models.py:67
-#: main/happenings/models.py:217
+#: main/django/contrib/flatpages/models.py:12 main/happenings/models.py:68
+#: main/happenings/models.py:218
 msgid "title"
 msgstr ""
 
@@ -3770,97 +3785,106 @@ msgstr "Սկսման ամսաթիվ"
 msgid "end date"
 msgstr "Ավարտի ամսաթիվ"
 
-#: main/happenings/models.py:66
+#: main/happenings/models.py:63
+msgid "repeat"
+msgstr "Կրկնել"
+
+#: main/happenings/models.py:67
 msgid "end repeat"
 msgstr "Կրկնման ավարտ"
 
-#: main/happenings/models.py:68
+#: main/happenings/models.py:69
 msgid "description"
 msgstr "Նկարագրություն"
 
-#: main/happenings/models.py:70
+#: main/happenings/models.py:71
 msgid "locations"
 msgstr ""
 
-#: main/happenings/models.py:74
+#: main/happenings/models.py:75
 msgid "created by"
 msgstr ""
 
-#: main/happenings/models.py:77
+#: main/happenings/models.py:78
 msgid "categories"
 msgstr ""
 
-#: main/happenings/models.py:79
+#: main/happenings/models.py:80
 msgid "tags"
 msgstr ""
 
-#: main/happenings/models.py:83
+#: main/happenings/models.py:84
 msgid "background color"
 msgstr ""
 
-#: main/happenings/models.py:86
+#: main/happenings/models.py:87
 msgid "background color custom"
 msgstr ""
 
-#: main/happenings/models.py:87
+#: main/happenings/models.py:88
 msgid "Must be a valid hex triplet. Default is gray (eeeeee)"
 msgstr ""
 
-#: main/happenings/models.py:90
+#: main/happenings/models.py:91
 msgid "font color"
 msgstr ""
 
-#: main/happenings/models.py:93
+#: main/happenings/models.py:94
 msgid "font color custom"
 msgstr ""
 
-#: main/happenings/models.py:94
+#: main/happenings/models.py:95
 msgid "Must be a valid hex triplet. Default is black (000000)"
 msgstr ""
 
-#: main/happenings/models.py:167
+#: main/happenings/models.py:168
 msgid "Color must be a valid hex triplet."
 msgstr ""
 
-#: main/happenings/models.py:190
+#: main/happenings/models.py:191
 msgid "event"
 msgstr ""
 
-#: main/happenings/models.py:191
+#: main/happenings/models.py:192
 msgid "events"
 msgstr ""
 
-#: main/happenings/models.py:198
+#: main/happenings/models.py:199
 msgid "Address Line 1"
 msgstr ""
 
-#: main/happenings/models.py:200
+#: main/happenings/models.py:201
 msgid "Address Line 2"
 msgstr ""
 
-#: main/happenings/models.py:202
+#: main/happenings/models.py:203
 msgid "Address Line 3"
 msgstr ""
 
-#: main/happenings/models.py:204
+#: main/happenings/models.py:205
 msgid "State / Province / Region"
 msgstr ""
 
-#: main/happenings/models.py:206
+#: main/happenings/models.py:207
 msgid "City / Town"
 msgstr ""
 
-#: main/happenings/models.py:208
+#: main/happenings/models.py:209
 msgid "ZIP / Postal Code"
 msgstr ""
 
-#: main/happenings/models.py:209
+#: main/happenings/models.py:210
 msgid "Country"
 msgstr ""
 
-#: main/happenings/models.py:239
+#: main/happenings/models.py:240
 msgid "reason"
 msgstr ""
+
+#: main/happenings/templates/happenings/base.html:9
+#, fuzzy
+msgid "Order details"
+msgstr "Սկզբնակետի մանրամասներ"
 
 #: main/happenings/templates/happenings/event_day_list.html:12
 msgid "Events"
@@ -3903,6 +3927,10 @@ msgstr ""
 msgid "Դեռ պատվերներ չկան․․․"
 msgstr ""
 
+#: main/happenings/templates/happenings/event_detail.html:14
+msgid "Order: "
+msgstr "Պատվեր՝ "
+
 #: main/happenings/templates/happenings/event_detail.html:15
 msgid "Start: "
 msgstr "Սկզբնակետ՝ "
@@ -3919,9 +3947,51 @@ msgstr "Սկզբնակետի մանրամասներ՝ "
 msgid "End point details: "
 msgstr "Վերջնակետի մանրամասներ՝ "
 
+#: main/happenings/templates/happenings/event_detail.html:22
+msgid "This order repeats "
+msgstr "Այս պատվերը կրկնվում է"
+
+#: main/happenings/templates/happenings/event_detail.html:24
+msgid "The next order will be on:"
+msgstr "Հաջորդ պատվերը կլինի "
+
+#: main/happenings/templates/happenings/event_detail.html:27
+#: main/happenings/templates/happenings/event_detail.html:30
+#: main/happenings/templates/happenings/partials/upcoming_events.html:23
+#: main/templates/accounts/account_profile.html:93
+#: main/templates/happenings/partials/passed_events.html:21
+msgid "(CANCELLED)"
+msgstr "(ՉԵՂԱՐԿՎԱԾ)"
+
+#: main/happenings/templates/happenings/event_detail.html:29
+msgid "This was a repeating order that repeated"
+msgstr "Սա կրկնվող պատվեր էր, որ կրկնվեց"
+
+#: main/happenings/templates/happenings/event_detail.html:30
+msgid "The last order was on "
+msgstr "Վերջին պատվերը տեղի է ունեցել "
+
 #: main/happenings/templates/happenings/event_detail.html:32
 msgid "today is: "
 msgstr "Այսօր` "
+
+#: main/happenings/templates/happenings/event_detail.html:34
+msgid "This order was cancelled."
+msgstr "Այս պատվերը չեղյալ է արված։"
+
+#: main/happenings/templates/happenings/partials/upcoming_events.html:3
+msgid "Upcoming Orders"
+msgstr "Գալիք Պատվերները"
+
+#: main/happenings/templates/happenings/partials/upcoming_events.html:27
+#: main/mezzanine/core/templates/includes/editable_form.html:17
+msgid "Cancel"
+msgstr "Չեղարկել"
+
+#: main/happenings/templates/happenings/partials/upcoming_events.html:31
+#: main/templates/happenings/partials/passed_events.html:32
+msgid "No orders yet..."
+msgstr "Դեռ պատվերներ չկան․․․"
 
 #: main/mezzanine/accounts/defaults.py:21
 msgid "Minimum length for passwords"
@@ -4045,32 +4115,29 @@ msgstr "Հաջողությամբ գրանցվեցիք"
 msgid "Sign up"
 msgstr "Գրանցվել"
 
-#: main/mezzanine/accounts/views.py:87 main/mezzanine/accounts/views.py:242
+#: main/mezzanine/accounts/views.py:87 main/mezzanine/accounts/views.py:252
 msgid "The link you clicked is no longer valid."
 msgstr "Հղումն այլևս վավերական չէ։"
 
 #: main/mezzanine/accounts/views.py:147
-msgid "Order: "
-msgstr "Պատվեր՝ "
+#, fuzzy, python-format
+msgid "Order: %(time)s"
+msgstr "Սկզբնակետի մանրամասներ"
 
-#: main/mezzanine/accounts/views.py:156
-msgid "We received your order"
-msgstr "Մենք ստացանք Ձեր պատվերը։"
-
-#: main/mezzanine/accounts/views.py:159
+#: main/mezzanine/accounts/views.py:154
 msgid "Your order is placed for: "
 msgstr "Ձեր պատվերի ամսաթիվն է՝ "
 
-#: main/mezzanine/accounts/views.py:160
+#: main/mezzanine/accounts/views.py:155
 msgid "Number of your orders: "
 msgstr "Պատվերների քանակը՝ "
 
-#: main/mezzanine/accounts/views.py:161
+#: main/mezzanine/accounts/views.py:156
 #, python-format
 msgid "Your route starts at : %(source)s, ends at %(dest)s"
 msgstr "Սկզբնակետը՝ %(source)s, վերջնակետը՝ %(dest)s"
 
-#: main/mezzanine/accounts/views.py:162
+#: main/mezzanine/accounts/views.py:157
 #, python-format
 msgid ""
 "Your start point details are : %(source_det)s, end point details are "
@@ -4078,32 +4145,53 @@ msgid ""
 msgstr ""
 "Սկզբնակետի մանրամասներ՝ %(source_det)s, վերջնակետի մանրամասներ՝ %(dest_det)s"
 
-#: main/mezzanine/accounts/views.py:163
-msgid "Your oder cost: "
-msgstr "Պատվերի արժեքը՝ "
+#: main/mezzanine/accounts/views.py:159
+msgid "We received your order"
+msgstr "Մենք ստացանք Ձեր պատվերը։"
 
-#: main/mezzanine/accounts/views.py:174
+#: main/mezzanine/accounts/views.py:166
+#, python-format
+msgid "Your oder cost: %(order_cost)s AMD (paid)"
+msgstr "Պատվերի արժեքն է %(order_cost)s դրամ (վճարված է)"
+
+#: main/mezzanine/accounts/views.py:177
 msgid "Your order is successful! A confirmation email is sent to you."
 msgstr "Ձեր պատվերը հաջող է, հաստատման email-ը ուղարկվել է Ձեզ։"
 
-#: main/mezzanine/accounts/views.py:176
+#: main/mezzanine/accounts/views.py:179
 msgid "Your balance is not enough for your order."
 msgstr "Ձեր հաշվի բալանսը բավարար չէ պատվերի համար։"
 
-#: main/mezzanine/accounts/views.py:216
+#: main/mezzanine/accounts/views.py:182
+#, python-format
+msgid "Your oder cost: %(not_paid)s AMD (not paid yet)"
+msgstr "Ձեր պատվերի արժեքն է՝ %(not_paid)s դրամ (դեռևս չի վճարվել)"
+
+#: main/mezzanine/accounts/views.py:183
+#, python-format
+msgid ""
+"Success! You chose to pay with cash. Give %(money)s AMD in cash to driver, "
+"please"
+msgstr ""
+"Հաջողվե՜ց։ Դուք ընտրել եք վճարել կանխիկով։ Վճարեք %(money)s դրամ վարորդին, "
+"խնդրեմ։"
+
+#: main/mezzanine/accounts/views.py:226
 msgid "Profile updated"
 msgstr "Պրոֆիլը թարմացված է"
 
-#: main/mezzanine/accounts/views.py:221 main/templates/index.html:105
+#: main/mezzanine/accounts/views.py:231 main/templates/index.html:108
+#: main/templates/accounts/account_profile.html:149
+#: main/templates/accounts/account_profile_update.html:4
 msgid "Update Profile"
 msgstr "Թարմացնել պրոֆիլը"
 
-#: main/mezzanine/accounts/views.py:230
+#: main/mezzanine/accounts/views.py:240
 msgid ""
 "A verification email has been sent with a link for resetting your password."
 msgstr ""
 
-#: main/mezzanine/accounts/views.py:232
+#: main/mezzanine/accounts/views.py:242
 msgid "Password Reset"
 msgstr "Ծածկագրի փոխում"
 
@@ -4175,7 +4263,7 @@ msgid "Logged in as: "
 msgstr "Մուտք է գործված որպես՝ "
 
 #: main/mezzanine/accounts/templates/accounts/includes/user_panel.html:11
-#: main/templates/index.html:101
+#: main/templates/index.html:104
 msgid "Update profile"
 msgstr "Թարմացնել պրոֆիլը"
 
@@ -5061,10 +5149,6 @@ msgstr ""
 msgid "Sorry, an error occurred."
 msgstr ""
 
-#: main/mezzanine/core/templates/includes/editable_form.html:17
-msgid "Cancel"
-msgstr ""
-
 #: main/mezzanine/core/templates/includes/editable_form.html:25
 msgid "Edit"
 msgstr ""
@@ -5230,17 +5314,17 @@ msgstr ""
 msgid "Button text"
 msgstr ""
 
-#: main/mezzanine/forms/models.py:20
+#: main/mezzanine/forms/models.py:20 main/templates/form/form.html:34
 msgid "Submit"
-msgstr ""
+msgstr "Հաստատել"
 
 #: main/mezzanine/forms/models.py:21
 msgid "Response"
-msgstr ""
+msgstr "Պատասխան"
 
 #: main/mezzanine/forms/models.py:22
 msgid "Send email to user"
-msgstr ""
+msgstr "Ուղարկել email օգտատիրոջը"
 
 #: main/mezzanine/forms/models.py:23
 msgid ""
@@ -5847,34 +5931,70 @@ msgstr ""
 msgid "Recent Tweets"
 msgstr ""
 
-#: main/templates/index.html:154
-msgid "Welcome to 'Taxin Miasin'!"
-msgstr "Բարի Գալուստ «Տաքսին Միասին»!"
+#: main/templates/base.html:10 main/templates/index.html:13
+msgid "Share your cab"
+msgstr "Կիսվիր Տաքսիովդ"
 
-#: main/templates/index.html:155
-msgid "It's fun together and it's cheap!"
-msgstr "Միասին էժան է և ուրախ!"
+#: main/templates/base.html:148 main/templates/index.html:298
+msgid "Taxin Miasin 2014"
+msgstr "Տաքսին Միասին 2014"
 
-#: main/templates/index.html:157
-msgid "Demo Video"
-msgstr "Նայի՛ր Վիդեոն"
-
-#: main/templates/index.html:167
+#: main/templates/index.html:82 main/templates/index.html.py:172
 msgid "How it works"
 msgstr "Ինչպե՞ս է աշխատում"
 
-#: main/templates/index.html:169
+#: main/templates/index.html:85 main/templates/index.html.py:215
+msgid "Payment"
+msgstr "Վճարում"
+
+#: main/templates/index.html:88 main/templates/index.html.py:228
+msgid "About us"
+msgstr "Մեր Մասին"
+
+#: main/templates/index.html:91 main/templates/index.html.py:245
+msgid "Contact us"
+msgstr "Կապվեք Մեզ"
+
+#: main/templates/index.html:96
+msgid "Hello"
+msgstr "Բարեվ"
+
+#: main/templates/index.html:134
+msgid "Forgot password"
+msgstr "Մոռացել եմ ծածկագիրս"
+
+#: main/templates/index.html:135
+msgid "Not registered?"
+msgstr "Գրանցված չե՞ք"
+
+#: main/templates/index.html:135
+msgid "Register"
+msgstr "Գրանցվել"
+
+#: main/templates/index.html:156
+msgid "Welcome to 'Taxin Miasin'!"
+msgstr "Բարի Գալուստ «Տաքսին Միասին»!"
+
+#: main/templates/index.html:157
+msgid "It's fun together and it's cheap!"
+msgstr "Միասին էժան է և ուրախ!"
+
+#: main/templates/index.html:160
+msgid "Demo Video"
+msgstr "Նայի՛ր Վիդեոն"
+
+#: main/templates/index.html:174
 msgid ""
 "You are undoubtedly familiar with the situation when you have to take a "
 "'marshrutka' when it doesn't really have a free seat. You have to get to "
 "your work, to your studies or some other place and you cannot miss the "
 "'marshrutka' otherwise you'll be late. Ordering taxi every day is pretty "
 "expensive and you have to take your ride standing all the way to your "
-"destination which is so unconvenient. You don't have to do that anymore, you "
-"can share the cost of your ride using 'Taxin Miasin'. The taxi fare will be "
+"destination which is so annoying. You don't have to do that anymore, you can "
+"share the cost of your ride using 'Taxin Miasin'. The taxi fare will be "
 "divided among 3 passengers. You will enjoy your convenient ride and pay "
 "about 3 times less than ordering an ordinary taxi. It's a little more than a "
-"'marshrutka' fare it's just 350AMD per person․"
+"'marshrutka' fare, it's just 350AMD per person․"
 msgstr ""
 "Բոլորին, անկասկած, ծանոթ է այն իրավիճակը, երբ ստիպված եք բարձրանալ "
 "երթուղային տաքսի, որն այլևս նստելու տեղ չունի։ Ձեզ անհրաժեշտ է հասնել "
@@ -5885,45 +6005,47 @@ msgstr ""
 "կարող եք կիսել Տաքսին Միասին։ Ուղեվարձը կբաժանվի 3 ուղևորների միջև։ Դուք "
 "կունենաք հարմարավետ երթևեկություն և կվճարեք շատ ավելի ցածր, քան ինքներդ "
 "տաքսի կանչելու դեպքում ու քիչ ավելի բարձր, քան երթուղային տաքսով երթևեկելու "
-"դեպքում` 350 դրամ։"
+"դեպքում` ընդամենը 350 դրամ։"
 
-#: main/templates/index.html:178
+#: main/templates/index.html:183
 msgid "Step 1"
 msgstr "Քայլ 1"
 
-#: main/templates/index.html:179
+#: main/templates/index.html:184
 msgid ""
-"You need to input your first and last names, username and mobile phone "
+"You need to enter your first and last names, username and mobile phone "
 "number for registration. You will receive SMS pin code you need to input to "
-"complete the registration."
+"complete the registration. After registration you'll get an email with a "
+"link you need to click to activate your account."
 msgstr ""
 "Գրանցվելիս անհրաժեշտ է մուտքագրել անուն, ազգանուն, օգտագործողի անուն և "
 "հեռախոսահամար։ Ձեր հեռախոսին կգա SMS ստուգիչ կոդ, որն անհրաժեշտ է մուտքագրել "
-"համապատասխան դաշտում՝ գրանցումն ավարտելու համար։"
+"համապատասխան դաշտում՝ գրանցումն ավարտելու համար։ Գրանցումից հետո կստանաք "
+"հղում պարունակող նամակ։ Հղումը սեղմելով կակտիվացնեք ձեր հաշիվը։"
 
-#: main/templates/index.html:188
+#: main/templates/index.html:193
 msgid "Step 2"
 msgstr "Քայլ 2"
 
-#: main/templates/index.html:189
+#: main/templates/index.html:194
 msgid ""
-"Enter your route's starting and ending points, departure date, time and "
-"frequency. As soon 2 other passengers choose a similar route and date/time "
-"as you then you'll get SMS confirmation with details of your order. If you "
-"don't want to wait for other passengers you can pay for 3 and have the taxi "
-"serve only you."
+"Enter your route's starting and ending points, departure date/time, "
+"frequency and the number of passengers. As soon as 2 other passengers choose "
+"a similar route and date/time as you you'll get SMS confirmation with the "
+"details of your order. If you don't want to share the ride with 2 other "
+"passengers you can pay for 3 and have the taxi serve only you."
 msgstr ""
 "Մուտքագրեք Ձեր ելակետը (Որտեղի՞ց) և նպատակակետը (Ու՞ր), մեկնման ամսաթիվը, "
-"ժամն ու հաճախականությունը։ Երբ որ ևս 2 ուղևոր ընտրեն նույն երթուղին ինչ որ "
-"Դուք, ապա Ձեր պատվերը կհամարվի հաստատված և կստանաք այդ մասին վկայող SMS: Եթե "
-"չեք ցանկանում սպասել այլ ուևորների, ապա կարող եք վճարել միանգամից 3 հոգու "
-"համար և տաքսին կսպասարկի միայն Ձեզ։"
+"ժամը, հաճախականությունը և ուղևորների քանակը։ Երբ որ ևս 2 ուղևոր ընտրեն նույն "
+"երթուղին ինչ որ Դուք, ապա Ձեր պատվերը կհամարվի հաստատված և կստանաք այդ մասին "
+"վկայող SMS: Եթե չեք ցանկանում կիսել տաքսին այլ ուևորների հետ, ապա կարող եք "
+"վճարել միանգամից 3 հոգու համար և տաքսին կսպասարկի միայն Ձեզ։"
 
-#: main/templates/index.html:197
+#: main/templates/index.html:202
 msgid "Step 3"
 msgstr "Քայլ 3"
 
-#: main/templates/index.html:198
+#: main/templates/index.html:203
 msgid ""
 "On the set date and time the taxi will be available in your specified "
 "starting point. You will identify the taxi according to the details in SMS "
@@ -5934,60 +6056,133 @@ msgstr ""
 "ուղարկված SMS-ում առկա պետ․ համարանիշերի ու մակնիշի և վարորդին կներկայացնեք "
 "պատվերի համարը։ Ձեզ բարի ե՛րթ։"
 
-#: main/templates/index.html:210
-msgid "Payment"
-msgstr "Վճարում"
-
-#: main/templates/index.html:211
-#, python-format
+#: main/templates/index.html:216
 msgid ""
 "Topping up your account is done via Paypal for now. We have plans to "
 "integrate more payment solutions like TelCell terminals and others in the "
 "future. We use https protocol so your communication with the website is "
-"100%% safe and secure. After registration you have the option to top up your "
-"account and then create an order if you have enough credit on your account. "
-"Orders can be created from the next day of the current day. A single order "
-"costs 350AMD. One car will serve 3 persons."
+"completely safe and secure. After registration you have the option to top up "
+"your account and then create an order if you have enough credit on your "
+"account. Orders can be created starting from the next day of the current "
+"day. A single order costs 350AMD. One car will serve 3 persons."
 msgstr ""
 "Հաշվի լիցքավորումն իրականացվում է առցանց` առայժմ օգտագործելով միայն Paypal "
 "վճարային համակարգը։ Հետագայում պլաններ ունենք ավելացնել TelCell տերմինալների "
-"միջոցով լիցքավորման հնարավորություն։ Բոլոր տվյալների փոխանցումը գաղտնագրված "
-"է և 100% ապահով։</em> Գրանցվելուց հետո Դուք հնարավորություն կստանաք "
-"լիցքավորել Ձեր հաշիվը, որից հետո կարող եք պատվեր ստեղծել, եթե Ձեր հաշվին կան "
-"բավարար միջոցներ։ Պատվերները կարող են ստեղծվել միայն տվյալ օրվան հաջորդող "
-"օրերի համար։ Միանգամյա պատվերի արժեքն է 350 դրամ։ Մի մեքենան սպասարկելու է 3 "
-"ուղևոր։"
+"միջոցով լիցքավորման հնարավորություն։ Բոլոր տվյալների փոխանցումը "
+"<em>գաղտնագրված է և լիովին ապահով։</em> Գրանցվելուց հետո Դուք "
+"հնարավորություն կստանաք լիցքավորել Ձեր հաշիվը, որից հետո կարող եք պատվեր "
+"ստեղծել, եթե Ձեր հաշվին կան բավարար միջոցներ։ Պատվերները կարող են ստեղծվել "
+"միայն տվյալ օրվան հաջորդող օրերի համար։ Միանգամյա պատվերի արժեքն է 350 դրամ։ "
+"Մի մեքենան սպասարկելու է 3 ուղևոր։"
 
-#: main/templates/index.html:223
-msgid "About us"
-msgstr "Մեր Մասին"
-
-#: main/templates/index.html:224
+#: main/templates/index.html:229
 msgid ""
 "We are a small group of active young people. We want to have our little "
 "contribution in making positive changes in our society. Hopefully 'Taxin "
-"Miasin' will be loved by our compatriates and guests making their daily "
+"Miasin' will be loved by our compatriotes and guests making their daily "
 "transportation more convenient and affordable. The idea of creating the "
-"website popped up out of our gloomy experience when getting to work and back "
-"home was literally pain in a back. We all have a new choice now."
+"website popped up out of our own gloomy experience when getting to work and "
+"back home was literally pain in a back. We all have a new choice now."
 msgstr ""
-"Մենք մի խումբ ակտիվ երիտասարդներ ենք։ Ուզում ենք մեր փոքրիկ ներդրումն ունենալ մեր հասարակության մեջ դրական փոփոխություններ կատարելու գործում։ Լիահույս ենք, որ «Տաքսին Մասին» կսիրվի մեր հայրենակիցների և հյուրերի կողմից և նրանց առօրյա տեղափոխումը կդարձնի առավել հարմարավետ ու մատչելի։ Կայքը պատրաստելու գաղափարն առաջացավ մեր սեփական տհաճ փորձից, երբ առավոտյան ու երեկոյան բազմիցս ստիպված ենք եղել կռացած երթևեկել նստելու տեղ չունեցող երթուղայիններով։ Այսուհետ բոլորս ունենք նոր ընտրության հնարավորություն։"
+"Մենք մի խումբ ակտիվ երիտասարդներ ենք։ Ուզում ենք մեր փոքրիկ ներդրումն "
+"ունենալ մեր հասարակության մեջ դրական փոփոխություններ կատարելու գործում։ "
+"Լիահույս ենք, որ «Տաքսին Մասին» կսիրվի մեր հայրենակիցների և հյուրերի կողմից "
+"և նրանց առօրյա տեղափոխումը կդարձնի առավել հարմարավետ ու մատչելի։ Կայքը "
+"պատրաստելու գաղափարն առաջացավ մեր սեփական տհաճ փորձից, երբ առավոտյան ու "
+"երեկոյան բազմիցս ստիպված ենք եղել կռացած երթևեկել նստելու տեղ չունեցող "
+"երթուղայիններով։ Այսուհետ բոլորս ունենք նոր ընտրության հնարավորություն։"
 
-#: main/templates/index.html:240
-msgid "Contact us"
-msgstr "Կապվեք Մեզ"
-
-#: main/templates/index.html:241
+#: main/templates/index.html:246
 msgid "Contact us if you have any questions or suggestions."
 msgstr "Գրեք մեզ ցանկացած հարցերի կամ առաջարկների դեպքում:"
 
-#: main/templates/index.html:268
+#: main/templates/index.html:272
 msgid "Send Message"
 msgstr "Ուղարկել նամակը"
 
-#: main/templates/index.html:294
-msgid "Taxin Miasin 2014"
-msgstr "Տաքսին Միասին 2014"
+#: main/templates/accounts/account_form.html:43
+#, fuzzy
+msgid ""
+"Sorry, check your phone number, refresh the page and start over again, "
+"please."
+msgstr "Ներեցեք, ստուգեք բջջային համարը, թարմացրեք էջը և փորձեք նորից, խնդրեմ:"
+
+#: main/templates/accounts/account_form.html:66
+msgid "The pin you entered is wrong."
+msgstr "Ձեր մուտքագրած Pin-ը ճիշտ չէ։"
+
+#: main/templates/accounts/account_form.html:70
+msgid "Please click <Get Pin> to receive SMS pin code."
+msgstr "Սեղմեք, խնդրեմ, «Ստանալ Pin» SMS կոդ ստանալու համար։"
+
+#: main/templates/accounts/account_form.html:103
+msgid "Get Pin"
+msgstr "Ստանալ Pin"
+
+#: main/templates/accounts/account_profile.html:5
+msgid "Welcome, "
+msgstr "Բարի Գալուստ, "
+
+#: main/templates/accounts/account_profile.html:56
+msgid "Top up with Paypal"
+msgstr "Վճարել Paypal-ով"
+
+#: main/templates/accounts/account_profile.html:56
+msgid "Top up with credit card"
+msgstr "Վճարել Կրեդիտ Քարտով"
+
+#: main/templates/accounts/account_profile.html:66
+msgid "Taxin Miasin"
+msgstr "Տաքսին Միասին"
+
+#: main/templates/accounts/account_profile.html:68
+msgid "Account top up ("
+msgstr "Լիցքավորել հաշիվը ("
+
+#: main/templates/accounts/account_profile.html:68
+#: main/templates/accounts/account_profile.html:154
+msgid "AMD"
+msgstr "դրամ"
+
+#: main/templates/accounts/account_profile.html:153
+msgid "Your balance is:"
+msgstr "Ձեր հաշվին կա՝"
+
+#: main/templates/accounts/account_profile.html:161
+msgid "Cancel?"
+msgstr "Չեղարկե՞լ"
+
+#: main/templates/accounts/account_profile.html:162
+msgid "Are you sure you want to cancel this order?"
+msgstr "Համոզվա՞ծ եք, որ ուզում եք չեղյալ անել այս պատվերը:"
+
+#: main/templates/accounts/account_profile.html:170
+msgid "Top up Account"
+msgstr "Լիցքավորել Հաշիվը"
+
+#: main/templates/accounts/account_profile.html:171
+msgid "Create an Order"
+msgstr "Պատվիրել"
+
+#: main/templates/accounts/account_profile.html:172
+msgid "My Orders"
+msgstr "Իմ Պատվերները"
+
+#: main/templates/accounts/account_profile.html:173
+msgid "Calendar"
+msgstr "Օրացույց"
+
+#: main/templates/accounts/account_profile.html:182
+msgid "Top up using Paypal"
+msgstr "Վերալիցքավորեք Paypal-ի միջոցով"
+
+#: main/templates/accounts/account_profile.html:189
+msgid "Top up using Paypal - the fast and the safe way"
+msgstr "Վերալիցքավորեք Paypal-ի միջոցով՝ արագ և ապահով։"
+
+#: main/templates/accounts/account_profile.html:203
+msgid "Fill in the fields below, please."
+msgstr "Լրացրեք ստորև բերված դաշտերը, խնդրեմ։"
 
 #: main/templates/email/partial_confirmation.html:3
 #, python-format
@@ -6008,6 +6203,29 @@ msgid ""
 "will be refunded. Sorry for inconveniences caused."
 msgstr ""
 
+#: main/templates/happenings/partials/passed_events.html:2
+msgid "Passed Orders"
+msgstr "Անցած Պատվերները"
+
+#: main/templates/happenings/partials/passed_events.html:26
+msgid "Leave Feedback"
+msgstr "Գնահատել Պատվերը"
+
+#: main/templates/includes/feedback.html:7
+msgid "Your Feedback"
+msgstr "Ձեր Գնահատականը"
+
+#: main/templates/includes/feedback.html:25
+#: main/templates/includes/prezi_iframe.html:13
+msgid "Close"
+msgstr "Փակել"
+
+#~ msgid "Your oder cost: "
+#~ msgstr "Պատվերի արժեքը՝ "
+
+#~ msgid "Enter your route"
+#~ msgstr "Մուտքագրեք Ձեր երթուղին"
+
 #~ msgid "Order frequency: "
 #~ msgstr "Կրկնել պատվերը՝ "
 
@@ -6020,12 +6238,3 @@ msgstr ""
 
 #~ msgid "Oops.. No events!"
 #~ msgstr "Դեռ պատվերներ չկան։"
-
-#~ msgid "Welcome"
-#~ msgstr "Բարի Գալուստ"
-
-#~ msgid "Pay with Paypal"
-#~ msgstr "Վճարել Paypal-ով"
-
-#~ msgid "Pay with Credit Card"
-#~ msgstr "Վճարել Կրեդիտ Քարտով"
