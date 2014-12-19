@@ -126,12 +126,16 @@ def cancelEvent(request):
 
 		u = User.objects.filter(username=request.user)[0]
 		balance = u.profile.balance
-	  	#balance = get_user_balance(u)
-	  	
-	  	new_balance = balance + SINGLE_FARE * int(ev.passanger_number)
-	  	#set_user_balance(u, new_balance)
-	  	u.profile.balance = new_balance
-        	u.profile.save()
+		if ev.payment_method == '2':
+			
+		  	#balance = get_user_balance(u)
+		  	
+		  	new_balance = balance + SINGLE_FARE * int(ev.passanger_number)
+		  	#set_user_balance(u, new_balance)
+		  	u.profile.balance = new_balance
+			u.profile.save()
+		else:
+			new_balance = balance
 		
 		
 		c = Cancellation(event=ev, reason='',date=d)
