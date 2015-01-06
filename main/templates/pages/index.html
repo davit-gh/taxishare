@@ -89,13 +89,8 @@
     </section>
 
     
-    <!-- Clients Aside -->
-    <aside class="clients">
-    
-    </aside>
-
+  
     <section id="contact">
-        <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">{% trans "Contact us" %}</h2>
@@ -104,7 +99,7 @@
             </div>
             {% get_contact_form request as form %}
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-sm-12">
                     <form name="sentMessage" id="contactForm" method="POST" action="/contactus/">
                     {% csrf_token %}
                         <div class="row">
@@ -131,6 +126,6 @@
                     </form> 
                 </div>
             </div>
-        </div>
+        
     </section>
 {% endblock %}
