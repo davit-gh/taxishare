@@ -235,7 +235,6 @@ fieldset[disabled] .btn-xl.active {
 
 @media(min-width:768px) {
     .navbar-default {
-        padding: 5px 0;
         border: 0;
         background-color: transparent;
         -webkit-transition: padding .3s;
@@ -255,7 +254,6 @@ fieldset[disabled] .btn-xl.active {
     }
 
     .navbar-default.navbar-shrink {
-        padding: 10px 0;
         background-image: url(../img/taxi);
     }
 
@@ -267,7 +265,8 @@ fieldset[disabled] .btn-xl.active {
         background-color: rgba(72,87,115,0.77);
     }
     div#nav_div.container{
-        width: 833px;
+        width: 875px;
+        margin-left: -0.5em;
     }
 }
 

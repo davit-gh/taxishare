@@ -47,20 +47,7 @@
 
 <body id="page-top" class="index">
 <!--header-->
-                <div class="container">
-                    {% nevercache %}
-                    {% if messages %}
-                    <div class="messages">
-                    {% for message in messages %}
-                    <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        {{ message }}
-                    </div>
-                    {% endfor %}
-                    </div>
-                    {% endif %}
-                    {% endnevercache %}
-                </div>
+                
 
   
     
@@ -88,16 +75,16 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">{% trans "How it works" %}</a>
+                        <a class="page-scroll" href="{% url 'home' %}#services">{% trans "How it works" %}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">{% trans "Payment" %}</a>
+                        <a class="page-scroll" href="{% url 'home' %}#portfolio">{% trans "Payment" %}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">{% trans "About us" %}</a>
+                        <a class="page-scroll" href="{% url 'home' %}#about">{% trans "About us" %}</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">{% trans "Contact us" %}</a>
+                        <a class="page-scroll" href="{% url 'home' %}#contact">{% trans "Contact us" %}</a>
                     </li>
                 {% if request.user.is_authenticated %}
                   {% url "profile" request.user.username as profile_url %}
@@ -161,6 +148,20 @@
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
+        <div class="container">
+            {% nevercache %}
+            {% if messages %}
+            <div class="messages">
+            {% for message in messages %}
+            <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ message }}
+            </div>
+            {% endfor %}
+            </div>
+            {% endif %}
+            {% endnevercache %}
+        </div>
     </nav>
     <!-- Header -->
     {% block header %}{% endblock %}
@@ -177,6 +178,7 @@
             -->
            
                 <div class="col-lg-12">
+
                     {% block main %}
                     	
                     {% endblock %}
