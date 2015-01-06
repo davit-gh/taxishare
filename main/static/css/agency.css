@@ -256,11 +256,18 @@ fieldset[disabled] .btn-xl.active {
 
     .navbar-default.navbar-shrink {
         padding: 10px 0;
-        background-color: #222;
+        background-image: url(../img/taxi);
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em;
+    }
+    div#bs-example-navbar-collapse-1.collapse.navbar-collapse{
+        margin: 2em 0em 0.2em 10em;
+        background-color: rgba(72,87,115,0.77);
+    }
+    div#nav_div.container{
+        width: 833px;
     }
 }
 
@@ -280,7 +287,6 @@ header {
 header .intro-text {
     padding-top: 100px;
     padding-bottom: 50px;
-    background-color: rgba(97, 97, 97, 0.58);
 }
 
 header .intro-text .intro-lead-in {
@@ -306,6 +312,10 @@ header .intro-text .intro-heading {
     .intro-heading{
         float: right;
     }
+    img#logo{
+        width: 100px;
+    }
+    
 }
 
 @media(min-width:768px) {
@@ -329,6 +339,10 @@ header .intro-text .intro-heading {
         font-weight: 700;
         line-height: 75px;
     }
+    img#logo{
+        width: 170px;
+    }
+    
 }
 
 section {
@@ -927,7 +941,6 @@ ul.dropdown-menu > li > a.button.bluebut, ul.dropdown-menu > li > a.button.redbu
 input{
     border-radius: 20px;
     outline: medium none;
-    border: 2px solid #dadada;
     transition: all 0.3s ease-in-out 0s;
     margin-bottom: 15px;
     height: 35px;
@@ -1027,4 +1040,14 @@ div#copyright{
 
 .alert-dismissable .close {
 	right: 0;
+}
+
+
+
+img#logo{
+    width: 5em;
+}
+
+div.page-scroll{
+    margin-top: -1em;
 }

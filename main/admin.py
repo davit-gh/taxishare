@@ -16,7 +16,7 @@ class CancellationAdmin(TabularDynamicInlineAdmin):
 
 class EventAdmin(admin.ModelAdmin):
 	inlines = [CancellationAdmin,]
-	list_display=('source','destination','start_date','end_date', 'repeat', 'end_repeat', 'title', 'passanger_number')
+	list_display=('source','destination','start_date','created_by', 'repeat', 'end_repeat', 'title', 'passanger_number')
 
 admin.site.register(Event, EventAdmin)
 #admin.site.register(SourceDest, OrderAdmin)

@@ -142,24 +142,16 @@ button#cal-today-btn.btn.btn-small{
 }
 h1{
 	color: #008080;
-	background-color: rgba(127, 195, 255, 0.27);
 	text-align: center;
 	line-height: 1.5em;
-	border-radius: 1em;
-	border: 1px solid #DDD;
-	box-shadow: 0 0 2px #ccc;
 	cursor: pointer;
 	font-size: 5vw;
 }
 
 h2{
 	color: #008080;
-	background-color: rgba(127, 195, 255, 0.27);
 	text-align: center;
 	line-height: 2em;
-	border-radius: 1em;
-	border: 1px solid #DDD;
-	box-shadow: 0 0 2px #ccc;
 	font-size: 4vw;	
 }
 
@@ -247,8 +239,8 @@ div#tabs{
 }
 }
 
-div#avatar_div, div#balance_div{
-		margin-top: 3em;
+div#avatar_and_balance{
+		margin-top: 10em;
 	}	
 
 @media only screen and (min-width: 600px) {

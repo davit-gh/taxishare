@@ -142,19 +142,11 @@
 
 {% block main %}
 
-	
-			<div class="col-xs-6" id="avatar_div">
-	            <img class="img-thumbnail" src="{% gravatar_url profile_user.email 64 %}">
-	            {% if profile_user == request.user %}
-	            <br><a class="btn btn-primary" href="{% url "profile_update" %}">{% trans 'Update Profile' %}</a>
-	            {% endif %}
-	        </div>
-	        <div class="col-xs-6" id="balance_div">
+		<div class="container text-center" id="avatar_and_balance">
 	            <h4>{% trans 'Your balance is:' %} </h4>
 	            <h4 id="balance">{{ request.user.profile.balance }} {% trans 'AMD' %}
 	            </h4>
-	        </div>
-		
+		</div>
 						
 		
 

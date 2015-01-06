@@ -17,11 +17,11 @@
 
 {% compress css %}
 <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
-<link rel="stylesheet" href="{% static "css/mezzanine.css" %}">
-<link rel="stylesheet" href="{% static "css/bootstrap-theme.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/agency.css" %}">
 <link rel="stylesheet" href="{% static "font-awesome-4.1.0/css/font-awesome.min.css" %}" type="text/css">
+<link rel="shortcut icon" type="image/png" href="{% static "img/about/1.jpg" %}"/>
 <link rel="stylesheet" type="text/css" href="{% static "css/profile.css" %}">
-
+<link rel="stylesheet" href="{% static "css/animate.css" %}">
 {% if LANGUAGE_BIDI %}
 <link rel="stylesheet" href="{% static "css/rtl.css" %}">
 {% endif %}
@@ -35,14 +35,7 @@
 
 {% block extra_css %}{% endblock %}
 
-<script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
 
-{% compress js %}
-<script src="{% static "js/bootstrap.min.js" %}"></script>
-<script src="{% static "js/bootstrap-extras.js" %}"></script>
-{% include "includes/footer_scripts.html" %}
-{% endcompress %}
-{% block extra_js %}{% endblock %}
 
 <!--[if lt IE 9]>
 <script src="{% static "js/html5shiv.js" %}"></script>
@@ -52,86 +45,157 @@
 {% block extra_head %}{% endblock %}
 </head>
 
-<body id="{% block body_id %}body{% endblock %}">
+<body id="page-top" class="index">
 <!--header-->
-  <div id="wrap">
-    <div class="header">
-        <div class="wrap">
-            <div class="navbar navbar_ clearfix">
                 <div class="container">
-                    <div class="row" id="header-row">
-                        
-                        <div class="col-xs-12">
-                            <div class="col-xs-6">
-                                {% get_current_language as LANGUAGE_CODE %}
-                                <a class="navbar-brand page-scroll" href="{% if LANGUAGE_CODE == 'hy' %}/{% else %}/en{% endif %}"><img src="{% static "img/index_photos/logo.png" %}" width="180" alt="Taxin Miasin"></a>    
-                            </div>
-                            <div  class="col-xs-5" id="title_div">
-                                {% block title %}{% endblock %}
-                            </div>
-                            <div  class="col-xs-1" id="title_div">
-                                <a href='/en'><img src="{% static 'img/flags/us.png' %}"/></a>
-                                <a href='/'><img src="{% static 'img/flags/am.png' %}"/></a>
-                            </div>
-                        </div>
-                        
-                    </div>                
+                    {% nevercache %}
+                    {% if messages %}
+                    <div class="messages">
+                    {% for message in messages %}
+                    <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% endnevercache %}
                 </div>
-             </div>
-        </div>    
-    </div>
-    <!--//header-->    
-    <div class="container">
 
-        {% nevercache %}
-        {% if messages %}
-        <div class="messages">
-        {% for message in messages %}
-        <div class="alert alert-dismissable alert-{{ message.tags }}" data-alert="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            {{ message }}
+  
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container" id="nav_div">
+            <!-- Brand and toggle get grouped for better mobile display -->
+
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a id="logo_wrapper" class="navbar-brand page-scroll hidden-xs" href="{% url 'home' %}#page-top"><img id="logo" src="{% static "img/index_photos/logo.png" %}" alt="Տաքսին Միասին"></a>
+            </div>
+
+           
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav col-sm-12">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">{% trans "How it works" %}</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">{% trans "Payment" %}</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">{% trans "About us" %}</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">{% trans "Contact us" %}</a>
+                    </li>
+                {% if request.user.is_authenticated %}
+                  {% url "profile" request.user.username as profile_url %}
+                      <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">{% trans "Hello" %} <b>{{ request.user.username }}</b><strong class="caret"></strong></a>
+                        <ul class="dropdown-menu" role="menu">
+                          
+                            {% if profile_url %}
+                            <li>
+                                <a href="{{ profile_url }}" class="button redbutton">{{ request.user|username_or:"email" }}</a>
+                            </li>
+                            <li>
+                                <a href="{% url "profile_update" %}" class="button redbutton"><span class="glyphicon glyphicon-refresh"></span>{% trans "Update profile" %}</a>
+                            </li>
+                            {% else %}
+                            <li>
+                                <a href="{% url "profile_update" %}" class="button redbutton"><span class="glyphicon glyphicon-refresh"></span>{% trans "Update Profile" %}</a>
+                            </li>
+                            {% endif %}
+                          
+                          <li>
+                            <a href="{% url "logout" %}?next={{ request.path }}" class="button redbutton">
+                            <span class="glyphicon glyphicon-log-out"></span> {% trans "Log out" %}</a>
+                          </li>
+                        </ul>
+                      </li>  
+                  {% else %}
+                    
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown">{% trans "Log in" %}<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li id="form_li">
+                                    
+                                    <div id="login_form_div">
+                                        {% login_form as form%}
+                                          <form action="{% url "login" %}?next={{ request.path }}" method="post">
+                                                {% csrf_token %}
+                                                {{ form.as_p }}
+                                                <input class="btn btn-primary center-block" id="login_button" style="clear: left; height: 32px; font-size: 13px;" type="submit" name="commit" value='{% trans "Log in" %}' />
+                                           
+                                            
+                                          </form>
+                                          <a style="margin-top: -10px; color: blue" href="/accounts/password/reset">{% trans "Forgot password" %}</a>
+                                          <span>{% trans "Not registered?" %}</span><a style="color: blue" href="{% url "signup" %}?next={{ request.path }}">&nbsp;{% trans "Register" %}</a>
+                                    </div>
+                                    
+                              
+                                </li>
+                            </ul>
+                          <!-- Login form here -->
+                          
+                    </li>
+                  {% endif %} 
+                  
+                </ul>
+            </div>
+            <div style="float:right">
+                <a href='/en'><img src="{% static 'img/flags/us.png' %}"/></a>
+                <a href='/'><img src="{% static 'img/flags/am.png' %}"/></a>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        {% endfor %}
-        </div>
-        {% endif %}
-        {% endnevercache %}
-
-
-
-    </div>
-
-    <div class="container">
-        <div class="row">
-        <!--
-        <div class="col-md-2 left">
-            {% block left_panel %}
+        <!-- /.container-fluid -->
+    </nav>
+    <!-- Header -->
+    {% block header %}{% endblock %}
+     
+    <div id="content">
+        <div class="container">
             
-            {% endblock %}
-        </div>
-        -->
-       
-
-            <div class="col-lg-12">
-                {% block main %}
-                	
+            <!--
+            <div class="col-md-2 left">
+                {% block left_panel %}
+                
                 {% endblock %}
             </div>
-            <!--
-        <div class="col-md-2 right">
+            -->
+           
+                <div class="col-lg-12">
+                    {% block main %}
+                    	
+                    {% endblock %}
+                </div>
+                <div class="col-lg-12">
+                    {% block tabs %}
+                    
+                    {% endblock %}
+                </div>
+                <!--
+            <div class="col-md-2 right">
+                
+            </div>
+            -->
             
         </div>
-        -->
-        </div>
-    </div>
-    <div class="col-lg-12">	
-    	<div class="container">
         
-        	{% block tabs %}
-        		
-        	{% endblock %}
-        </div>
     </div>
-  </div>
+      
     <footer id="footer" class="footer navbar-fixed-bottom">
         <div class="container">
             <div class="col-xs-12" id="icons">
@@ -155,5 +219,21 @@
             </div>
         </div>
     </footer>
+    {% compress js %}
+    <script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+    <script src="{% static "js/bootstrap.min.js" %}"></script>
+    <script src="{% static "js/bootstrap-extras.js" %}"></script>
+    <script src="{% static "js/jquery.easing.1.3.min.js" %}"></script>
+    <script src="{% static "js/classie.js" %}"></script>
+    <script src="{% static "js/cbpAnimatedHeader.js" %}"></script>
+    <script src="{% static "js/agency.js" %}"></script>
+    <script src="{% static "js/wow.min.js" %}"></script>
+    <script>
+     new WOW().init();
+    </script>
+    {% endcompress %}
+    {% block extra_js %}{% endblock %}
+    {% include "includes/prezi_iframe.html" %}
+
 </body>
 </html>
