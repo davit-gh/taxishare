@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: main/forms.py:30 main/happenings/models.py:32
+#: main/forms.py:30 
 #: main/templates/accounts/account_profile.html:122
 msgid "Never"
 msgstr "Երբեք"
@@ -26,7 +26,7 @@ msgstr "Երբեք"
 msgid "Every Day"
 msgstr "Ամեն օր"
 
-#: main/forms.py:32 main/happenings/models.py:34
+#: main/forms.py:32
 msgid "Every Weekday"
 msgstr "Ամեն աշխ․ օր"
 

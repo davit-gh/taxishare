@@ -120,15 +120,15 @@
                                 <li id="form_li">
                                     
                                     <div id="login_form_div">
-                                        {% login_form as form%}
+                                        {% login_form as loginform%}
                                           <form action="{% url "login" %}?next={{ request.path }}" method="post">
                                                 {% csrf_token %}
-                                                {{ form.as_p }}
+                                                {{ loginform.as_p }}
                                                 <input class="btn btn-primary center-block" id="login_button" style="clear: left; height: 32px; font-size: 13px;" type="submit" name="commit" value='{% trans "Log in" %}' />
                                            
                                             
                                           </form>
-                                          <a style="margin-top: -10px; color: blue" href="/accounts/password/reset">{% trans "Forgot password" %}</a>
+                                          <a style="margin-top: -10px; color: blue" href="{% url 'mezzanine_password_reset' %}">{% trans "Forgot password" %}</a>
                                           <span>{% trans "Not registered?" %}</span><a style="color: blue" href="{% url "signup" %}?next={{ request.path }}">&nbsp;{% trans "Register" %}</a>
                                     </div>
                                     
@@ -168,17 +168,8 @@
     {% block header %}{% endblock %}
      
     <div id="content">
-        <div class="container">
+        <div class="container" id="main_cont">
             
-            <!--
-            <div class="col-md-2 left">
-                {% block left_panel %}
-                
-                {% endblock %}
-            </div>
-            -->
-           
-                
 
                     {% block main %}
                     	

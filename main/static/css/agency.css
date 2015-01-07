@@ -1041,8 +1041,6 @@ div#copyright{
 	right: 0;
 }
 
-
-
 img#logo{
     width: 5em;
 }
@@ -1050,3 +1048,9 @@ img#logo{
 div.page-scroll{
     margin-top: -1em;
 }
+
+div#main_cont.container{
+    
+    padding: 7em 0 5em;
+}
+
