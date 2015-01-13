@@ -214,3 +214,20 @@ def contactus(request):
         	form = ContactusForm()
 
 	return render(request,'index.html',{'form':form})
+
+
+from main.models import Inboundmail
+from postmark_inbound import PostmarkInbound
+from django.views.decorators.csrf import csrf_exempt
+import json
+@csrf_exempt
+def mail_from_postmark(request):
+        if request.method == 'POST':
+                json_data = request.body
+                body = json.loads(json_data)['HtmlBody']
+                inbound = PostmarkInbound(json=json_data)
+                mail = Inboundmail(html_body=inbound.text_body(), send_date=inbound.send_date(), subject=inbound.subject(), reply_to=inbound.reply_to(), sender=inbound.sender())
+                mail.save()
+                return HttpResponse('OK')
+        else:
+                return HttpResponse('not OK')

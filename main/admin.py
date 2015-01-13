@@ -32,3 +32,9 @@ class ContactusAdmin(admin.ModelAdmin):
 	list_display=('name','email','title','description', 'message_date')
 
 admin.site.register(Contactus,ContactusAdmin)
+
+from main.models import Inboundmail
+class InboundmailAdmin(admin.ModelAdmin):
+        list_display=('send_date', 'subject', 'html_body', 'reply_to', 'sender')
+
+admin.site.register(Inboundmail, InboundmailAdmin)

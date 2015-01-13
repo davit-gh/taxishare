@@ -40,6 +40,13 @@ class Contactus(models.Model):
     description = models.TextField(_("Description"), blank=False)
     message_date = models.DateTimeField(auto_now_add=True, blank=True)
 
+class Inboundmail(models.Model):
+    html_body = models.CharField(max_length=800)
+    send_date = models.DateTimeField()
+    subject = models.CharField(max_length=100)
+    reply_to = models.CharField(max_length=100)
+    sender = models.CharField(max_length=100)
+
 from paypal.standard.ipn.signals import payment_was_successful
 
 def show_me_the_money(sender, **kwargs):

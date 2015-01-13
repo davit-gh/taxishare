@@ -40,6 +40,8 @@ urlpatterns += solid_i18n_patterns('',
     url(r"^feedback/(?P<event_id>\d+)$", "main.views.save_feedback", name="feedback"),
     (r'^paypal-ipn-8c5erc9ye49ia51rn65/', include('paypal.standard.ipn.urls')),
     url(r'^cancelthisevent',  view='main.views.cancelEvent', name='cancel_event'),
+    url(r"^mail", "main.views.mail_from_postmark", name="postmark"),
+    url(r"^postmark/bounce/$", "postmark.views.bounce", name="postmark_bounce_hook"),
     # We don't want to presume how your homepage works, so here are a
     # few patterns you can use to set it up.
 
