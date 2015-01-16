@@ -5,7 +5,7 @@
 {% block header %}
         <header>
         <div class="container">
-            <div class="intro-text">
+            <div class="intro-text" style="background-color: rgba(72,87,115,0.77);">
                 <div class="intro-lead-in wow bounceIn" data-wow-duration=".5s" data-wow-delay=".5s">{% trans "Welcome to 'Taxin Miasin'!" %}</div>
                 <div class="intro-heading wow bounceIn" data-wow-duration="1s" data-wow-delay="1s"> {% trans "It's fun together and it's cheap!" %}</div>
                 
@@ -27,7 +27,7 @@
                 <div class="col-lg-12 text-center wow bounceInUp">
                     <h2 class="section-heading wow fadeIn">{% trans "How it works" %}</h2>
                     <h3 class="section-subheading text-muted wow fadeInRight" data-wow-duration="1s" data-wow-delay="0s">
-{% trans "You are undoubtedly familiar with the situation when you have to take a 'marshrutka' when it doesn't really have a free seat. You have to get to your work, to your studies or some other place and you cannot miss the 'marshrutka' otherwise you'll be late. Ordering taxi every day is pretty expensive and you have to take your ride standing all the way to your destination which is so annoying. You don't have to do that anymore, you can share the cost of your ride using 'Taxin Miasin'. The taxi fare will be divided among 3 passengers. You will enjoy your convenient ride and pay about 3 times less than ordering an ordinary taxi. It's a little more than a 'marshrutka' fare, it's just 350AMD per person․" %}</h3>
+{% trans "You are undoubtedly familiar with the situation when you have to take a 'marshrutka' when it doesn't really have a free seat. You have to get to your work, to your studies or some other place and you cannot miss the 'marshrutka' otherwise you'll be late. Ordering taxi every day is pretty expensive and you have to take your ride standing all the way to your destination which is so annoying. You don't have to do that anymore, you can share the cost of your ride using 'Taxin Miasin'. The taxi fare, depending on the distance, will be divided among 3 passengers. You will enjoy your convenient ride and pay 3 times less than when you order an ordinary taxi." %}</h3>
                 </div>
             </div>
             <div class="row text-center">
@@ -37,7 +37,7 @@
                         <i class="fa fa-sign-in fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading wow fadeIn">{% trans "Step 1" %}</h4>
-                    <p class="text-muted wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "You need to enter your first and last names, username and mobile phone number for registration. You will receive SMS pin code you need to input to complete the registration. After registration you'll get an email with a link you need to click to activate your account." %} 
+                    <p class="text-muted wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">{% trans "Registration is very fast. It takes less than a minute. You need to enter your first and last names, username and mobile phone number for registration. You'll get an email with a link you need to click to activate your account." %} 
                     </p>
                     <img src="{% static "img/index_photos/girll.jpg" %}" class="img-responsive wow rotateInDownLeft" data-wow-duration="1s" data-wow-delay=".3s" alt="Registration">
                 </div>
@@ -47,7 +47,7 @@
                         <i class="fa fa-edit fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading wow fadeIn">{% trans "Step 2" %}</h4>
-                    <p class="text-muted wow fadeInRight" data-wow-duration="1s" data-wow-delay=".6s">{% trans "Enter your route's starting and ending points, departure date/time, frequency and the number of passengers. As soon as 2 other passengers choose a similar route and date/time as you you'll get SMS confirmation with the details of your order. If you don't want to share the ride with 2 other passengers you can pay for 3 and have the taxi serve only you." %}</p>
+                    <p class="text-muted wow fadeInRight" data-wow-duration="1s" data-wow-delay=".6s">{% trans "Enter your route's starting and ending points, departure date/time, frequency and the number of passengers. As soon as 2 other passengers choose a similar route and date/time as you you'll get a phone call from us about the details of your order." %}</p>
                     <img src="{% static "img/index_photos/laptop_screen.jpg" %}" class="img-responsive wow rotateInDownLeft" data-wow-duration="1s" data-wow-delay=".6s" alt="Select Your Route">
                 </div>
                 <div class="col-md-4">
@@ -56,7 +56,7 @@
                         <i class="fa fa-taxi fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="service-heading wow fadeIn">{% trans "Step 3" %}</h4>
-                    <p class="text-muted wow fadeInRight" data-wow-duration="1s" data-wow-delay=".9s">{% trans "On the set date and time the taxi will be available in your specified starting point. You will identify the taxi according to the details in SMS like car model, licence plate. Just show the driver your order number and you're good to go!"  %}</p>
+                    <p class="text-muted wow fadeInRight" data-wow-duration="1s" data-wow-delay=".9s">{% trans "On the set date and time the taxi will be available in your specified starting point. You will identify the taxi according to the details we give you by phone. The car will stop by 2 other passengers along the way and take all 3 of you to your destinations!"  %}</p>
                     <img src="{% static "img/index_photos/sdfs.jpg" %}" class="img-responsive wow rotateInDownLeft" data-wow-duration="1s" data-wow-delay=".9s" alt="Set off">
                 </div>
             </div>
@@ -69,7 +69,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading wow zoomIn">{% trans "Payment" %}</h2>
-                    <h3 class="section-subheading text-muted wow bounceInUp" data-wow-duration="1s" data-wow-delay="0s">{% trans "Topping up your account is done via Paypal for now. We have plans to integrate more payment solutions like TelCell terminals and others in the future. We use https protocol so your communication with the website is completely safe and secure. After registration you have the option to top up your account and then create an order if you have enough credit on your account. Orders can be created starting from the next day of the current day. A single order costs 350AMD. One car will serve 3 persons." %}</h3> 
+                    <h3 class="section-subheading text-muted wow bounceInUp" data-wow-duration="1s" data-wow-delay="0s">{% trans "You make the payment to the driver. You pay one third of the total cost. We handle the orders so that the difference between the routes of all 3 passengers is not significant so that it feels fair for everyone to divide the cost into 3 equal amounts. Orders can be created starting from the next day of the current day. One car will serve 3 persons because we think it's more comfortable that way." %}</h3> 
                 </div>
             </div>
             
@@ -94,7 +94,7 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">{% trans "Contact us" %}</h2>
-                    <h3 class="section-subheading text-muted">{% trans "Contact us if you have any questions or suggestions." %}</h3>
+                    <h3 class="section-subheading text-muted">{% trans "Contact us if you have any questions or suggestions. Email: info@taxinmiasin.com, Phone: 055 433 423" %}</h3>
                 </div>
             </div>
             {% get_contact_form request as form %}

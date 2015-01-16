@@ -7,19 +7,81 @@ from django.db import models
 
 class Migration(SchemaMigration):
 
+    depends_on = (
+        ("happenings", "0001_initial"),
+    )
+
     def forwards(self, orm):
         # Adding model 'MyProfile'
         db.create_table(u'main_myprofile', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('user', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['auth.User'], unique=True)),
-            ('balance', self.gf('django.db.models.fields.FloatField')(default=0.0, blank=True)),
-            ('mobile_number', self.gf('django.db.models.fields.IntegerField')()),
-            ('pin', self.gf('django.db.models.fields.IntegerField')()),
+            ('user', self.gf('django.db.models.fields.related.OneToOneField')(related_name='profile', unique=True, to=orm['auth.User'])),
+            ('balance', self.gf('django.db.models.fields.FloatField')(default=0, blank=True)),
+            ('mobile_number', self.gf('django.db.models.fields.CharField')(max_length=20)),
+            ('pin', self.gf('django.db.models.fields.CharField')(max_length=10)),
         ))
         db.send_create_signal(u'main', ['MyProfile'])
 
-        
-    
+        # Adding model 'SourceDest'
+        db.create_table(u'main_sourcedest', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('source', self.gf('django.db.models.fields.related.ForeignKey')(related_name='source_set', blank=True, to=orm['happenings.Streets'])),
+            ('destination', self.gf('django.db.models.fields.related.ForeignKey')(related_name='destination_set', blank=True, to=orm['happenings.Streets'])),
+            ('book_date', self.gf('django.db.models.fields.DateField')()),
+            ('timestamp', self.gf('django.db.models.fields.TimeField')()),
+        ))
+        db.send_create_signal(u'main', ['SourceDest'])
+
+        # Adding model 'Feedback'
+        db.create_table(u'main_feedback', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('event', self.gf('django.db.models.fields.related.ForeignKey')(related_name='event', to=orm['happenings.Event'])),
+            ('user', self.gf('django.db.models.fields.related.ForeignKey')(related_name='usr', to=orm['auth.User'])),
+            ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('feedback_desc', self.gf('django.db.models.fields.TextField')()),
+            ('feedback_date', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+        ))
+        db.send_create_signal(u'main', ['Feedback'])
+
+        # Adding model 'Contactus'
+        db.create_table(u'main_contactus', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('email', self.gf('django.db.models.fields.EmailField')(max_length=75)),
+            ('title', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('description', self.gf('django.db.models.fields.TextField')()),
+            ('message_date', self.gf('django.db.models.fields.DateTimeField')(auto_now_add=True, blank=True)),
+        ))
+        db.send_create_signal(u'main', ['Contactus'])
+
+        # Adding model 'Inboundmail'
+        db.create_table(u'main_inboundmail', (
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('html_body', self.gf('django.db.models.fields.CharField')(max_length=800)),
+            ('send_date', self.gf('django.db.models.fields.DateTimeField')()),
+            ('subject', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('reply_to', self.gf('django.db.models.fields.CharField')(max_length=100)),
+            ('sender', self.gf('django.db.models.fields.CharField')(max_length=100)),
+        ))
+        db.send_create_signal(u'main', ['Inboundmail'])
+
+
+    def backwards(self, orm):
+        # Deleting model 'MyProfile'
+        db.delete_table(u'main_myprofile')
+
+        # Deleting model 'SourceDest'
+        db.delete_table(u'main_sourcedest')
+
+        # Deleting model 'Feedback'
+        db.delete_table(u'main_feedback')
+
+        # Deleting model 'Contactus'
+        db.delete_table(u'main_contactus')
+
+        # Deleting model 'Inboundmail'
+        db.delete_table(u'main_inboundmail')
+
 
     models = {
         u'auth.group': {
@@ -68,6 +130,7 @@ class Migration(SchemaMigration):
             'background_color': ('django.db.models.fields.CharField', [], {'default': "u'eeeeee'", 'max_length': '10'}),
             'background_color_custom': ('django.db.models.fields.CharField', [], {'max_length': '6', 'blank': 'True'}),
             'categories': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['happenings.Category']", 'symmetrical': 'False', 'blank': 'True'}),
+            'created_by': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'events'", 'to': u"orm['auth.User']"}),
             'description': ('django.db.models.fields.TextField', [], {}),
             'destination': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'event_destination_set'", 'blank': 'True', 'to': u"orm['happenings.Streets']"}),
             'destination_detail': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
@@ -77,6 +140,8 @@ class Migration(SchemaMigration):
             'font_color_custom': ('django.db.models.fields.CharField', [], {'max_length': '6', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'location': ('django.db.models.fields.related.ManyToManyField', [], {'to': u"orm['happenings.Location']", 'symmetrical': 'False', 'blank': 'True'}),
+            'passanger_number': ('django.db.models.fields.CharField', [], {'max_length': '3'}),
+            'payment_method': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
             'repeat': ('django.db.models.fields.CharField', [], {'default': "u'NEVER'", 'max_length': '15'}),
             'source': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'event_source_set'", 'blank': 'True', 'to': u"orm['happenings.Streets']"}),
             'source_detail': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
@@ -107,6 +172,15 @@ class Migration(SchemaMigration):
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         },
+        u'main.contactus': {
+            'Meta': {'object_name': 'Contactus'},
+            'description': ('django.db.models.fields.TextField', [], {}),
+            'email': ('django.db.models.fields.EmailField', [], {'max_length': '75'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'message_date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'title': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
         u'main.feedback': {
             'Meta': {'object_name': 'Feedback'},
             'event': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'event'", 'to': u"orm['happenings.Event']"}),
@@ -116,13 +190,22 @@ class Migration(SchemaMigration):
             'title': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'usr'", 'to': u"orm['auth.User']"})
         },
+        u'main.inboundmail': {
+            'Meta': {'object_name': 'Inboundmail'},
+            'html_body': ('django.db.models.fields.CharField', [], {'max_length': '800'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'reply_to': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'send_date': ('django.db.models.fields.DateTimeField', [], {}),
+            'sender': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
+            'subject': ('django.db.models.fields.CharField', [], {'max_length': '100'})
+        },
         u'main.myprofile': {
             'Meta': {'object_name': 'MyProfile'},
-            'balance': ('django.db.models.fields.FloatField', [], {'default': '0.0', 'blank': 'True'}),
+            'balance': ('django.db.models.fields.FloatField', [], {'default': '0', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'mobile_number': ('django.db.models.fields.IntegerField', [], {}),
-            'pin': ('django.db.models.fields.IntegerField', [], {}),
-            'user': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['auth.User']", 'unique': 'True'})
+            'mobile_number': ('django.db.models.fields.CharField', [], {'max_length': '20'}),
+            'pin': ('django.db.models.fields.CharField', [], {'max_length': '10'}),
+            'user': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "'profile'", 'unique': 'True', 'to': u"orm['auth.User']"})
         },
         u'main.sourcedest': {
             'Meta': {'object_name': 'SourceDest'},

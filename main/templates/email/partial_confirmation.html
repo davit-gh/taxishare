@@ -1,11 +1,10 @@
 {% load i18n accounts_tags %}
 {% block main %}
-<p>{% blocktrans %}Hey {{ user }}, your order has been created. You will get SMS confirmation of your order as soon as 2 other users choose the same time and route as you. Below are you order details.{% endblocktrans %}</p>
+<p>{% blocktrans %}Hey {{ user }}, your order has been created. You will get phone call about the details of your order and how to identify the car as soon as 2 other users choose similar time and route as you. Below are you order details.{% endblocktrans %}</p>
 <br>
 <p>{{ title }}</p>
 <p>{{ repeats }}</p>
 <p>{{ number_of_orders }}</p>
 <p>{{ route }}</p>
 <p>{{ details }}</p>
-<p>{{ cost }}</p>
 {% endblock %}
