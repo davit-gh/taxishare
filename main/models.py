@@ -16,7 +16,6 @@ class MyProfile(models.Model):
     user = models.OneToOneField(User, related_name="profile")
     balance = models.FloatField(blank=True, default=0)
     mobile_number = models.CharField(_("Mobile Number"), max_length=20, blank=False)
-    pin = models.CharField(_("Pin"), blank=False, max_length=10)
     
 
 class SourceDest(models.Model):

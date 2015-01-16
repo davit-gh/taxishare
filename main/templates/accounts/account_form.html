@@ -13,36 +13,6 @@
 {% block extra_js %}
     <script src="{% static 'js/jquery.maskedinput.min.js' %}"></script>
     <script type="text/javascript">
-        var pin = "";
-        var number_of_clicks = 0;
-        function send_pin() {
-        $.ajax({
-                url: "{% url 'ajax_send_pin' %}",
-                type: "POST",
-                data: { mobile_number: $("#id_mobile_number").val(), csrfmiddlewaretoken: '{{ csrf_token }}'
-                },
-            })
-            .done(function(data) {
-                number_of_clicks += 1;
-                var delay = 1;
-                if (number_of_clicks == 3){
-                    delay = 120;
-                }
-                pin = data.pin;
-                var send_pin = $("input.commentButtClass");
-                send_pin.prop("disabled", true);
-                send_pin.removeClass("commentButtClass");
-                setTimeout(function() {
-                    send_pin.prop("disabled", false);
-                    send_pin.addClass("commentButtClass");
-                }, 60000*delay);
-                
-            })
-            .fail(function(jqXHR, textStatus, errorThrown) {
-                //alert(errorThrown + ' : ' + jqXHR.responseText);
-                alert("{% trans 'Sorry, check your phone number, refresh the page and start over again, please.' %}");
-            });
-        }
         
 
     $(function(){
@@ -52,27 +22,10 @@
             console.log("true");
             return true;
         }
-        var pin_val = $("#id_pin").val();
-            
-        if (pin_val.length == 0) {return true;} //return true to enable django's standart validation
-        if (pin){
-            if (pin_val == pin){
-                $("span#error").html("");
-                return true;
-            } else {
-                if ($("div#pin_div").children("ul").length){
-                    $("div#pin_div").children("ul")[0].remove();
-                }
-                $("span#error").html("{% trans 'The pin you entered is wrong.' %}");
-                return false;
-            }
-        } else {
-            alert("{% trans 'Please click <Get Pin> to receive SMS pin code.' %}");
-            return false;
-        }
+        
       });
       $("#id_mobile_number").mask("999 99-99-99");
-      $("#id_pin").mask("99999");  
+      
     });
 
     </script>
@@ -99,9 +52,7 @@
                             <div class="col-xs-8">
                                     {{ field }}
                             </div>
-                            <div class="col-xs-4">
-                                <input type="submit" style="white-space: normal; margin-left: -2em" onClick="send_pin(); return false" value='{% trans "Get Pin" %}' class="commentButtClass">
-                            </div>
+                            
                         </div>
                     {% else %}
                         <label class="control-label" for="id_{{ field.name }}">
