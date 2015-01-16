@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-16 13:13+0400\n"
+"POT-Creation-Date: 2015-01-16 14:15+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -89,20 +89,16 @@ msgstr "Շնորհակալություն Ձեր գնահատականի համա�
 msgid "Mobile Number"
 msgstr "Բջջային հեռախոսահամար"
 
-#: main/models.py:19
-msgid "Pin"
-msgstr "Pin կոդ"
-
-#: main/models.py:31 main/models.py:39 main/mezzanine/core/models.py:68
+#: main/models.py:30 main/models.py:38 main/mezzanine/core/models.py:68
 #: main/mezzanine/core/models.py:116
 msgid "Title"
 msgstr "Վերնագիր"
 
-#: main/models.py:32
+#: main/models.py:31
 msgid "Feedback Text"
 msgstr "Ձեր գնահատականը"
 
-#: main/models.py:37 main/django/contrib/comments/forms.py:96
+#: main/models.py:36 main/django/contrib/comments/forms.py:96
 #: main/happenings/models.py:189
 #: main/mezzanine/accounts/templates/email/account_approve.html:5
 #: main/mezzanine/accounts/templates/email/account_approve.txt:5
@@ -110,7 +106,7 @@ msgstr "Ձեր գնահատականը"
 msgid "Name"
 msgstr "Անուն"
 
-#: main/models.py:40
+#: main/models.py:39
 #: main/django/contrib/admindocs/templates/admin_doc/model_detail.html:37
 #: main/mezzanine/core/models.py:120 main/mezzanine/galleries/models.py:115
 msgid "Description"
@@ -6066,25 +6062,6 @@ msgstr "Գրանցվել"
 msgid "Taxin Miasin 2014"
 msgstr "Տաքսին Միասին 2014"
 
-#: main/templates/accounts/account_form.html:43
-#, fuzzy
-msgid ""
-"Sorry, check your phone number, refresh the page and start over again, "
-"please."
-msgstr "Ներեցեք, ստուգեք բջջային համարը, թարմացրեք էջը և փորձեք նորից, խնդրեմ:"
-
-#: main/templates/accounts/account_form.html:66
-msgid "The pin you entered is wrong."
-msgstr "Ձեր մուտքագրած Pin-ը ճիշտ չէ։"
-
-#: main/templates/accounts/account_form.html:70
-msgid "Please click <Get Pin> to receive SMS pin code."
-msgstr "Սեղմեք, խնդրեմ, «Ստանալ Pin» SMS կոդ ստանալու համար։"
-
-#: main/templates/accounts/account_form.html:103
-msgid "Get Pin"
-msgstr "Ստանալ Pin"
-
 #: main/templates/accounts/account_profile.html:5
 msgid "Welcome, "
 msgstr "Բարի Գալուստ, "
@@ -6140,20 +6117,20 @@ msgid ""
 "details of your order and how to identify the car as soon as 2 other users "
 "choose similar time and route as you. Below are you order details."
 msgstr ""
-"Բա՜րև %(user)s։ Ձեր պատվերը ստեղծված է։ Դուք զանգ կստանաք հենց որ 2 "
-"այլ ուղևորների պատվերները նման լինեն Ձեր պատվերին։ Ձեզ կտեղեկացվի "
-"տաքսին ճանաչելու բոլոր մանրամասները։"
+"Բա՜րև %(user)s։ Ձեր պատվերը ստեղծված է։ Դուք զանգ կստանաք հենց որ 2 այլ "
+"ուղևորների պատվերները նման լինեն Ձեր պատվերին։ Ձեզ կտեղեկացվի տաքսին "
+"ճանաչելու բոլոր մանրամասները։"
 
 #: main/templates/email/partial_confirmation.txt:3
-#, python-format
+#, fuzzy
 msgid ""
-"Hey %(user)s, your order has been created. You will get phone call about the "
+"Hey there, your order has been created. You will get phone call about the "
 "details of your order as soon as 2 other users choose similar time and route "
 "as you."
 msgstr ""
-"Բա՜րև %(user)s։ Ձեր պատվերը ստեղծված է։ Դուք զանգ կստանաք հենց որ 2 "
-"այլ ուղևորների պատվերները նման լինեն Ձեր պատվերին։ Ձեզ կտեղեկացվի "
-"տաքսին ճանաչելու բոլոր մանրամասները։"
+"Բա՜րև %(user)s։ Ձեր պատվերը ստեղծված է։ Դուք զանգ կստանաք հենց որ 2 այլ "
+"ուղևորների պատվերները նման լինեն Ձեր պատվերին։ Ձեզ կտեղեկացվի տաքսին "
+"ճանաչելու բոլոր մանրամասները։"
 
 #: main/templates/happenings/partials/passed_events.html:2
 msgid "Passed Orders"
@@ -6258,9 +6235,15 @@ msgid ""
 "handle the orders so that the difference between the routes of all 3 "
 "passengers is not significant so that it feels fair for everyone to divide "
 "the cost into 3 equal amounts. Orders can be created starting from the next "
-"day of the current day. One car will serve 3 persons because we think it's "
+"day of the current day. One car will serve 3 persons because we think it is "
 "more comfortable that way."
 msgstr ""
+"Դուք վճարում եք վարորդին ուղեվարձի մեկ երրորդը։ Մենք բաշխում ենք պատվերներն "
+"այնպես, որ 3 ուղևորների երթուղիները քիչ են տարբերվում միմյանցից, այնպես, որ "
+"բոլորի համար արդարացի լինի բաժանել ուղեվարձը 3 հավասար մասերի։ Պատվերները "
+"կարող են սկսել միայն ընթացիկ օրվան հաջորդող օրերի համար։ Մեքենան սպասարկելու "
+"է 3 ոչ թե 4 ուղևորների, որովհետև կարծում ենք, որ այդպես ավելի հարմար "
+"կլինի ուղևորների համար։"
 
 #: main/templates/pages/index.html:85
 msgid ""
@@ -6290,6 +6273,25 @@ msgstr ""
 #: main/templates/pages/index.html:123
 msgid "Send Message"
 msgstr "Ուղարկել նամակը"
+
+#~ msgid "Pin"
+#~ msgstr "Pin կոդ"
+
+#, fuzzy
+#~ msgid ""
+#~ "Sorry, check your phone number, refresh the page and start over again, "
+#~ "please."
+#~ msgstr ""
+#~ "Ներեցեք, ստուգեք բջջային համարը, թարմացրեք էջը և փորձեք նորից, խնդրեմ:"
+
+#~ msgid "The pin you entered is wrong."
+#~ msgstr "Ձեր մուտքագրած Pin-ը ճիշտ չէ։"
+
+#~ msgid "Please click <Get Pin> to receive SMS pin code."
+#~ msgstr "Սեղմեք, խնդրեմ, «Ստանալ Pin» SMS կոդ ստանալու համար։"
+
+#~ msgid "Get Pin"
+#~ msgstr "Ստանալ Pin"
 
 #~ msgid "Payment Method"
 #~ msgstr "Ինչպե՞ս վճարել"
