@@ -3,8 +3,8 @@ from django.db import models
 from functools import partial
 from django import forms
 from ajax_select.fields import AutoCompleteField
-#from happenings.models import Event
-#from happenings.models import Streets
+from happenings.models import Event
+from happenings.models import Streets
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.utils.translation import ugettext_lazy as _
@@ -19,13 +19,13 @@ class MyProfile(models.Model):
     
 
 class SourceDest(models.Model):
-#	source = models.ForeignKey(Streets, blank=True, related_name='source_set')
-#	destination = models.ForeignKey(Streets, blank=True, related_name='destination_set')
+	source = models.ForeignKey(Streets, blank=True, related_name='source_set')
+	destination = models.ForeignKey(Streets, blank=True, related_name='destination_set')
 	book_date = models.DateField()
         timestamp = models.TimeField()
 
 class Feedback(models.Model):
-#    event = models.ForeignKey(Event, related_name="event")
+    event = models.ForeignKey(Event, related_name="event")
     user = models.ForeignKey(User, related_name="usr")
     title = models.CharField(_("Title"), max_length=100, blank=False)
     feedback_desc = models.TextField(_("Feedback Text"), blank=False)
