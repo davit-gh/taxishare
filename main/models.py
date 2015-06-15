@@ -20,7 +20,7 @@ class MyProfile(models.Model):
 
 class SourceDest(models.Model):
 #	source = models.ForeignKey(Streets, blank=True, related_name='source_set')
-	destination = models.ForeignKey(Streets, blank=True, related_name='destination_set')
+#	destination = models.ForeignKey(Streets, blank=True, related_name='destination_set')
 	book_date = models.DateField()
         timestamp = models.TimeField()
 
