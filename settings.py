@@ -465,7 +465,7 @@ ACCOUNTS_PROFILE_VIEWS_ENABLED = True
 from django.core.urlresolvers import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('profile_redirect')
-#AUTH_PROFILE_MODULE = "main.MyProfile"
+AUTH_PROFILE_MODULE = "main.MyProfile"
 #AUTH_USER_MODEL = "main.MyProfile"
 ACCOUNTS_PROFILE_FORM_EXCLUDE_FIELDS = (
     "balance",
